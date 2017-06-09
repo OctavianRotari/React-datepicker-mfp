@@ -1,22 +1,34 @@
 // @flow
-export const FETCH_DATAPOINTS = 'FETCH_DATAPOINTS';
-const GENDER = {
-  "name":"gender",
-  "control":"toggle",
-  "label":"Gender",
-  "values":{
-    "Male":{
-      "selected": false
-    },
-    "Female":{
-      "selected": true
-    }
-  }
+import Firebase from 'firebase';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDDtJK6WtEwBwDab03aVorshQLTovJEltc",
+  authDomain: "trauma-d2e6f.firebaseapp.com",
+  databaseURL: "https://trauma-d2e6f.firebaseio.com",
+  projectId: "trauma-d2e6f",
+  storageBucket: "trauma-d2e6f.appspot.com",
+  messagingSenderId: "682567408129"
 }
+const database = Firebase
+  .initializeApp(firebaseConfig)
+  .database();
+
+export const FETCH_DATAPOINTS = 'FETCH_DATAPOINTS';
 
 export function fetchDataPoints() {
-  return {
-    type: FETCH_DATAPOINTS,
-    payload: GENDER
+  return dispatch => {
+    return database.ref('/datapoints').once('value', snapshot => {
+      dispatch({
+        type: FETCH_DATAPOINTS,
+        payload: snapshot.val()
+      })
+    })
+      .catch((error) => {
+        console.log(error);
+        dispatch({
+          type: FETCH_DATAPOINTS,
+          payload: null
+        })
+      });
   }
 }

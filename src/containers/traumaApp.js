@@ -4,7 +4,6 @@
  * @flow
  */
 
-import * as firebase from 'firebase';
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -15,16 +14,8 @@ import {
 } from 'react-native';
 import { Provider, connect } from 'react-redux';
 import StatusBar from '../components/StatusBar';
-import Toggle from '../components/Toggle'
-import Row from '../components/Row'
+import Standby from '../components/Standby';
 import { fetchDataPoints } from '../actions/index'
-
-const firebaseConfig = {
-  apiKey: 'AIzaSyDDtJK6WtEwBwDab03aVorshQLTovJEltc',
-  authDomain: 'trauma-d2e6f.firebaseapp.com',
-  databaseUrl: 'https://trauma-d2e6f.firebaseio.com/',
-  storageBucket: 'gs://trauma-d2e6f.appspot.com/'
-}
 
 class TraumaApp extends Component {
   componentDidMount() {
@@ -32,9 +23,8 @@ class TraumaApp extends Component {
   }
 
   render() {
-    const { gender } = this.props.dataPoints;
-    console.log(gender)
-    if(!gender) {
+    const dataPoints= this.props.dataPoints.undefined
+    if(!dataPoints) {
       return(
         <View>
           <StatusBar />
@@ -42,20 +32,12 @@ class TraumaApp extends Component {
         </View>
       )
     }
-    switch (gender.control) {
-      case 'toggle':
-        return (
-          <View>
-            <StatusBar />
-            <Row
-              type="toggle"
-              wrapper={ Toggle }
-              values={ gender.values }
-            />
-          </View>
-        );
-        break;
-    }
+    return (
+      <View>
+        <StatusBar />
+        <Standby datapoints={ dataPoints }/>
+      </View>
+    )
   }
 }
 
@@ -64,5 +46,4 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, { fetchDataPoints })(TraumaApp)
-
 
