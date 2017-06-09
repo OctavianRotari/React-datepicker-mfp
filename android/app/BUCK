@@ -45,12 +45,12 @@ android_library(
 
 android_build_config(
     name = "build_config",
-    package = "com.trauma_restore",
+    package = "com.traumaapp",
 )
 
 android_resource(
     name = "res",
-    package = "com.trauma_restore",
+    package = "com.traumaapp",
     res = "src/main/res",
 )
 

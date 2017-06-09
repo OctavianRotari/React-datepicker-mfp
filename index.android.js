@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('trauma_restore', () => trauma_restore);
+AppRegistry.registerComponent('TraumaApp', () => trauma_restore);

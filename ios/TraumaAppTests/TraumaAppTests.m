@@ -16,11 +16,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React Native!"
 
-@interface trauma_restoreTests : XCTestCase
+@interface TraumaAppTests : XCTestCase
 
 @end
 
-@implementation trauma_restoreTests
+@implementation TraumaAppTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {

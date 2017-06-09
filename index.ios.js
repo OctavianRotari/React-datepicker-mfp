@@ -12,9 +12,11 @@ import {
   Text,
   View
 } from 'react-native';
+import { connect } from 'react-redux';
 import StatusBar from './src/components/StatusBar';
 import Toggle from './src/components/Toggle'
 import Row from './src/components/Row'
+import { fetchDataPoints } from './src/actions/'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDDtJK6WtEwBwDab03aVorshQLTovJEltc',
@@ -23,21 +25,12 @@ const firebaseConfig = {
   storageBucket: 'gs://trauma-d2e6f.appspot.com/'
 }
 
-export default class trauma_restore extends Component {
+class TraumaApp extends Component {
+  componentDidMount() {
+    this.props.fetchDataPoints
+  }
+
   render() {
-    const gender = {
-      "name":"gender",
-      "control":"toggle",
-      "label":"Gender",
-      "values":{
-        "Male":{
-          "selected": false
-        },
-        "Female":{
-          "selected": true
-        }
-      }
-    }
     switch (gender.control) {
       case 'toggle':
         return (
@@ -55,4 +48,10 @@ export default class trauma_restore extends Component {
   }
 }
 
-AppRegistry.registerComponent('trauma_restore', () => trauma_restore);
+function mapStateToProps(state) {
+  return { dataPoints: state.dataPoints }
+}
+
+export default connect(mapStateToProps, {fetchDataPoints})(TraumaApp)
+
+AppRegistry.registerComponent('TraumaApp', () => TraumaApp);

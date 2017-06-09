@@ -1,3 +1,3 @@
-rootProject.name = 'trauma_restore'
+rootProject.name = 'TraumaApp'
 
 include ':app'
