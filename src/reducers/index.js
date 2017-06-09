@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import DataPointsReducer form './datapoints'
+import DataPointsReducer from './datapoints'
 
 const rootReducer = combineReducers({
   dataPoints: DataPointsReducer
 });
+
+export default rootReducer;

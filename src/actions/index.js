@@ -15,9 +15,8 @@ const GENDER = {
 }
 
 export function fetchDataPoints() {
-  return(
+  return {
     type: FETCH_DATAPOINTS,
     payload: GENDER
-  )
+  }
 }
-
