@@ -9,25 +9,43 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  StatusBar
 } from 'react-native';
+import Toggle from './src/components/Toggle'
+import Row from './src/components/Row'
 
 export default class trauma_restore extends Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
+    const gender = {
+      "name":"gender",
+      "control":"toggle",
+      "label":"Gender",
+      "values":{
+        "Male":{
+          "selected": false
+        },
+        "Female":{
+          "selected": true
+        }
+      }
+    }
+    switch (gender.control) {
+      case 'toggle':
+        return (
+          <View marginTop={20} type="toggle">
+            <StatusBar
+              backgroundColor="blue"
+              barStyle="dark-content"
+            />
+            <Row 
+              wrapper={ Toggle } 
+              values={ gender.values }
+            />
+          </View>
+        );
+        break;
+    }
   }
 }
 
