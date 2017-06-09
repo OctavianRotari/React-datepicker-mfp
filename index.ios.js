@@ -4,16 +4,24 @@
  * @flow
  */
 
+import * as firebase from 'firebase';
 import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
   Text,
-  View,
-  StatusBar
+  View
 } from 'react-native';
+import StatusBar from './src/components/StatusBar';
 import Toggle from './src/components/Toggle'
 import Row from './src/components/Row'
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyDDtJK6WtEwBwDab03aVorshQLTovJEltc',
+  authDomain: 'trauma-d2e6f.firebaseapp.com',
+  databaseUrl: 'https://trauma-d2e6f.firebaseio.com/',
+  storageBucket: 'gs://trauma-d2e6f.appspot.com/'
+}
 
 export default class trauma_restore extends Component {
   render() {
@@ -33,12 +41,10 @@ export default class trauma_restore extends Component {
     switch (gender.control) {
       case 'toggle':
         return (
-          <View marginTop={20} type="toggle">
-            <StatusBar
-              backgroundColor="blue"
-              barStyle="dark-content"
-            />
+          <View>
+            <StatusBar />
             <Row 
+              type="toggle"
               wrapper={ Toggle } 
               values={ gender.values }
             />
@@ -48,24 +54,5 @@ export default class trauma_restore extends Component {
     }
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('trauma_restore', () => trauma_restore);

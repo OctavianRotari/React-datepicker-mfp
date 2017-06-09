@@ -7,3 +7,4 @@ export const colors = {
   inputBackground: '#FFFFFF',
   inputDivider: '#E4E2E5',
 };
+
