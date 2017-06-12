@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 import Box from '../Box';
 import styles from './styles';
 
-class Toggle extends Component {
+class Numeral extends Component {
   renderBoxes() {
     return _.map(this.props.values, value => {
       return (
@@ -22,4 +22,4 @@ class Toggle extends Component {
   }
 }
 
-export default Toggle;
+export default Numeral;

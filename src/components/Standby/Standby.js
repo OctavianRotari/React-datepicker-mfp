@@ -8,14 +8,10 @@ import {
 
 class Standby extends Component {
   render() {
-    const datapoints = this.props.datapoints;
+    const { gender, age } = this.props.datapoints;
     return (
       <View>
-        <Row
-          type="toggle"
-          wrapper={ Toggle }
-          values={ datapoints.gender.values }
-        />
+        <Row rowComponents = { { gender, age } } />
       </View>
     );
   }
