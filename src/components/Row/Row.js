@@ -4,6 +4,7 @@ import _ from 'lodash';
 import { View, Text } from 'react-native';
 import Toggle from '../Toggle';
 import Numeral from '../Numeral';
+import Segmented from '../Segmented';
 import styles from './styles';
 
 class Row extends Component {
@@ -16,17 +17,38 @@ class Row extends Component {
   createComponent(component) {
     switch (component.control) {
       case 'toggle':
-        return <Toggle key={component.name} values={component.values}/>
+        return (
+          <Toggle 
+            key={component.name} 
+            values={component.values} 
+            numOfBoxes={ this.props.numOfBoxes }
+          />
+        )
         break;
       case 'numeral':
-        return <Numeral key={component.name} values={component.values}/>
-        break;
+        return (
+          <Numeral 
+            key={component.name} 
+            values={component.values}
+            numOfBoxes={ this.props.numOfBoxes }
+          />
+        )
+          break;
+      case 'segmented':
+        return (
+          <Segmented 
+            key={component.name} 
+            values={component.values}
+            numOfBoxes={ this.props.numOfBoxes }
+          />
+        )
+          break;
     }
   }
 
   createComponents() {
-    for (let k in this.rowComponents ){ 
-      this.components.push(this.rowComponents[k]) 
+    for (let k in this.rowComponents ){
+      this.components.push(this.rowComponents[k])
     };
 
     return _.map(this.components, component => {
@@ -36,7 +58,7 @@ class Row extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{flexDirection: 'row'}}>
         { this.createComponents() }
       </View>
     );

@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, TouchableOpacity } from 'react-native';
+import {
+  Dimensions,
+  Text,
+  TouchableOpacity
+} from 'react-native';
 import styles from './styles';
+const { width, height } = Dimensions.get('window');
 
 const Box = (props) => {
   return (
-    <Text>
+    <Text 
+      style={{height: height / 11, width: width / 2 / props.numOfBoxes}}
+    >
       { props.value }
     </Text>
   );

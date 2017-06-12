@@ -8,14 +8,18 @@ class Numeral extends Component {
   renderBoxes() {
     return _.map(this.props.values, value => {
       return (
-        <Box value={value}/>
+        <Box 
+          value={ value } 
+          key={ value }
+          numOfBoxes={ this.props.numOfBoxes }
+        />
       );
     })
   }
 
   render() {
     return (
-      <View>
+      <View style={{flexDirection: 'row'}}>
         { this.renderBoxes() }
       </View>
     );
