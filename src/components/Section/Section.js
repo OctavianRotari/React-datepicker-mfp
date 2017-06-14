@@ -15,7 +15,7 @@ class Section extends Component {
       return(
         <RowContainer
           key= { label }
-          rowComponents={ children }
+          rowComponents={ child }
         />
       )
     });

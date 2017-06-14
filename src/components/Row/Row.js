@@ -7,24 +7,33 @@ import styles from './styles';
 
 class Row extends Component {
   componentDidMount() {
-    const { rowComponents } = this.props
-    _.map(rowComponents, component => {
-      component.children.map(child => {
-        this.props.onGetDatapoint(child);
-      })
+    const { children } = this.props.rowComponents;
+    _.map(children, child => {
+      this.props.onGetDatapoint(child);
     });
   }
 
-  buildComponents() {
-    const rowComponents = this.props.rowComponents;
-    return _.map(rowComponents, component => {
-      const Wrapper = RowComponents[component.control];
-      return <Wrapper values={component.values} />
+  replaceWithDatapoint(child) {
+    const { collection } = this.props.datapoints;
+    if( collection && collection[child] ) {
+      return collection[child]
+    }
+  }
+
+  buildRow() {
+    const { children } = this.props.rowComponents;
+    return _.map(children, child => {
+      const datapoint = this.replaceWithDatapoint(child);
+      if( datapoint ) {
+        const Wrapper = RowComponents[datapoint.control];
+        return <Wrapper values={ datapoint.values } />
+      }
     })
   }
 
   render() {
     const { inProgress } = this.props.datapoints;
+    console.log(inProgress);
     if(inProgress) {
       return(
         <View>
@@ -34,10 +43,11 @@ class Row extends Component {
     }
     return (
       <View style={{flexDirection: 'row'}}>
-        <Text>Row</Text>
+        { this.buildRow() }
       </View>
     );
   }
 }
 
 export default Row;
+
