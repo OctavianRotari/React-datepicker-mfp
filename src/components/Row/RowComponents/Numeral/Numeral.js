@@ -5,21 +5,19 @@ import Box from '../Box';
 import styles from './styles';
 
 class Numeral extends Component {
-  renderBoxes() {
-    return _.map(this.props.values, value => {
-      return (
-        <Box
-          value={ value }
-          key={ value }
-        />
-      );
-    })
-  }
-
   render() {
+    const { label } = this.props;
+    const { selected } = this.props.values;
     return (
-      <View style={{flexDirection: 'row'}}>
-        { this.renderBoxes() }
+      <View
+        style={
+          {
+            flex: 1,
+            flexDirection: 'row'
+          }
+        }
+      >
+        <Box value={ selected } label = { label }/>
       </View>
     );
   }

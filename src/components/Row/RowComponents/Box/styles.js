@@ -1,8 +1,18 @@
 import { Dimensions, StyleSheet } from 'react-native';
-const { height } = Dimensions.get('window');
 
 export default StyleSheet.create({
-  box: {
-    height: height / 11
+  containerBox: {
+    flex: 1,
+    flexDirection: 'row',
+    borderWidth: 1,
+    borderColor: '#5e5e5f'
+  },
+  containerText: {
+    flex: 1,
+    flexDirection: 'column',
+  },
+  text: {
+    flex: 1,
+    textAlign: 'center'
   }
-});
+})

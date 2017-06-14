@@ -21,19 +21,25 @@ class Row extends Component {
   }
 
   buildRow() {
+    let numOfBoxes = 0;
     const { children } = this.props.rowComponents;
     return _.map(children, child => {
       const datapoint = this.replaceWithDatapoint(child);
       if( datapoint ) {
+        numOfBoxes += datapoint.values.length;
         const Wrapper = RowComponents[datapoint.control];
-        return <Wrapper values={ datapoint.values } />
+        return(
+          <Wrapper
+            label={ datapoint.label }
+            values={ datapoint.values }
+          />
+        )
       }
     })
   }
 
   render() {
     const { inProgress } = this.props.datapoints;
-    console.log(inProgress);
     if(inProgress) {
       return(
         <View>
@@ -42,7 +48,7 @@ class Row extends Component {
       )
     }
     return (
-      <View style={{flexDirection: 'row'}}>
+      <View style={ styles.row }>
         { this.buildRow() }
       </View>
     );

@@ -6,10 +6,12 @@ import styles from './styles';
 
 class Toggle extends Component {
   renderBoxes() {
+    const { label } = this.props;
     return _.map(this.props.values, value => {
       return (
         <Box
           value={ value }
+          label={ label }
           key={ value }
         />
       );
@@ -18,7 +20,14 @@ class Toggle extends Component {
 
   render() {
     return (
-      <View style={{flexDirection: 'row'}}>
+      <View
+        style= {
+          {
+            flex: this.props.values.length,
+            flexDirection: 'row'
+          }
+        }
+      >
         { this.renderBoxes() }
       </View>
     );
