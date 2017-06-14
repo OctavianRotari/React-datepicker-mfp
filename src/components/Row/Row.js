@@ -21,17 +21,15 @@ class Row extends Component {
   }
 
   buildRow() {
-    let numOfBoxes = 0;
     const { children } = this.props.rowComponents;
     return _.map(children, child => {
       const datapoint = this.replaceWithDatapoint(child);
       if( datapoint ) {
-        numOfBoxes += datapoint.values.length;
         const Wrapper = RowComponents[datapoint.control];
         return(
           <Wrapper
             label={ datapoint.label }
-            values={ datapoint.values }
+            values={ datapoint.values || 'something' }
           />
         )
       }

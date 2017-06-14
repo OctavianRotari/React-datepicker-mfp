@@ -5,6 +5,7 @@ import {
   Dimensions,
   StyleSheet,
   Text,
+  TouchableHighlight,
   TouchableOpacity,
   ActivityIndicator
 } from 'react-native';
@@ -13,7 +14,12 @@ const { width } = Dimensions.get('window');
 
 const Box = (props) => {
   return (
-    <View style={ styles.containerBox }>
+    <TouchableHighlight
+      style={ styles.containerBox }
+      onPress={() => {alert(props.value)}}
+      underlayColor="#048fc0"
+      activeOpacity={0.9}
+    >
       <View style={ styles.containerText }>
         <Text style={ styles.text }>
           { props.label }
@@ -22,7 +28,7 @@ const Box = (props) => {
           { props.value }
         </Text>
       </View>
-    </View>
+    </TouchableHighlight>
   );
 };
 
