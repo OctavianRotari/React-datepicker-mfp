@@ -5,6 +5,10 @@ import Section from '../Section';
 import styles from './styles';
 
 class Vista extends Component {
+  componentDidMount() {
+    this.props.onGetForm();
+  }
+
   renderSections() {
     const name = this.props.name;
     const children = this.props.form;

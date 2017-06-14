@@ -4,25 +4,22 @@ import { View, Text, ActivityIndicator } from 'react-native';
 import _ from 'lodash';
 import Row from '../components/Row';
 import { connect } from 'react-redux';
-import { fetchDatapoints } from '../actions/';
+import { getDatapoints } from '../actions/getDatapoints';
 
 class RowContainer extends Component {
   componentDidMount(){
-    this.props.fetchDatapoints()
+    this.props.getDatapoints()
   }
 
   buildRow() {
     const datapoints = this.props.datapoints;
     const rowComponents = this.props.rowComponents;
-    console.log('initial components', rowComponents)
     _.map(rowComponents, component => {
       let index = rowComponents.indexOf(component);
       if (index !== -1) {
         rowComponents[index] =  datapoints[component];
-        console.log(datapoints[component])
       }
     })
-    console.log(rowComponents);
     return <Row rowComponents={ rowComponents }/>;
   }
 
@@ -49,4 +46,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {fetchDatapoints})(RowContainer);
+export default connect(mapStateToProps, {getDatapoints})(RowContainer);
