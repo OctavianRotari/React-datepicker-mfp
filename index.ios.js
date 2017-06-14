@@ -7,6 +7,6 @@
 import {
   AppRegistry,
 } from 'react-native';
-import Root from './src/containers/root';
+import Root from './src/components/root';
 
 AppRegistry.registerComponent('TraumaApp', () =>  Root );

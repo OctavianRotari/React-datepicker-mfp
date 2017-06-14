@@ -4,14 +4,13 @@ import { View, Text } from 'react-native';
 import Box from '../Box';
 import styles from './styles';
 
-class Segmented extends Component {
+class Toggle extends Component {
   renderBoxes() {
     return _.map(this.props.values, value => {
       return (
         <Box
           value={ value }
           key={ value }
-          numOfBoxes={ this.props.numOfBoxes }
         />
       );
     })
@@ -26,4 +25,4 @@ class Segmented extends Component {
   }
 }
 
-export default Segmented;
+export default Toggle;

@@ -14,19 +14,39 @@ const database = Firebase
   .database();
 
 export const FETCH_DATAPOINTS = 'FETCH_DATAPOINTS';
+export const FETCH_FORM = 'FETCH_FORM';
 
-export function fetchDataPoints() {
+export function fetchDatapoints() {
   return dispatch => {
-    return database.ref('/datapoints').once('value', snapshot => {
-      dispatch({
-        type: FETCH_DATAPOINTS,
-        payload: snapshot.val()
+    return database.ref('/datapoints')
+      .once('value', snap => {
+        dispatch({
+          type: FETCH_DATAPOINTS,
+          payload: snap.val()
+        });
       })
-    })
       .catch((error) => {
         console.log(error);
         dispatch({
           type: FETCH_DATAPOINTS,
+          payload: null
+        })
+      });
+  }
+}
+
+export function fetchForm(name: string) {
+  return dispatch => {
+    return database.ref(`/forms/${name}`).once('value', snap => {
+      dispatch({
+        type: FETCH_FORM,
+        payload: snap.val()
+      });
+    })
+      .catch((error) => {
+        console.log(error);
+        dispatch({
+          type: FETCH_FORM,
           payload: null
         })
       });

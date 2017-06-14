@@ -3,13 +3,12 @@
  * https://github.com/facebook/react-native
  * @flow
  */
-/* @flow */
 
 import React, { Component } from "react";
 import { Text } from 'react-native';
 import { Provider } from "react-redux";
 import configureStore from "../store/configure-store";
-import TraumaApp from './traumaApp';
+import TraumaApp from './TraumaApp';
 
 const store = configureStore();
 
