@@ -1,11 +1,19 @@
 // @flow
 import React, { Component } from 'react';
 import _ from 'lodash';
-import { View, Text } from 'react-native';
+import { View, ActivityIndicator, Text } from 'react-native';
 import RowComponents from './RowComponents/';
 import styles from './styles';
 
 class Row extends Component {
+  componentDidMount() {
+    const { rowComponents } = this.props
+    _.map(rowComponents, component => {
+      component.children.map(child => {
+        this.props.onGetDatapoint(child);
+      })
+    });
+  }
 
   buildComponents() {
     const rowComponents = this.props.rowComponents;
@@ -16,9 +24,17 @@ class Row extends Component {
   }
 
   render() {
+    const { inProgress } = this.props.datapoints;
+    if(inProgress) {
+      return(
+        <View>
+          <ActivityIndicator/>
+        </View>
+      )
+    }
     return (
       <View style={{flexDirection: 'row'}}>
-        { this.buildComponents() }
+        <Text>Row</Text>
       </View>
     );
   }

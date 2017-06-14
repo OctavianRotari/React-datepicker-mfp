@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import DatapointsReducer from './datapoints'
+import DatapointReducer from './datapoint'
 import FormReducer from './form'
 
 const rootReducer = combineReducers({
-  datapoints: DatapointsReducer,
-  form: FormReducer
+  datapoints: DatapointReducer,
+  forms: FormReducer
 });
 
 export default rootReducer;

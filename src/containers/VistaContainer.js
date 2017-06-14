@@ -1,16 +1,17 @@
+// @flow
 import { connect } from 'react-redux';
 import Vista from '../components/Vista';
 import { getForm } from '../actions/getForm'
 
 function mapStateToProps(state) {
   return {
-    form: state.form
+    forms: state.forms
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    onGetForm: () => dispatch(getForm('standby'))
+    onGetForm: (name) => dispatch(getForm(name))
   };
 }
 

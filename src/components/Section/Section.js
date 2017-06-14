@@ -9,14 +9,12 @@ import {
 
 class Section extends Component {
   renderRow() {
-    const rows = this.props.rows.children;
-    console.log('rows', this.props)
-    return _.map(rows, row => {
-      const children = row.children;
+    const { children } = this.props.rows;
+    return _.map(children, child => {
+      const { label } = child;
       return(
         <RowContainer
-          key= { row.label }
-          label={ row.label }
+          key= { label }
           rowComponents={ children }
         />
       )
