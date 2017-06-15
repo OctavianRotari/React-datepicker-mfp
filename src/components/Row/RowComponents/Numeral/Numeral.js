@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
-import Box from '../Box';
+import BoxContainer from '../../../../containers/BoxContainer'
 import styles from './styles';
 
 class Numeral extends Component {
   render() {
-    const { label } = this.props;
+    const { label, name } = this.props;
     const { selected } = this.props.values;
     return (
       <View
@@ -17,10 +18,19 @@ class Numeral extends Component {
           }
         }
       >
-        <Box value={ selected } label = { label }/>
+        <BoxContainer 
+          value={ selected } 
+          label={ label }
+          name={ name }
+        />
       </View>
     );
   }
+}
+
+Numeral.propTypes = {
+  value: PropTypes.number,
+  label: PropTypes.string
 }
 
 export default Numeral;

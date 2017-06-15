@@ -8,12 +8,12 @@ import styles from './styles';
 class Row extends Component {
   componentDidMount() {
     const { children } = this.props.rowComponents;
-    _.map(children, child => {
+    _.map(children, ( child: string ) => {
       this.props.onGetDatapoint(child);
     });
   }
 
-  replaceWithDatapoint(child) {
+  replaceWithDatapoint(child: string) {
     const { collection } = this.props.datapoints;
     if( collection && collection[child] ) {
       return collection[child]
@@ -22,7 +22,7 @@ class Row extends Component {
 
   buildRow() {
     const { children } = this.props.rowComponents;
-    return _.map(children, child => {
+    return _.map(children, ( child: string ) => {
       const datapoint = this.replaceWithDatapoint(child);
       if( datapoint ) {
         const Wrapper = RowComponents[datapoint.control];
@@ -30,6 +30,7 @@ class Row extends Component {
           <Wrapper
             label={ datapoint.label }
             values={ datapoint.values || 'something' }
+            name={ datapoint.name }
           />
         )
       }

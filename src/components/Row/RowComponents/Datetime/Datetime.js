@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
-import Box from '../Box';
+import BoxContainer from '../../../../containers/BoxContainer'
 import styles from './styles';
 
 class Datetime extends Component {
   render() {
-    const { label } = this.props;
+    const { label, name } = this.props;
     const currentTime = 'Time';
     return (
       <View
@@ -17,9 +17,10 @@ class Datetime extends Component {
           }
         }
       >
-        <Box
+        <BoxContainer
           value={ currentTime }
           label={ label }
+          name={ name }
         />
       </View>
     );

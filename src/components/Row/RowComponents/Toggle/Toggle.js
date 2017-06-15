@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
-import Box from '../Box';
+import BoxContainer from '../../../../containers/BoxContainer'
 import styles from './styles';
 
 class Toggle extends Component {
   renderBoxes() {
-    const { label } = this.props;
+    const { label, name } = this.props;
     return _.map(this.props.values, value => {
       return (
-        <Box
+        <BoxContainer
           value={ value }
           label={ label }
+          name={ name }
           key={ value }
         />
       );

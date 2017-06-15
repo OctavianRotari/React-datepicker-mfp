@@ -14,5 +14,12 @@ export default StyleSheet.create({
   text: {
     flex: 1,
     textAlign: 'center'
+  },
+  containerBoxSelected: {
+    flex: 1,
+    flexDirection: 'row',
+    borderWidth: 1,
+    borderColor: '#5e5e5f',
+    backgroundColor: "#048fc0"
   }
 })
