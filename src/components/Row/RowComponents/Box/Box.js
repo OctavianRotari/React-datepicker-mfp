@@ -35,12 +35,12 @@ class Box extends Component {
   }
 
   onTap() {
-    const { parentType, name, value, isSelected } = this.props;
+    const { name, value, isSelected } = this.props;
     const { onSelect, onDiscard } = this.props;
     if(!isSelected){
-      return onSelect( name, value, parentType );
+      return onSelect( name, value );
     }
-    return onDiscard( name, value, parentType )
+    return onDiscard( name, value )
   }
 
   render() {

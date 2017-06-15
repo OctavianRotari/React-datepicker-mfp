@@ -2,7 +2,7 @@
 import ActionTypes from '../constants/actionTypes'
 import database from '../database'
 
-export function getForm(name) {
+export function getForm(name: string) {
   return dispatch => {
     dispatch(getFormRequestedAction());
     return database.ref(`/forms/${name}`).once('value', snap => {

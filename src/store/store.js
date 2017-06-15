@@ -8,7 +8,7 @@ import rootReducer from '../reducers/index';
 const store = createStore(
   rootReducer,
   {},
-  applyMiddleware(logger, thunk)
+  applyMiddleware(thunk, logger)
 )
 
 export default store;

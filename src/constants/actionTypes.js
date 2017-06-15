@@ -6,6 +6,8 @@ const actionTypes = {
   GetFormRequested: 'GET_FORM_REQUESTED',
   GetFormRejected: 'GET_FORM_REJECTED',
   GetFormFulfilled: 'GET_FORM_FULFILLED',
+  RegisterSelectAction: 'REGISTER_SELECT_ACTION',
+  DiscardSelectAction: 'DISCARD_SELECT_ACTION',
 }
 
 export default actionTypes;

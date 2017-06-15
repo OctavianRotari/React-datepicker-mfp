@@ -2,7 +2,7 @@
 import ActionTypes from '../constants/actionTypes'
 import database from '../database'
 
-export function getDatapoint(datapoint) {
+export function getDatapoint(datapoint: string) {
   return dispatch => {
     dispatch(getDatapointRequestedAction());
     return database.ref(`/datapoints/${datapoint}`).once('value', snap => {

@@ -3,7 +3,7 @@ import ActionTypes from '../constants/actionTypes'
 
 export default function( state = {}, action ) {
   switch(action.type) {
-    case ActionTypes.GetDatapointsRequested: {
+    case ActionTypes.GetDatapointRequested: {
       return Object.assign({}, state, {
         inProgress: true,
         success: '',
