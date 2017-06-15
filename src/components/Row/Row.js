@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, ActivityIndicator, Text } from 'react-native';
-import RowComponents from './RowComponents/';
+import RowContainers from '../../containers/rowContainers';
 import styles from './styles';
 
 class Row extends Component {
@@ -25,12 +25,13 @@ class Row extends Component {
     return _.map(children, ( child: string ) => {
       const datapoint = this.replaceWithDatapoint(child);
       if( datapoint ) {
-        const Wrapper = RowComponents[datapoint.control];
+        const Wrapper = RowContainers[`${datapoint.control}Container`];
         return(
           <Wrapper
             label={ datapoint.label }
-            values={ datapoint.values || 'something' }
+            values={ datapoint.values }
             name={ datapoint.name }
+            key={ datapoint.label }
           />
         )
       }

@@ -14,35 +14,40 @@ import styles from './styles';
 const { width } = Dimensions.get('window');
 
 class Box extends Component {
-  isSelected() {
-    const { name, value } = this.props;
-    const selectedName = this.props.selectedValues[name]
-    if(!selectedName) {
-      return styles.containerBox 
-    }
-    if(selectedName.value === value){
-      return styles.containerBoxSelected 
+  isSelectedStyle() {
+    const { isSelected } = this.props;
+    if(isSelected){
+      return styles.containerBoxSelected
     } else {
-      return styles.containerBox 
+      return styles.containerBox
+    }
+  }
+
+  showLabel() {
+    const { label, isSelected } = this.props;
+    if(isSelected) {
+      return(
+        <Text style={ styles.text }>
+          { label }
+        </Text>
+      )
     }
   }
 
   render() {
-    const { label, name, value } = this.props;
-    const style = this.isSelected();
+    const { label, name, value, isSelected } = this.props;
+    const style = this.isSelectedStyle();
     return (
       <TouchableHighlight
         style={ style }
         onPress={() => {
-          this.props.onSelect(name, value);
+          this.props.onSelect( name, value );
         }}
         underlayColor="#048fc0"
         activeOpacity={0.9}
       >
         <View style={ styles.containerText }>
-          <Text style={ styles.text }>
-            { label }
-          </Text>
+          { this.showLabel( style ) }
           <Text style={ styles.text }>
             { value }
           </Text>
