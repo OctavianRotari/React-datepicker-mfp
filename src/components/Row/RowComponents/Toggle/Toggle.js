@@ -18,6 +18,7 @@ class Toggle extends Component {
     return _.map(this.props.values, value => {
       return (
         <BoxContainer
+          parentType={ 'Toggle' }
           value={ value }
           label={ label }
           name={ name }
