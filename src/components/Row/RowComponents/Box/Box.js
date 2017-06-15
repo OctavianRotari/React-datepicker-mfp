@@ -34,15 +34,22 @@ class Box extends Component {
     }
   }
 
+  onTap() {
+    const { parentType, name, value, isSelected } = this.props;
+    const { onSelect, onDiscard } = this.props;
+    if(!isSelected){
+      return onSelect( name, value, parentType );
+    }
+    return onDiscard( name, value, parentType )
+  }
+
   render() {
     const { parentType, label, name, value, isSelected } = this.props;
     const style = this.isSelectedStyle();
     return (
       <TouchableHighlight
         style={ style }
-        onPress={() => {
-          this.props.onSelect( name, value, parentType );
-        }}
+        onPress={() => { this.onTap() }}
         underlayColor="#048fc0"
         activeOpacity={0.9}
       >
