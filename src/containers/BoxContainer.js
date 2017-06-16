@@ -8,8 +8,8 @@ function mapDispatchToProps(dispatch) {
     onSelect: (name, value, parentType) => {
       dispatch(selectValue(name, value, parentType));
     },
-    onDiscard: (name, value) => {
-      dispatch(discardValue(name, value));
+    onDiscard: (name, value, parentType) => {
+      dispatch(discardValue(name, value, parentType));
     }
   };
 }

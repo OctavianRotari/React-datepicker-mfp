@@ -6,17 +6,18 @@ export function selectValue(name, value, parentType) {
   const payload = {
     name: name,
     value: value,
-    parentType, parentType
+    parentType: parentType
   }
   return dispatch => {
     return dispatch(registerSelectAction(payload));
   }
 }
 
-export function discardValue(name, value) {
+export function discardValue(name, value, parentType) {
   const payload = {
     name: name,
-    value: value
+    value: value,
+    parentType: parentType
   }
   return dispatch => {
     return dispatch(discardSelectAction(payload));

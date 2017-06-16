@@ -40,7 +40,7 @@ class Box extends Component {
     if(!isSelected){
       return onSelect( name, value, parentType );
     }
-    return onDiscard( name, value )
+    return onDiscard( name, value, parentType )
   }
 
   render() {

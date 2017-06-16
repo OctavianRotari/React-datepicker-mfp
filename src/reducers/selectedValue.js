@@ -7,29 +7,38 @@ import RowComponentTypes from '../constants/rowComponentTypes';
 export default function(state = {}, action){
   switch(action.type) {
     case ActionTypes.RegisterSelectAction: {
-      if(action.payload.parentType === RowComponentTypes.TOGGLE){
+      const { name, value, parentType } = action.payload; 
+
+      if(parentType === RowComponentTypes.TOGGLE){
         return {
-          ...state, [action.payload.name]: action.payload.value
+          ...state, [name]: value
         }
       }
-      const initialArray = state[action.payload.name] || [];
+      const initialArray = state[name] || [];
       const newArray = update(
         initialArray,
-        {$push: [action.payload.value]}
+        {$push: [value]}
       );
       return {
-        ...state, [action.payload.name]: newArray
+        ...state, [name]: newArray
       }
     }
     case ActionTypes.DiscardSelectAction: {
-      const values = state[action.payload.name];
-      const index = values.indexOf(action.payload.value)
+      const { name, value, parentType } = action.payload; 
+      if( parentType === RowComponentTypes.TOGGLE ) {
+        const value = state[name];
+        return {
+          ...state, [name]: null
+        }
+      }
+      const values = state[name];
+      const index = values.indexOf(value)
       const newValues = update(
-        state[action.payload.name],
+        state[name],
         {$splice: [[index, 1]]}
       )
       return {
-        ...state, [action.payload.name]: newValues
+        ...state, [name]: newValues
       }
     }
     default:
