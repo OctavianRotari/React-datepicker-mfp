@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
-import BoxContainer from '../../../../containers/BoxContainer'
+import NumberPicker from '../NumberPicker'
 import styles from './styles';
 
 class Numeral extends Component {
   render() {
-    const { label, name } = this.props;
-    const { selected } = this.props.values;
+    const { label, name, values } = this.props;
     return (
       <View
         style={
@@ -18,8 +17,9 @@ class Numeral extends Component {
           }
         }
       >
-        <BoxContainer 
-          value={ selected } 
+        <NumberPicker 
+          isSelected = { true }
+          values={ values } 
           label={ label }
           name={ name }
         />

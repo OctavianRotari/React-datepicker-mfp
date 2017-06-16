@@ -4,7 +4,7 @@ const { height } = Dimensions.get('window');
 
 export default StyleSheet.create({
   row: {
-    height: height / 12,
+    height: (height - 66) / 12,
     flexDirection: 'row'
   }
 });
