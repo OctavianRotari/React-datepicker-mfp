@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
-import NumberPicker from '../NumberPicker'
+import InputTypesContainer from '../../../../containers/rowContainers/InputTypesContainer'
 import styles from './styles';
 
 class Numeral extends Component {
@@ -17,7 +17,8 @@ class Numeral extends Component {
           }
         }
       >
-        <NumberPicker 
+        <InputTypesContainer 
+          childType={ 'NumberPicker' }
           isSelected = { true }
           values={ values } 
           label={ label }

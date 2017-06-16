@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
-import DatePicker from '../DatePicker'
 import styles from './styles';
+import InputTypesContainer from '../../../../containers/rowContainers/InputTypesContainer'
 
 class Datetime extends Component {
   render() {
@@ -16,7 +16,8 @@ class Datetime extends Component {
           }
         }
       >
-        <DatePicker
+        <InputTypesContainer
+          childType={ 'DatePicker' }
           label={ label }
           name={ name }
           isSelected={ true }

@@ -42,6 +42,7 @@ class NumberPicker extends Component {
   }
 
   options() {
+    console.log(this.props);
     const { start, end, step } = this.props.values;
     const options = [];
     for(var i = start; i <= end; i += step ){

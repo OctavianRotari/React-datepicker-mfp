@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
-import BoxContainer from '../../../../containers/BoxContainer'
+import InputTypesContainer from '../../../../containers/rowContainers/InputTypesContainer'
 import styles from './styles';
 
 class Toggle extends Component {
@@ -17,7 +17,8 @@ class Toggle extends Component {
     const { label, name } = this.props;
     return _.map(this.props.values, value => {
       return (
-        <BoxContainer
+        <InputTypesContainer
+          childType={ 'Box' }
           parentType={ 'Toggle' }
           value={ value }
           label={ label }
