@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
-import BoxContainer from '../../../../containers/BoxContainer'
+import DatePicker from '../DatePicker'
 import styles from './styles';
 
 class Datetime extends Component {
   render() {
     const { label, name } = this.props;
-    const currentTime = 'Time';
     return (
       <View
         style= {
@@ -17,10 +16,10 @@ class Datetime extends Component {
           }
         }
       >
-        <BoxContainer
-          value={ currentTime }
+        <DatePicker
           label={ label }
           name={ name }
+          isSelected={ true }
         />
       </View>
     );

@@ -44,7 +44,7 @@ class Box extends Component {
   }
 
   render() {
-    const { parentType, label, name, value, isSelected } = this.props;
+    const { value, isSelected } = this.props;
     const style = this.isSelectedStyle();
     return (
       <TouchableHighlight
