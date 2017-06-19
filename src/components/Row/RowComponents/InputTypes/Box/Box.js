@@ -23,17 +23,6 @@ class Box extends Component {
     }
   }
 
-  showLabel() {
-    const { label, isSelected } = this.props;
-    if(isSelected) {
-      return(
-        <Text style={ styles.text }>
-          { label }
-        </Text>
-      )
-    }
-  }
-
   onTap() {
     const { parentType, name, value, isSelected } = this.props;
     const { onSelect, onDiscard } = this.props;
@@ -44,7 +33,7 @@ class Box extends Component {
   }
 
   render() {
-    const { value, isSelected } = this.props;
+    const { value, label, isSelected } = this.props;
     const style = this.isSelectedStyle();
     return (
       <TouchableHighlight
@@ -54,7 +43,9 @@ class Box extends Component {
         activeOpacity={0.9}
       >
         <View style={ styles.containerText }>
-          { this.showLabel( style ) }
+          <Text style={ styles.text }>
+            { label }
+          </Text>
           <Text style={ styles.text }>
             { value }
           </Text>

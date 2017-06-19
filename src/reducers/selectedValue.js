@@ -8,37 +8,35 @@ export default function(state = {}, action){
   switch(action.type) {
     case ActionTypes.RegisterSelectAction: {
       const { name, value, parentType } = action.payload; 
-
-      if(parentType === RowComponentTypes.TOGGLE){
+      if(parentType === RowComponentTypes.SEGMENTED){
+        const initialArray = state[name] || [];
+        const newArray = update(
+          initialArray,
+          {$push: [value]}
+        );
         return {
-          ...state, [name]: value
+          ...state, [name]: newArray
         }
       }
-      const initialArray = state[name] || [];
-      const newArray = update(
-        initialArray,
-        {$push: [value]}
-      );
       return {
-        ...state, [name]: newArray
+        ...state, [name]: value
       }
     }
     case ActionTypes.DiscardSelectAction: {
       const { name, value, parentType } = action.payload; 
-      if( parentType === RowComponentTypes.TOGGLE ) {
-        const value = state[name];
+      if(parentType === RowComponentTypes.SEGMENTED){
+        const values = state[name];
+        const index = values.indexOf(value)
+        const newValues = update(
+          state[name],
+          {$splice: [[index, 1]]}
+        )
         return {
-          ...state, [name]: null
+          ...state, [name]: newValues
         }
       }
-      const values = state[name];
-      const index = values.indexOf(value)
-      const newValues = update(
-        state[name],
-        {$splice: [[index, 1]]}
-      )
       return {
-        ...state, [name]: newValues
+        ...state, [name]: null
       }
     }
     default:

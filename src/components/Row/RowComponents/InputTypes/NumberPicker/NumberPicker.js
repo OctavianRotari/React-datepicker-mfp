@@ -14,13 +14,6 @@ import SimplePicker from 'react-native-simple-picker';
 import styles from './styles';
 
 class NumberPicker extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedOption: '',
-    };
-  }
-
   isSelectedStyle() {
     const { isSelected } = this.props;
     if(isSelected){
@@ -30,19 +23,15 @@ class NumberPicker extends Component {
     }
   }
 
-  showLabel() {
-    const { label, isSelected } = this.props;
-    if(isSelected) {
-      return(
-        <Text style={ styles.text }>
-          { label }
-        </Text>
-      )
+  selectedValue() {
+    const { selectedValue, values } = this.props;
+    if(selectedValue) {
+      return selectedValue;
     }
+    return values.selected;
   }
 
   options() {
-    console.log(this.props);
     const { start, end, step } = this.props.values;
     const options = [];
     for(var i = start; i <= end; i += step ){
@@ -57,7 +46,7 @@ class NumberPicker extends Component {
   }
 
   render() {
-    const { value, isSelected } = this.props;
+    const { name, value, label, isSelected } = this.props;
     const style = this.isSelectedStyle();
     return (
       <TouchableHighlight
@@ -69,16 +58,16 @@ class NumberPicker extends Component {
         }}
       >
         <View style={styles.containerText}>
-          { this.showLabel( style ) }
-          <Text style={styles.text}>{this.state.selectedOption}</Text>
+          <Text style={ styles.text }>
+            { label }
+          </Text>
+          <Text style={styles.text}>{ this.selectedValue() }</Text>
           <SimplePicker
             ref={'picker'}
             options={this.options()}
-            onSubmit={(option) => {
-              this.setState({
-                selectedOption: option,
-              });
-            }}
+            onSubmit={
+              (option) => {this.props.onSelect( name, option )}
+            }
           />
         </View>
       </TouchableHighlight>

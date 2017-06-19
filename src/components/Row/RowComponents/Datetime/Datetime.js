@@ -5,8 +5,16 @@ import styles from './styles';
 import InputTypesContainer from '../../../../containers/rowContainers/InputTypesContainer'
 
 class Datetime extends Component {
+  isSelected(name) {
+    const { selectedValue } = this.props;
+    if( selectedValue ) {
+      return true;
+    }
+    return false;
+  }
+
   render() {
-    const { label, name } = this.props;
+    const { name, label } = this.props;
     return (
       <View
         style= {
@@ -18,9 +26,10 @@ class Datetime extends Component {
       >
         <InputTypesContainer
           childType={ 'DatePicker' }
+          selectedValue = { this.props.selectedValue }
           label={ label }
           name={ name }
-          isSelected={ true }
+          isSelected={ this.isSelected(name) }
         />
       </View>
     );

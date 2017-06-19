@@ -6,6 +6,14 @@ import InputTypesContainer from '../../../../containers/rowContainers/InputTypes
 import styles from './styles';
 
 class Numeral extends Component {
+  isSelected(name) {
+    const { selectedValue } = this.props;
+    if( selectedValue ) {
+      return true;
+    }
+    return false;
+  }
+
   render() {
     const { label, name, values } = this.props;
     return (
@@ -19,10 +27,11 @@ class Numeral extends Component {
       >
         <InputTypesContainer 
           childType={ 'NumberPicker' }
-          isSelected = { true }
           values={ values } 
+          selectedValue = { this.props.selectedValue }
           label={ label }
           name={ name }
+          isSelected = { this.isSelected(name) }
         />
       </View>
     );
