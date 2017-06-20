@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
 import styles from './styles';
-import InputTypesContainer from '../../../../containers/rowContainers/InputTypesContainer'
+import InputTypesContainer from '../../../../containers/InputTypesContainer'
 
 class Datetime extends Component {
   isSelected(name) {

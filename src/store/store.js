@@ -1,14 +1,20 @@
 // @flow
-import { createStore, applyMiddleware } from 'redux';
+import { AsyncStorage } from 'react-native';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { persistStore, autoRehydrate } from 'redux-persist';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import rootReducer from '../reducers/index';
 
-// Note: this API requires redux@>=3.1.0
 const store = createStore(
   rootReducer,
   {},
-  applyMiddleware(thunk, logger)
+  compose(
+    autoRehydrate(),
+    applyMiddleware(thunk, logger)
+  )
 )
+
+persistStore(store, { storage: AsyncStorage });
 
 export default store;

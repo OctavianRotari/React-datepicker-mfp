@@ -1,20 +1,13 @@
 // @flow
 import { connect } from 'react-redux';
 import Vista from '../components/Vista';
-import { getForm } from '../actions/getForm'
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
+  const { name } = ownProps;
   return {
-    forms: state.forms
+    forms: state.appData.forms[name]
   };
 }
-
-function mapDispatchToProps(dispatch) {
-  return {
-    onGetForm: (name) => dispatch(getForm(name))
-  };
-}
-
-const vistaContainer = connect(mapStateToProps, mapDispatchToProps)(Vista);
+const vistaContainer = connect(mapStateToProps)(Vista);
 
 export default vistaContainer;

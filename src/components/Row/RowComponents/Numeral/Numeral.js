@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
-import InputTypesContainer from '../../../../containers/rowContainers/InputTypesContainer'
+import InputTypesContainer from '../../../../containers/InputTypesContainer'
 import styles from './styles';
 
 class Numeral extends Component {

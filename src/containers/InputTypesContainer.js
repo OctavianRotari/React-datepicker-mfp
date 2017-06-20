@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux'
-import { selectValue, discardValue } from '../../actions/selectValue';
-import InputTypes from '../../components/Row/RowComponents/InputTypes'
+import { selectValue, discardValue } from '../actions/selectValue';
+import InputTypes from '../components/Row/RowComponents/InputTypes'
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -18,7 +18,7 @@ function mapDispatchToProps(dispatch) {
 const InputTypeContainer = connect(null, mapDispatchToProps);
 
 const ReduxWrapperComponent = (props) => {
-  InputType = InputTypes[props.childType];
+  const InputType = InputTypes[props.childType];
   return React.createElement(InputTypeContainer(InputType), props);
 };
 

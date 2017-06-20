@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
-import InputTypesContainer from '../../../../containers/rowContainers/InputTypesContainer'
+import InputTypesContainer from '../../../../containers/InputTypesContainer'
 import styles from './styles';
 
 class Segmented extends Component {
   isSelected(value) {
-    const { selectedValues } = this.props;
-    return _.includes(selectedValues, value);
+    const { selectedValue } = this.props;
+    return _.includes(selectedValue, value);
   }
 
   renderBoxes() {

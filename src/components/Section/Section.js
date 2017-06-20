@@ -9,13 +9,13 @@ import {
 
 class Section extends Component {
   renderRow() {
-    const { children } = this.props.rows;
-    return _.map(children, child => {
-      const { label } = child;
+    const { rows } = this.props;
+    return _.map(rows, row => {
+      const { label, children } = row;
       return(
         <RowContainer
           key= { label }
-          rowComponents={ child }
+          rowComponents={ children }
         />
       )
     });

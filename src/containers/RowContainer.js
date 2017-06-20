@@ -1,20 +1,19 @@
 // @flow
 import { connect } from 'react-redux'
-import { getDatapoint } from '../actions/getDatapoint'
 import Row from '../components/Row'
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
+  let rowDatapoints = {};
+  ownProps.rowComponents.forEach((component) => {
+    const { datapoints } = state.appData;
+    rowDatapoints[component] = datapoints[component] 
+  });
+
   return {
-    datapoints: state.datapoints
+    datapoints: rowDatapoints
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    onGetDatapoint: (datapoint) => dispatch(getDatapoint(datapoint))
-  };
-}
-
-const rowContainer = connect(mapStateToProps, mapDispatchToProps)(Row);
+const rowContainer = connect(mapStateToProps)(Row);
 
 export default rowContainer;

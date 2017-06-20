@@ -14,15 +14,6 @@ import styles from './styles';
 const { width } = Dimensions.get('window');
 
 class Box extends Component {
-  isSelectedStyle() {
-    const { isSelected } = this.props;
-    if(isSelected){
-      return styles.containerBoxSelected
-    } else {
-      return styles.containerBox
-    }
-  }
-
   onTap() {
     const { parentType, name, value, isSelected } = this.props;
     const { onSelect, onDiscard } = this.props;
@@ -34,10 +25,9 @@ class Box extends Component {
 
   render() {
     const { value, label, isSelected } = this.props;
-    const style = this.isSelectedStyle();
     return (
       <TouchableHighlight
-        style={ style }
+        style={ isSelected ? styles.containerBoxSelected : styles.containerBox }
         onPress={() => { this.onTap() }}
         underlayColor="#048fc0"
         activeOpacity={0.9}

@@ -1,13 +1,11 @@
 // @flow
 import { combineReducers } from 'redux';
-import DatapointReducer from './datapoint'
-import FormReducer from './form';
 import SelectedValuesReducer from './selectedValue';
+import AppDataReducer from './appData';
 
 const rootReducer = combineReducers({
-  datapoints: DatapointReducer,
-  forms: FormReducer,
-  selectedValues: SelectedValuesReducer
+  selectedValues: SelectedValuesReducer,
+  appData: AppDataReducer
 });
 
 export default rootReducer;
