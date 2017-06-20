@@ -228,14 +228,14 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
-		B64049F31EF91A6700AF9B30 /* PBXContainerItemProxy */ = {
+		B66FCD041EF9863600FA6FED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 139D7ECE1E25DB7D00323FB7;
 			remoteInfo = "third-party";
 		};
-		B64049F51EF91A6700AF9B30 /* PBXContainerItemProxy */ = {
+		B66FCD061EF9863600FA6FED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 			proxyType = 2;
@@ -425,8 +425,8 @@
 				3DAD3EAB1DF850E9000B6D8A /* libcxxreact.a */,
 				3DAD3EAD1DF850E9000B6D8A /* libjschelpers.a */,
 				3DAD3EAF1DF850E9000B6D8A /* libjschelpers.a */,
-				B64049F41EF91A6700AF9B30 /* libthird-party.a */,
-				B64049F61EF91A6700AF9B30 /* libdouble-conversion.a */,
+				B66FCD051EF9863600FA6FED /* libthird-party.a */,
+				B66FCD071EF9863600FA6FED /* libdouble-conversion.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -844,18 +844,18 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B64049F41EF91A6700AF9B30 /* libthird-party.a */ = {
+		B66FCD051EF9863600FA6FED /* libthird-party.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libthird-party.a";
-			remoteRef = B64049F31EF91A6700AF9B30 /* PBXContainerItemProxy */;
+			remoteRef = B66FCD041EF9863600FA6FED /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B64049F61EF91A6700AF9B30 /* libdouble-conversion.a */ = {
+		B66FCD071EF9863600FA6FED /* libdouble-conversion.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libdouble-conversion.a";
-			remoteRef = B64049F51EF91A6700AF9B30 /* PBXContainerItemProxy */;
+			remoteRef = B66FCD061EF9863600FA6FED /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

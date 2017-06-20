@@ -11,7 +11,7 @@ class Segmented extends Component {
   }
 
   renderBoxes() {
-    const { label, name } = this.props;
+    const { label, name, selectedValue } = this.props;
     return _.map(this.props.values, value => {
       return (
         <InputTypesContainer
