@@ -14,6 +14,7 @@ const actionTypes = {
 
   RegisterSelectAction: 'REGISTER_SELECT_ACTION',
   DiscardSelectAction: 'DISCARD_SELECT_ACTION',
+  CreateNodeAction: 'CREATE_NODES_ACTION'
 }
 
 export default actionTypes;

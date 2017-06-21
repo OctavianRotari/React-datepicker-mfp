@@ -6,9 +6,14 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import rootReducer from '../reducers/index';
 
+const InitialState = {
+  appData: {},
+  viewState: {}
+}
+
 const store = createStore(
   rootReducer,
-  {},
+  InitialState,
   compose(
     // autoRehydrate(),
     applyMiddleware(thunk, logger)

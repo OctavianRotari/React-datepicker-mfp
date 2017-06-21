@@ -70,7 +70,7 @@ class Box extends Component {
     const { values, label, name } = this.props;
     return (
       <View style= {{ flex: 1 }} >
-        <Text 
+        <Text
           style={ styles.text }
           onPress={() => {
             this.refs.picker.show();
@@ -81,7 +81,7 @@ class Box extends Component {
         <SimplePicker
           style= {{ flex: 1 }}
           ref={'picker'}
-          options={this.options()}
+          options={ this.options() }
           onSubmit={
             (option) => {
               this.props.onSelect( name, option )
@@ -117,7 +117,10 @@ class Box extends Component {
     const { label } = this.props;
     return (
       <TouchableHighlight
-        style={ styles.containerBox }
+        style={
+          this.props.selected ?
+            styles.containerBoxSelected : styles.containerBox
+        }
         onPress={() => { this.onTap() }}
         underlayColor="#048fc0"
         activeOpacity={ 0.9 }

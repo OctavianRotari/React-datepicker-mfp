@@ -15,9 +15,22 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
+  const { name, value } = ownProps;
+  const { viewState } = state;
+  if( viewState[name] && viewState[name].value ){
+    if(viewState[name].value === value) {
+      return {
+        selected: true
+      }
+    } else if(viewState[name].value.includes(value)) {
+      return {
+        selected: true
+      }
+    }
+  }
   return {
-    selectedValues: state.selectedValues
+    selected: false
   }
 }
 
