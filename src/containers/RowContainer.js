@@ -2,15 +2,9 @@
 import { connect } from 'react-redux'
 import Row from '../components/Row'
 
-function mapStateToProps(state, ownProps) {
-  let rowDatapoints = {};
-  ownProps.rowComponents.forEach((component) => {
-    const { datapoints } = state.appData;
-    rowDatapoints[component] = datapoints[component] 
-  });
-
+function mapStateToProps(state) {
   return {
-    datapoints: rowDatapoints
+    datapoints: state.appData.datapoints
   }
 }
 

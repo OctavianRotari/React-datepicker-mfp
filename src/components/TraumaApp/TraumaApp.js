@@ -7,7 +7,7 @@
 import React, { Component } from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import StatusBar from '../StatusBar';
-import VistaContainer from '../../containers/VistaContainer'
+import StandbyContainer from '../../containers/StandbyContainer'
 import styles from './styles';
 
 class TraumaApp extends Component {
@@ -27,7 +27,7 @@ class TraumaApp extends Component {
     return (
       <View>
         <StatusBar />
-        <VistaContainer name='standby'/>
+        <StandbyContainer name='standby'/>
       </View>
     )
   }

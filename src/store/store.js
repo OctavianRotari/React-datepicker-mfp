@@ -10,7 +10,7 @@ const store = createStore(
   rootReducer,
   {},
   compose(
-    autoRehydrate(),
+    // autoRehydrate(),
     applyMiddleware(thunk, logger)
   )
 )

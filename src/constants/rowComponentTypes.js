@@ -1,6 +1,4 @@
-const rowComponentTypes = {
+export default {
   TOGGLE: 'Toggle',
   SEGMENTED: 'Segmented'
 }
-
-export default rowComponentTypes;

@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { selectValue, discardValue } from '../actions/selectValue';
-import Box from '../components/Row/RowComponents/InputTypes/Box'
+import Box from '../components/Row/RowComponents/Box'
 
 function mapDispatchToProps(dispatch) {
   return {

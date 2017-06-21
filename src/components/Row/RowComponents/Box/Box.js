@@ -15,19 +15,9 @@ import styles from './styles';
 const { width } = Dimensions.get('window');
 import DatePicker from 'react-native-datepicker';
 import SimplePicker from 'react-native-simple-picker';
+import moment from 'moment';
 
 class Box extends Component {
-  isSelected() {
-    const { parentType, value, name } = this.props;
-    const { selectedValues } = this.props;
-    if(parentType === 'Segmented'){
-      return _.includes(selectedValues, value);
-    } else if ( selectedValues[name] === value ){
-      return true;
-    }
-    return false;
-  }
-
   onTap() {
     const { parentType, name, value } = this.props;
     const { onSelect, onDiscard } = this.props;
@@ -59,32 +49,43 @@ class Box extends Component {
   isDatePicker() {
     const { name } = this.props;
     return(
-      <DatePicker
-        style={{flex: 1}}
-        date={this.selectedValue()}
-        mode="datetime"
-        placeholder="Select time"
-        format="MMMM Do YYYY, h:mm:ss a"
-        confirmBtnText="Confirm"
-        cancelBtnText="Cancel"
-        showIcon={ false }
-        onDateChange={
-          (date) => {this.props.onSelect( name, date )}
-        }
-      />
+      <View style= {{ flex: 1, flexDirection:'column' }}>
+        <DatePicker
+          date={ moment().format("MMMM Do YYYY, h:mm:ss a") }
+          mode="datetime"
+          placeholder="Select time"
+          format="MMMM Do YYYY, h:mm:ss a"
+          confirmBtnText="Confirm"
+          cancelBtnText="Cancel"
+          showIcon={ false }
+          onDateChange={
+            (date) => {this.props.onSelect( name, date )}
+          }
+        />
+      </View>
     )
   }
 
   isNumberPicker() {
     const { values, label, name } = this.props;
-    return(
-      <View>
-        <Text style={ styles.text }>{ values.selected }</Text>
+    return (
+      <View style= {{ flex: 1 }} >
+        <Text 
+          style={ styles.text }
+          onPress={() => {
+            this.refs.picker.show();
+          }}
+        >
+          { values.selected }
+        </Text>
         <SimplePicker
+          style= {{ flex: 1 }}
           ref={'picker'}
           options={this.options()}
           onSubmit={
-            (option) => {this.props.onSelect( name, option )}
+            (option) => {
+              this.props.onSelect( name, option )
+            }
           }
         />
       </View>
@@ -116,7 +117,7 @@ class Box extends Component {
     const { label } = this.props;
     return (
       <TouchableHighlight
-        style={ this.isSelected() ? styles.containerBoxSelected : styles.containerBox }
+        style={ styles.containerBox }
         onPress={() => { this.onTap() }}
         underlayColor="#048fc0"
         activeOpacity={ 0.9 }
