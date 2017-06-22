@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { selectValue, discardValue } from '../actions/selectValue';
 import { createEvent } from '../actions/createEvent';
-import Box from '../components/Row/RowComponents/Box'
+import InputTypes from '../components/Row/RowComponents/InputTypes'
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -18,24 +18,18 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state, ownProps) {
-  const { name, value } = ownProps;
-  const { viewState } = state;
-  if( viewState[name] && viewState[name].value ){
-    if(viewState[name].value === value) {
-      return {
-        selected: true
-      }
-    } else if(viewState[name].value.includes(value)) {
-      return {
-        selected: true
-      }
-    }
-  }
+  const { name } = ownProps;
+  const { components } = state.viewState;
   return {
-    selected: false
+    componentState: components[name]
   }
 }
 
-const BoxContainer = connect(mapStateToProps, mapDispatchToProps)(Box);
+const InputTypeContainer = connect(mapStateToProps, mapDispatchToProps);
 
-export default BoxContainer;
+const ReduxWrapperComponent = (props) => {
+  InputType = InputTypes[props.childType];
+  return React.createElement(InputTypeContainer(InputType), props);
+};
+
+export default ReduxWrapperComponent;

@@ -8,7 +8,6 @@ export function getAppData() {
     return database.ref('/appData').once('value', span => {
       const payload = span.val();
       dispatch(getAppDataFulfilledAction(payload));
-      dispatch(createNodesAction(payload));
     })
       .catch((error) => {
         console.log(error);
@@ -32,13 +31,6 @@ function getAppDataRejectedAction() {
 function getAppDataFulfilledAction(payload) {
   return {
     type: ActionTypes.GetAppDataFulfilled,
-    payload
-  }
-}
-
-function createNodesAction(payload) {
-  return {
-    type: ActionTypes.CreateNodeAction,
     payload
   }
 }

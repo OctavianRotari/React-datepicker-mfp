@@ -5,16 +5,20 @@
  */
 
 import React, { Component } from "react";
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 import { Provider } from "react-redux";
 import store from "../store/store";
+import StatusBar from './StatusBar';
 import TraumaAppContainer from '../containers/TraumaAppContainer';
 
 class Root extends Component {
   render() {
     return (
       <Provider store={store}>
-        <TraumaAppContainer />
+        <View>
+          <StatusBar />
+          <TraumaAppContainer />
+        </View>
       </Provider>
     );
   }

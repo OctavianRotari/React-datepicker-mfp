@@ -26,7 +26,6 @@ class TraumaApp extends Component {
     }
     return (
       <View>
-        <StatusBar />
         <StandbyContainer name='standby'/>
       </View>
     )

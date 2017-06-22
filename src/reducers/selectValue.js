@@ -4,16 +4,6 @@ import _ from 'lodash';
 import ActionTypes from '../constants/actionTypes';
 import RowComponentTypes from '../constants/rowComponentTypes';
 
-function buildEvent(state = [], action) {
-  return [
-    ...state,
-    {
-      value: action.payload.value,
-      timestamp: action.payload.timestamp
-    }
-  ]
-}
-
 function buildValue(state, action) {
   const { name, value, parentType } = action.payload;
   if(parentType === RowComponentTypes.SEGMENTED){
@@ -42,32 +32,19 @@ function discardValue(value, action){
 
 export default function(state = {}, action){
   switch(action.type) {
-    case ActionTypes.CreateNodeAction: {
-      let newObject = {};
-      for(datapoint in action.payload.datapoints){
-        newObject[datapoint] = {};
-      }
-      return Object.assign({}, state, newObject)
-    }
     case ActionTypes.RegisterSelectAction: {
-      let eventsArr;
       const { name } = action.payload;
-      if(!state[name].events) {
-        eventsArr = [];
-      } else {
-        eventsArr = state[name].events;
-      }
       const newObject = {
         value: buildValue(state, action),
-        events: buildEvent(eventsArr, action)
       };
+      console.log(newObject);
+      console.log('state', state);
       return { ...state,  [name]: newObject };
     }
     case ActionTypes.DiscardSelectAction: {
       const { name } = action.payload;
       const newObject = {
-        value: discardValue(state[name].value, action),
-        events: state[name].events
+        value: discardValue(state[name].value, action)
       }
       return { ...state, [name]: newObject };
     }

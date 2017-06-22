@@ -2,15 +2,17 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View } from 'react-native';
-import BoxContainer from '../../../containers/BoxContainer'
+import rowComponentTypes from '../../../constants/rowComponentTypes';
+import InputTypesContainer from '../../../containers/InputTypesContainer'
 
 class RowComponent extends Component {
-  renderBoxes() {
+  renderBoxes(childtType) {
     const { control, name, label, values } = this.props.datapoint;
     return _.map(values, value => {
       return (
-        <BoxContainer
+        <InputTypesContainer
           parentType={ control }
+          childType={ childtType }
           value={ value }
           label={ label }
           name={ name }
@@ -20,11 +22,12 @@ class RowComponent extends Component {
     })
   }
 
-  renderBox() {
+  renderBox(childtType) {
   const { control, name, label, values } = this.props.datapoint;
     return(
-      <BoxContainer 
+      <InputTypesContainer 
         parentType={ control }
+        childType={ childtType }
         values={ values } 
         label={ label }
         name={ name }
@@ -34,18 +37,21 @@ class RowComponent extends Component {
 
   whichChild() {
     const { control, values } = this.props.datapoint;
-    const controlTypeNumber = 
-      control === 'Numeral' || 
-      control === 'Datetime';
-    if(controlTypeNumber) {
-      return this.renderBox();
-    } else {
-      return this.renderBoxes();
+    switch(control) {
+      case rowComponentTypes.NUMERAL: {
+        return this.renderBox('NumberPicker')
+      }
+      case rowComponentTypes.DATETIME: {
+        return this.renderBox('DatePicker')
+      }
+      default: {
+        return this.renderBoxes('Box');
+      }
     }
   }
 
   render() {
-    const { values } = this.props.datapoint;
+    const { control, name, label, values } = this.props.datapoint;
     const numberOfCubes = values.length ? values.length : 1; 
     return(
       <View

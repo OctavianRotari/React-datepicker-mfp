@@ -11,7 +11,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onLoaded: () => dispatch(getAppData())
+    onLoaded: () => {
+      dispatch(getAppData())
+    }
   };
 }
 

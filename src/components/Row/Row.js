@@ -8,13 +8,7 @@ import styles from './styles';
 
 class Row extends Component {
   buildRow() {
-    let rowDatapoints = {};
-    this.props.rowComponents.forEach((component) => {
-      const { datapoints } = this.props;
-      rowDatapoints[component] = datapoints[component] 
-    });
-
-    return _.map(rowDatapoints, ( datapoint ) => {
+    return _.map(this.props.rowDatapoints, ( datapoint ) => {
       return(
         <RowComponent
           datapoint={ datapoint }
