@@ -15,6 +15,7 @@ import styles from './styles';
 
 class NumberPicker extends Component {
   selectedValue() {
+    console.log(this.props)
     const { selectedValue, values } = this.props;
     if(selectedValue) {
       return selectedValue;
@@ -40,7 +41,10 @@ class NumberPicker extends Component {
     const { name, value, label, selected } = this.props;
     return (
       <TouchableHighlight
-        style={ selected ? styles.containerBoxSelected : styles.containerBox}
+        style={
+          selected ?
+            styles.containerBoxSelected : styles.containerBox
+        }
         underlayColor="#048fc0"
         activeOpacity={0.9}
         onPress={() => {
@@ -56,7 +60,10 @@ class NumberPicker extends Component {
             ref={'picker'}
             options={this.options()}
             onSubmit={
-              (option) => {this.props.onSelect( name, option )}
+              (option) => {
+                console.log('option', option);
+                this.props.onSelect( name, option )
+              }
             }
           />
         </View>

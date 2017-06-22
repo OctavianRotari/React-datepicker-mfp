@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { View } from 'react-native';
 import rowComponentTypes from '../../../constants/rowComponentTypes';
-import InputTypesContainer from '../../../containers/InputTypesContainer'
+import InputTypeContainer from '../../../containers/InputTypeContainer'
 
 class RowComponent extends Component {
   renderBoxes(childtType) {
     const { control, name, label, values } = this.props.datapoint;
     return _.map(values, value => {
       return (
-        <InputTypesContainer
+        <InputTypeContainer
           parentType={ control }
           childType={ childtType }
           value={ value }
@@ -25,7 +25,7 @@ class RowComponent extends Component {
   renderBox(childtType) {
   const { control, name, label, values } = this.props.datapoint;
     return(
-      <InputTypesContainer 
+      <InputTypeContainer 
         parentType={ control }
         childType={ childtType }
         values={ values } 
