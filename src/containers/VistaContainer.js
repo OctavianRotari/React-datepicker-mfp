@@ -4,8 +4,9 @@ import Vista from '../components/Vista';
 import { createViewState } from '../actions/createViewState';
 
 function mapStateToProps(state) {
+  const { active } = state.activeForm
   return {
-    forms: state.appData.forms['standby'],
+    forms: state.appData.forms[active],
     datapoints: state.appData.datapoints,
     viewState: state.viewState
   };

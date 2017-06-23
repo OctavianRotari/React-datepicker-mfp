@@ -7,8 +7,9 @@
 import React, { Component } from 'react';
 import { View, ActivityIndicator, Text } from 'react-native';
 import StatusBar from '../StatusBar';
-import StandbyContainer from '../../containers/StandbyContainer';
+import VistaContainer from '../../containers/VistaContainer';
 import TopBarContainer from '../../containers/TopBarContainer';
+import NavSidebarContainer from '../../containers/NavSidebarContainer';
 import styles from './styles';
 
 class TraumaApp extends Component {
@@ -19,7 +20,8 @@ class TraumaApp extends Component {
   render() {
     const { inProgress, forms } = this.props.appData
     const { components } = this.props.viewState;
-    if(!forms || !components || inProgress){
+    const { active } = this.props.activeForm;
+    if(!forms || !components || !active || inProgress){
       return(
         <View style={{flex:1}}>
           <ActivityIndicator
@@ -42,10 +44,10 @@ class TraumaApp extends Component {
         <TopBarContainer/>
         <View style={{flex:12, flexDirection: 'row'}}>
           <View style={{flex:2, borderRightWidth: 0.5}}>
-            <Text>Menu goes here</Text>
+            <NavSidebarContainer />
           </View>
           <View style={{flex:14}}>
-            <StandbyContainer name='standby'/>
+            <VistaContainer name='standby'/>
           </View>
           <View style={
             {

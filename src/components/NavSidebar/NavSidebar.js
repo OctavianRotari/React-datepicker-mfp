@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
-import TextBoxContainer from '../../containers/TextBoxContainer';
+import NavBoxContainer from '../../containers/NavBoxContainer';
 
-class TopBar extends Component {
-  buildTopBar() {
-    const { children } = this.props.topBar;
+class NavSidebar extends Component {
+  buildNavBox() {
+    const { forms } = this.props;
     let id = 0;
-    return _.map(children, (child) => {
+    return _.map(forms, (form) => {
       id += 1;
       return (
-        <TextBoxContainer 
+        <NavBoxContainer 
           key={id} 
-          child={child} 
+          value={ form.value }
+          name={ form.name }
         />
-      )
+      );
     })
   }
 
@@ -24,16 +25,16 @@ class TopBar extends Component {
         style={
           {
             flex: 1, 
-            flexDirection: 'row',
+            flexDirection: 'column',
             borderBottomWidth: 0.5,
             borderTopWidth: 0.5
           }
         }
       >
-        { this.buildTopBar() }
+        { this.buildNavBox() }
       </View>
     )
   }
 }
 
-export default TopBar;
+export default NavSidebar;

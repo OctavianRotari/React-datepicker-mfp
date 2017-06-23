@@ -9,7 +9,8 @@ import rootReducer from '../reducers/index';
 const InitialState = {
   appData: {},
   viewState: {},
-  events: []
+  events: [],
+  activeForm: {}
 }
 
 const store = createStore(

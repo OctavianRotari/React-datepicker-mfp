@@ -17,6 +17,8 @@ const actionTypes = {
 
   CreateViewStateAction: 'CREATE_VIEW_STATE_ACTION',
 
+  SetActiveForm: 'SET_ACTIVE_FORM',
+
   CreateEvent: 'CREATE_EVENT'
 }
 

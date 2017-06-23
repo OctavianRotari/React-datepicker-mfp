@@ -7,14 +7,16 @@ class TextBox extends Component {
     const { components } = this.props;
     const { children } = this.props.child;
     let textBoxValue;
+    let id = 0;
     return _.map(children, (child) => {
+      id += 1;
       if(components[child].value) {
         textBoxValue = components[child].value;
       } else {
         textBoxValue = '/';
       }
       return(
-          <Text style={{ flex:1 }}>
+          <Text key={id} style={{ flex:1 }}>
             { textBoxValue } 
           </Text>
       )
