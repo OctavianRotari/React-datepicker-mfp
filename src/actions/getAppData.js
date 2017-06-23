@@ -1,6 +1,7 @@
 // @flow
 import ActionTypes from '../constants/actionTypes';
 import database from '../database';
+import { createViewState } from './createViewState';
 
 export function getAppData() {
   return dispatch => {
@@ -8,6 +9,7 @@ export function getAppData() {
     return database.ref('/appData').once('value', span => {
       const payload = span.val();
       dispatch(getAppDataFulfilledAction(payload));
+      dispatch(createViewState(payload.datapoints));
     })
       .catch((error) => {
         console.log(error);

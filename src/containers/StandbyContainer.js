@@ -11,14 +11,6 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    onLoaded: (datapoints) => {
-      dispatch(createViewState(datapoints))
-    }
-  }
-}
-
-const StandbyContainer = connect(mapStateToProps, mapDispatchToProps)(Vista);
+const StandbyContainer = connect(mapStateToProps)(Vista);
 
 export default StandbyContainer;

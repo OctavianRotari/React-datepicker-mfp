@@ -69,7 +69,6 @@ function discardValue(state, action){
 function insertItem(array, value) {
   let newArray = array.slice();
   newArray.splice(-1, 0, value);
-  console.log(newArray);
   return newArray;
 }
 

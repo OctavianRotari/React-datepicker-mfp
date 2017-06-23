@@ -5,7 +5,8 @@ import { getAppData } from '../actions/getAppData';
 
 function mapStateToProps(state) {
   return {
-    appData: state.appData
+    appData: state.appData,
+    viewState: state.viewState
   }
 }
 
