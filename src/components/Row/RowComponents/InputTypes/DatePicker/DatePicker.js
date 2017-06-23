@@ -23,7 +23,7 @@ class Datepicker extends Component {
         activeOpacity={0.9}
       >
         <View style={ styles.containerText }>
-          <Text style={ styles.label }>
+          <Text style={ styles.text }>
             { label }
           </Text>
           <DatePicker

@@ -14,7 +14,10 @@ class Vista extends Component {
     return _.map(children, child => {
       const { name } = child;
       return(
-        <Section key={ name } rows={ child.children }/>
+        <Section 
+          key={ name } 
+          rows={ child.children }
+        />
       )
     })
   }
@@ -24,12 +27,22 @@ class Vista extends Component {
     if(!components || inProgress){
       return(
         <View>
-          <ActivityIndicator/>
+          <ActivityIndicator
+            style={
+              {
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: 80, 
+              }
+            }
+            size="large"
+            color="#123456" 
+          />
         </View>
       )
     }
     return (
-      <View style={{flexDirection: 'column'}}>
+      <View style={{flex:1}}>
         { this.renderSections() }
       </View>
     );

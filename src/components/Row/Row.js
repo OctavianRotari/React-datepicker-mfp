@@ -20,7 +20,7 @@ class Row extends Component {
 
   render() {
     return (
-      <View style={ styles.row }>
+      <View style={{flex:1, flexDirection: 'row'}}>
         { this.buildRow() }
       </View>
     );

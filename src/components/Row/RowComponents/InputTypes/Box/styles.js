@@ -4,7 +4,7 @@ export default StyleSheet.create({
   containerBox: {
     flex: 1,
     flexDirection: 'row',
-    borderWidth: 1,
+    borderBottomWidth: 1,
     borderColor: '#5e5e5f'
   },
   containerText: {
@@ -13,7 +13,8 @@ export default StyleSheet.create({
   },
   text: {
     flex: 1,
-    textAlign: 'center'
+    textAlign: 'center',
+    color:'white'
   },
   containerBoxSelected: {
     flex: 1,

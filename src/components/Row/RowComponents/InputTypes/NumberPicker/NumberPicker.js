@@ -15,7 +15,6 @@ import styles from './styles';
 
 class NumberPicker extends Component {
   selectedValue() {
-    console.log(this.props)
     const { selectedValue, values } = this.props;
     if(selectedValue) {
       return selectedValue;

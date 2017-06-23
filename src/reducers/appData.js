@@ -23,7 +23,8 @@ export default function( state = {}, action ) {
         error: '',
         success: 'Got App Data',
         datapoints: payload.datapoints,
-        forms: payload.forms
+        forms: payload.forms,
+        topBar: payload.topBar
       })
     }
     default:

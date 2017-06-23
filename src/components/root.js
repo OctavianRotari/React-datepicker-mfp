@@ -15,9 +15,9 @@ class Root extends Component {
   render() {
     return (
       <Provider store={store}>
-        <View>
-          <StatusBar />
-          <TraumaAppContainer />
+        <View style={{flex:1}}>
+          <StatusBar style={{flex:1}}/>
+          <TraumaAppContainer style={{flex:13}}/>
         </View>
       </Provider>
     );

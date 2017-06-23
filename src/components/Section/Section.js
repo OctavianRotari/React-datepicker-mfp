@@ -22,8 +22,9 @@ class Section extends Component {
   }
 
   render() {
+    const { rows } = this.props;
     return (
-      <View>
+      <View style={{flex: rows.length}}>
         { this.renderRow() }
       </View>
     );
