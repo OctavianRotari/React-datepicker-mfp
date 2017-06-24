@@ -1,11 +1,9 @@
-import { Dimensions, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   containerBox: {
     flex: 1,
     flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderColor: '#5e5e5f'
   },
   containerText: {
     flex: 1,
@@ -19,7 +17,6 @@ export default StyleSheet.create({
   containerBoxSelected: {
     flex: 1,
     flexDirection: 'row',
-    borderWidth: 1,
     borderColor: '#5e5e5f',
     backgroundColor: "#048fc0"
   }

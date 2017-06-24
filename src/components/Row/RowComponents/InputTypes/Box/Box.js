@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text, TouchableHighlight } from 'react-native';
-import styles from './styles';
+import styles from '../styles';
 
 class Box extends Component {
   onTap() {

@@ -2,20 +2,21 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import RowContainer from '../../containers/RowContainer';
 import styles from './styles';
-import {
-  View,
-  Text
-} from 'react-native';
+import { View, Text } from 'react-native';
 
 class Section extends Component {
   renderRow() {
-    const { rows } = this.props;
+    const { rows, label } = this.props;
     return _.map(rows, row => {
       const { label, children } = row;
       return(
         <RowContainer
           key={ label }
+          label={ label }
           rowComponents={ children }
+          onLayout={ (event) => {
+            const {x, y, width, height} = event.nativeEvent.layout;
+          }}
         />
       )
     });
@@ -24,7 +25,7 @@ class Section extends Component {
   render() {
     const { rows } = this.props;
     return (
-      <View style={{flex: rows.length}}>
+      <View style={{ flex: rows.length }}>
         { this.renderRow() }
       </View>
     );

@@ -11,7 +11,7 @@ import {
   View
 } from 'react-native';
 import SimplePicker from 'react-native-simple-picker';
-import styles from './styles';
+import styles from '../styles';
 
 class NumberPicker extends Component {
   selectedValue() {

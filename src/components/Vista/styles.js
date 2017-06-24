@@ -1,6 +1,4 @@
-import { Dimensions, StyleSheet } from 'react-native';
-import { colors } from '../../config/styles';
-const { width } = Dimensions.get('window');
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 });

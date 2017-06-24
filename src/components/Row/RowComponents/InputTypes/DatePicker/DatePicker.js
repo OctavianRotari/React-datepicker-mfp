@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { TouchableHighlight, View, Text } from 'react-native';
 import DatePicker from 'react-native-datepicker';
-import styles from './styles';
+import styles from '../styles';
 import moment from 'moment';
 
 class Datepicker extends Component {

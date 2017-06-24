@@ -10,6 +10,8 @@ import StatusBar from '../StatusBar';
 import VistaContainer from '../../containers/VistaContainer';
 import TopBarContainer from '../../containers/TopBarContainer';
 import NavSidebarContainer from '../../containers/NavSidebarContainer';
+import { colors } from '../../config/colors';
+import css from '../../config/commonStyles';
 import styles from './styles';
 
 class TraumaApp extends Component {
@@ -25,40 +27,28 @@ class TraumaApp extends Component {
       return(
         <View style={{flex:1}}>
           <ActivityIndicator
-            style={
-              {
-                alignItems: 'center',
-                justifyContent: 'center',
-                backgroundColor: 'dimgrey',
-                flex: 1
-              }
-            }
-            color="#048fc0" 
+            style={ styles.actInd }
+            color={ colors.secCol }
             size="large"
           />
         </View>
       )
     }
     return (
-      <View style={{flex:1, flexDirection:'column', backgroundColor: 'dimgrey'}}>
+      <View style={[css.flexOneCol, css.bgClr]}>
         <TopBarContainer/>
-        <View style={{flex:12, flexDirection: 'row'}}>
-          <View style={{flex:2, borderRightWidth: 0.5}}>
+        <View style={ styles.view }>
+          <View style={ styles.navSidebar }>
             <NavSidebarContainer />
           </View>
-          <View style={{flex:14}}>
+          <View style={ styles.vista }>
             <VistaContainer name='standby'/>
           </View>
-          <View style={
-            {
-              borderLeftWidth: 1,
-              flex:4, 
-            }
-          }>
-          <Text>Alerts go here</Text>
+          <View style={ styles.alerts }>
+            <Text>Alerts go here</Text>
+          </View>
         </View>
       </View>
-    </View>
     )
   }
 }
