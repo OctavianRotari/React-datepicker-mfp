@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
+import css from '../../../config/commonStyles';
+import styles from './styles';
 
 class TextBox extends Component {
   checkBoxState() {
@@ -16,8 +18,8 @@ class TextBox extends Component {
         textBoxValue = '/';
       }
       return(
-          <Text key={id} style={{ flex:1 }}>
-            { textBoxValue } 
+          <Text key={id} style={ styles.textSelected }>
+            { textBoxValue }
           </Text>
       )
     })
@@ -26,9 +28,15 @@ class TextBox extends Component {
   render() {
     const { lable } = this.props.child;
     return(
-      <View style={{flex:1, flexDirection:'column'}}>
-        <Text style={{ flex:1 }}>{ lable }</Text>
-        <View style={{flex:1, flexDirection:'row'}}>
+      <View style={[ css.flexOneCol,
+          {
+            flex: 1,
+            alignItems:'center',
+            justifyContent:'center',
+          }
+      ]}>
+        <Text style={ styles.labelVisible }>{ lable }</Text>
+        <View style={ styles.containerText }>
           { this.checkBoxState() }
         </View>
       </View>

@@ -18,7 +18,7 @@ class Section extends Component {
       return(
         <View
           key={ label }
-          style={[ {flex: 1},  showBorder ]}
+          style={[ {flex: rows.length},  showBorder ]}
         >
           <RowContainer
             label={ label }
@@ -40,7 +40,7 @@ class Section extends Component {
     const { rows } = this.props;
     return (
       <View 
-        style={[{ flex: rows.length }, styles.sectionBorder]}
+        style={[{ flex: 1 }, styles.sectionBorder]}
         onLayout={ 
           (event) => 
             this.measureView(event.nativeEvent.layout.height) 

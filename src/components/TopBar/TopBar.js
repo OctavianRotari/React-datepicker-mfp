@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
 import TextBoxContainer from '../../containers/TextBoxContainer';
+import styles from './styles';
 
 class TopBar extends Component {
   buildTopBar() {
@@ -20,16 +21,7 @@ class TopBar extends Component {
 
   render() {
     return (
-      <View
-        style={
-          {
-            flex: 1, 
-            flexDirection: 'row',
-            borderBottomWidth: 0.5,
-            borderTopWidth: 0.5
-          }
-        }
-      >
+      <View style={ styles.topBarContainer }>
         { this.buildTopBar() }
       </View>
     )

@@ -10,14 +10,15 @@ class Vista extends Component {
     let id = 0;
     return _.map(children, (section, index) => {
       id += 1;
-      const { name, label, showLabel } = section;
+      const { name, label, showLabel, children } = section;
       const showBorder = children.length === index + 1 ? null : styles.sectionBorder
       return(
-        <View key={ id } style= {[{ flex: 1 } , showBorder]}>
+        <View key={ id } style= {[{ flex: children.length } , showBorder]}>
           <Section 
+            style={{ flex: children.length }}
             label={ label }
             showLabel={ showLabel }
-            rows={ section.children }
+            rows={ children }
           />
         </View>
       )

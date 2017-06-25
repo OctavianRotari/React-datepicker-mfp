@@ -37,7 +37,7 @@ class Box extends Component {
         <View style={  selected ? styles.containerTextSelected : styles.containerText }>
           { this.showLabel() }
             <Text style={ selected ? styles.textSelected : styles.text }>
-              { value }
+              { value.toUpperCase() }
             </Text>
         </View>
       </TouchableHighlight>
