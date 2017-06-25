@@ -36,25 +36,31 @@ class NumberPicker extends Component {
     return options;
   }
 
+  showLabel() {
+    const { label, selected } = this.props;
+    if(selected) {
+      return(
+        <Text style={ styles.text }>
+          { label }
+        </Text>
+      )
+    }
+  }
+
   render() {
     const { name, value, label, selected } = this.props;
     return (
       <TouchableHighlight
-        style={
-          selected ?
-            styles.containerBoxSelected : styles.containerBox
-        }
+        style={ selected ? styles.containerBoxSelected : styles.containerBox }
         underlayColor="#048fc0"
         activeOpacity={0.9}
-        onPress={() => {
-          this.refs.picker.show();
-        }}
+        onPress={() => { this.refs.picker.show(); }}
       >
-        <View style={styles.containerText}>
-          <Text style={ styles.text }>
-            { label }
-          </Text>
-          <Text style={styles.text}>{ this.selectedValue() }</Text>
+      <View style={ selected ? styles.containerTextSelected : styles.containerText }>
+        { this.showLabel() }
+        <Text style={ selected ? styles.textSelected : styles.text }>
+          { this.selectedValue() }
+        </Text>
           <SimplePicker
             ref={'picker'}
             options={this.options()}

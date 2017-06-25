@@ -14,23 +14,29 @@ class Box extends Component {
     return onDiscard( name, value, parentType );
   }
 
+  showLabel() {
+    const { label, selected } = this.props;
+    if(selected) {
+      return(
+        <Text style={ styles.text }>
+          { label }
+        </Text>
+      )
+    }
+  }
+
   render() {
     const { label, selected, value } = this.props;
     return (
       <TouchableHighlight
-        style={
-          selected ?
-            styles.containerBoxSelected : styles.containerBox
-        }
+        style={ selected ? styles.containerBoxSelected : styles.containerBox }
         onPress={() => { this.onTap() }}
         underlayColor="#048fc0"
         activeOpacity={ 0.9 }
       >
-        <View style={ styles.containerText }>
-          <Text style={ styles.text }>
-            { label }
-          </Text>
-          <Text style={ styles.text }>
+        <View style={  selected ? styles.containerTextSelected : styles.containerText }>
+          { this.showLabel() }
+          <Text style={ selected ? styles.textSelected : styles.text }>
             { value }
           </Text>
         </View>

@@ -5,6 +5,11 @@ import styles from './styles';
 import { View, Text } from 'react-native';
 
 class Section extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { height: 0 };
+  }
+
   renderRow() {
     const { rows, label } = this.props;
     return _.map(rows, row => {
@@ -22,10 +27,20 @@ class Section extends Component {
     });
   }
 
+  measureView(height) {
+    this.setState({ height: height });
+  }
+
   render() {
     const { rows } = this.props;
     return (
-      <View style={{ flex: rows.length }}>
+      <View 
+        style={{ flex: rows.length }}
+        onLayout={ 
+          (event) => 
+            this.measureView(event.nativeEvent.layout.height) 
+        }
+      >
         { this.renderRow() }
       </View>
     );

@@ -5,7 +5,7 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: 'rgba(225, 225, 225, 0.50)'
   },
-  lableCont: {
+  lableRow: {
     backgroundColor: 'white',
     alignItems:'center',
     justifyContent:'center',

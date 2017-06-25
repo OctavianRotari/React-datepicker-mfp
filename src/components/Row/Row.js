@@ -42,7 +42,7 @@ class Row extends Component {
         style={[ css.flexOneRow, styles.borderBottom ]}
         onLayout={ (event) => this.measureView(event.nativeEvent.layout.height) }
       >
-        <View  style={ styles.lableCont }>
+        <View  style={ styles.lableRow }>
       <Text style={
         [
           { minWidth: this.state.height }, 

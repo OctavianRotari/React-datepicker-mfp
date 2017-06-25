@@ -7,11 +7,15 @@ import styles from './styles';
 class Vista extends Component {
   renderSections() {
     const { children } = this.props.forms;
+    let id = 0;
     return _.map(children, child => {
-      const { name } = child;
+      id += 1;
+      const { name, label, showLabel } = child;
       return(
         <Section 
-          key={ name } 
+          key={ id } 
+          label={ label }
+          showLabel={ showLabel }
           rows={ child.children }
         />
       )
