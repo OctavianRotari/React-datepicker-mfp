@@ -32,6 +32,7 @@ export default StyleSheet.create({
     color:'white',
     justifyContent:'center',
     fontFamily: 'HelveticaNeue-Medium',
+    maxHeight: 18,
   },
   textSelected: {
     flex: 1,

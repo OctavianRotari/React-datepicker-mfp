@@ -21,16 +21,19 @@ class Datepicker extends Component {
         style={ selected ? styles.containerBoxSelected : styles.containerBox }
         underlayColor="#048fc0"
         activeOpacity={0.9}
+        onPress={() => { this.refs.datePicker.onPressDate(); }}
       >
         <View style={  styles.containerTextSelected }>
           <Text style={ styles.labelVisible }>
             { label }
           </Text>
+          <Text style={ selected ? styles.textSelected : styles.text }>
+            { this.selectedValue() }
+          </Text>
           <DatePicker
-            style={{ flex: 1 }}
-            date={this.selectedValue()}
+            ref={'datePicker'}
+            hideText={true}
             mode="datetime"
-            placeholder="select date"
             format="MMMM Do YYYY, h:mm:ss a"
             confirmBtnText="Confirm"
             cancelBtnText="Cancel"

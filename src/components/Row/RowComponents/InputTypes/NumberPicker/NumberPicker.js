@@ -54,7 +54,7 @@ class NumberPicker extends Component {
           </Text>
           <SimplePicker
             ref={'picker'}
-            options={this.options()}
+            options={ this.options() }
             onSubmit={
               (option) => {
                 this.props.onSelect( name, option )
