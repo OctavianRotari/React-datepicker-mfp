@@ -1,10 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  borderBottom: {
-    borderBottomWidth: 1,
-    borderColor: 'rgba(225, 225, 225, 0.50)'
-  },
   lableRow: {
     backgroundColor: 'white',
     alignItems:'center',

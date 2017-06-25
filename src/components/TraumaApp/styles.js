@@ -17,10 +17,10 @@ export default StyleSheet.create({
   },
   navSidebar: {
     flex:2,
-    borderRightWidth: 0.5
   },
   alerts: {
-    borderLeftWidth: 1,
     flex:4,
+    borderLeftWidth: 1,
+    borderColor: 'rgba(225, 225, 225, 0.50)'
   },
 });

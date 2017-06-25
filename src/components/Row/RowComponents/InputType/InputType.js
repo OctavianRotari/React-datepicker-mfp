@@ -22,7 +22,18 @@ class InputType extends Component {
           }
         }
       >
-        { this.whichInputType() }
+        <View
+          style={
+            {
+              flex: 1,
+              flexDirection: 'row',
+              borderLeftWidth: 1,
+              borderColor: 'rgba(225, 225, 225, 0.50)'
+            }
+          }
+        >
+              { this.whichInputType() }
+        </View>
       </View>
     )
   }

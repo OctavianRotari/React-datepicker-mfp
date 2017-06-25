@@ -12,17 +12,22 @@ class Section extends Component {
 
   renderRow() {
     const { rows, label } = this.props;
-    return _.map(rows, row => {
+    return _.map(rows, (row, index) => {
       const { label, children } = row;
+      const showBorder = rows.length === index + 1 ? null : styles.borderBottomRow
       return(
-        <RowContainer
+        <View
           key={ label }
-          label={ label }
-          rowComponents={ children }
-          onLayout={ (event) => {
-            const {x, y, width, height} = event.nativeEvent.layout;
-          }}
-        />
+          style={[ {flex: 1},  showBorder ]}
+        >
+          <RowContainer
+            label={ label }
+            rowComponents={ children }
+            onLayout={ (event) => {
+              const {x, y, width, height} = event.nativeEvent.layout;
+            }}
+          />
+        </View>
       )
     });
   }
@@ -35,7 +40,7 @@ class Section extends Component {
     const { rows } = this.props;
     return (
       <View 
-        style={{ flex: rows.length }}
+        style={[{ flex: rows.length }, styles.sectionBorder]}
         onLayout={ 
           (event) => 
             this.measureView(event.nativeEvent.layout.height) 

@@ -37,7 +37,7 @@ class Row extends Component {
   render() {
     const { label } = this.props;
     return (
-      <View style={[ css.flexOneRow, styles.borderBottom ]} >
+      <View style={ css.flexOneRow } >
         <View style={[ {flex: 1, flexDirection: 'row'}, styles.lableRow] }>
           <Text style={[ this.rotateLable(label), { minWidth: this.state.height } ]}>{ label }</Text>
         </View>

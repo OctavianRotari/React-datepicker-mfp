@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
 import NavBoxContainer from '../../containers/NavBoxContainer';
+import styles from './styles';
 
 class NavSidebar extends Component {
   buildNavBox() {
@@ -21,16 +22,7 @@ class NavSidebar extends Component {
 
   render() {
     return (
-      <View
-        style={
-          {
-            flex: 1, 
-            flexDirection: 'column',
-            borderBottomWidth: 0.5,
-            borderTopWidth: 0.5
-          }
-        }
-      >
+      <View style={ styles.navSidebarContainer } >
         { this.buildNavBox() }
       </View>
     )

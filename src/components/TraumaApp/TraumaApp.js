@@ -42,7 +42,7 @@ class TraumaApp extends Component {
             <NavSidebarContainer />
           </View>
           <View style={ styles.vista }>
-            <VistaContainer name='standby'/>
+            <VistaContainer/>
           </View>
           <View style={ styles.alerts }>
             <Text>Alerts go here</Text>

@@ -45,7 +45,6 @@ export default StyleSheet.create({
   containerBoxSelected: {
     flex: 1,
     flexDirection: 'row',
-    borderColor: '#5e5e5f',
     backgroundColor: "#048fc0",
   }
 })
