@@ -9,7 +9,6 @@ export default StyleSheet.create({
     backgroundColor: 'white',
     alignItems:'center',
     justifyContent:'center',
-    maxWidth: 15
   },
   textRot: {
     transform: [{ rotate: '-90deg' }],
@@ -18,9 +17,9 @@ export default StyleSheet.create({
     fontSize: 9,
   },
   textNorm: {
-    textAlign: 'center',
+    textAlign: 'left',
     backgroundColor: 'transparent',
     fontSize: 9,
-    maxWidth: 9
+    maxWidth: 9,
   }
 });

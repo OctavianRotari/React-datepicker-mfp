@@ -36,23 +36,16 @@ class Row extends Component {
 
   render() {
     const { label } = this.props;
-    const lableRot = this.rotateLable(label);
     return (
-      <View
-        style={[ css.flexOneRow, styles.borderBottom ]}
-        onLayout={ (event) => this.measureView(event.nativeEvent.layout.height) }
-      >
-        <View  style={ styles.lableRow }>
-      <Text style={
-        [
-          { minWidth: this.state.height }, 
-          lableRot
-        ]
-      }>{ label }</Text>
+      <View style={[ css.flexOneRow, styles.borderBottom ]} >
+        <View style={[ {flex: 1, flexDirection: 'row'}, styles.lableRow] }>
+          <Text style={[ this.rotateLable(label), { minWidth: this.state.height } ]}>{ label }</Text>
+        </View>
+        <View style={{ flex: 30, flexDirection:'row'}} onLayout={ (event) => this.measureView(event.nativeEvent.layout.height) }>
+          { this.buildRow() }
+        </View>
       </View>
-      { this.buildRow() }
-      </View>
-      );
+    );
   }
 }
 

@@ -14,29 +14,20 @@ class Datepicker extends Component {
     return moment().format('MMMM Do YYYY, h:mm:ss a');
   }
 
-  showLabel() {
-    const { label, selected } = this.props;
-    if(selected) {
-      return(
-        <Text style={ styles.text }>
-          { label }
-        </Text>
-      )
-    }
-  }
-
   render(){
     const { selected, label, name } = this.props;
     return (
       <TouchableHighlight
-        style={ selected ? styles.containerBoxSelected : styles.containerBox}
+        style={ selected ? styles.containerBoxSelected : styles.containerBox }
         underlayColor="#048fc0"
         activeOpacity={0.9}
       >
-        <View style={  selected ? styles.containerTextSelected : styles.containerText }>
-          { this.showLabel() }
+        <View style={  styles.containerTextSelected }>
+          <Text style={ styles.labelVisible }>
+            { label }
+          </Text>
           <DatePicker
-            style={ selected ? styles.textSelected : styles.text }
+            style={{ flex: 1 }}
             date={this.selectedValue()}
             mode="datetime"
             placeholder="select date"

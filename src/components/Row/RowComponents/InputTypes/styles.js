@@ -11,6 +11,15 @@ export default StyleSheet.create({
     alignItems:'center',
     justifyContent:'center'
   },
+  labelVisible: {
+    flex: 1,
+    textAlign: 'center',
+    color:'white',
+    alignItems:'flex-end',
+    fontFamily: 'HelveticaNeue-Light',
+    fontSize: 12,
+    maxHeight: 18,
+  },
   containerTextSelected: {
     flex:1,
     flexDirection:'column',
@@ -21,13 +30,16 @@ export default StyleSheet.create({
     flex: 1,
     textAlign: 'center',
     color:'white',
-    justifyContent:'center'
+    justifyContent:'center',
+    fontFamily: 'HelveticaNeue-Medium',
   },
   textSelected: {
     flex: 1,
     textAlign: 'center',
     color:'white',
-    fontFamily: 'HelveticaNeue-Bold'
+    fontFamily: 'HelveticaNeue-Bold',
+    fontSize: 16,
+    maxHeight: 20,
   },
   containerBoxSelected: {
     flex: 1,

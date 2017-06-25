@@ -18,7 +18,7 @@ class Box extends Component {
     const { label, selected } = this.props;
     if(selected) {
       return(
-        <Text style={ styles.text }>
+        <Text style={ styles.labelVisible }>
           { label }
         </Text>
       )
@@ -36,9 +36,9 @@ class Box extends Component {
       >
         <View style={  selected ? styles.containerTextSelected : styles.containerText }>
           { this.showLabel() }
-          <Text style={ selected ? styles.textSelected : styles.text }>
-            { value }
-          </Text>
+            <Text style={ selected ? styles.textSelected : styles.text }>
+              { value }
+            </Text>
         </View>
       </TouchableHighlight>
     );

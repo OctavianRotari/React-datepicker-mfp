@@ -36,17 +36,6 @@ class NumberPicker extends Component {
     return options;
   }
 
-  showLabel() {
-    const { label, selected } = this.props;
-    if(selected) {
-      return(
-        <Text style={ styles.text }>
-          { label }
-        </Text>
-      )
-    }
-  }
-
   render() {
     const { name, value, label, selected } = this.props;
     return (
@@ -56,17 +45,18 @@ class NumberPicker extends Component {
         activeOpacity={0.9}
         onPress={() => { this.refs.picker.show(); }}
       >
-      <View style={ selected ? styles.containerTextSelected : styles.containerText }>
-        { this.showLabel() }
-        <Text style={ selected ? styles.textSelected : styles.text }>
-          { this.selectedValue() }
-        </Text>
+        <View style={ styles.containerTextSelected }>
+          <Text style={ styles.labelVisible }>
+            { label }
+          </Text>
+          <Text style={ selected ? styles.textSelected : styles.text }>
+            { this.selectedValue() }
+          </Text>
           <SimplePicker
             ref={'picker'}
             options={this.options()}
             onSubmit={
               (option) => {
-                console.log('option', option);
                 this.props.onSelect( name, option )
               }
             }
