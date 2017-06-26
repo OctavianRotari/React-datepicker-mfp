@@ -14,7 +14,7 @@ class Vista extends Component {
       const showBorder = children.length === index + 1 ? null : styles.sectionBorder
       return(
         <View key={ id } style= {[{ flex: children.length } , showBorder]}>
-          <Section 
+          <Section
             style={{ flex: children.length }}
             label={ label }
             showLabel={ showLabel }
@@ -30,8 +30,9 @@ class Vista extends Component {
     return (
       <View style={{flex:1}}>
         <View style={ styles.vistaTitleContainer }>
-          <Text style={ styles.vistaTitleText }
-          >{ name.toUpperCase() }</Text>
+          <Text style={ styles.vistaTitleText }>
+            { name.toUpperCase() }
+          </Text>
         </View>
         <View style={{flex:19}}>
           { this.renderSections() }

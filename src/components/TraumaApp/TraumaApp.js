@@ -10,7 +10,7 @@ import StatusBar from '../StatusBar';
 import VistaContainer from '../../containers/VistaContainer';
 import TopBarContainer from '../../containers/TopBarContainer';
 import NavSidebarContainer from '../../containers/NavSidebarContainer';
-import { colors } from '../../config/colors';
+import colors from '../../config/colors';
 import css from '../../config/commonStyles';
 import styles from './styles';
 

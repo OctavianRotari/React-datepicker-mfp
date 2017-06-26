@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { selectValue, discardValue } from '../actions/selectValue';
 import { createEvent } from '../actions/createEvent';
 import InputType from '../components/Row/RowComponents/InputType';
-import RowComponentTypes from '../constants/rowComponentTypes';
+import InputTypes from '../constants/InputTypes';
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -40,25 +40,25 @@ function checkIfSelected(selValue, ownProps) {
   let selected;
   const { name, value, parentType } = ownProps;
   switch (parentType) {
-    case RowComponentTypes.TOGGLE: {
+    case InputTypes.TOGGLE: {
       if(selValue === value) {
         return selected = true
       }
       return selected = false;
     }
-    case RowComponentTypes.SEGMENTED: {
+    case InputTypes.SEGMENTED: {
       if(selValue.includes(value)) {
         return selected = true
       }
       return selected = false;
     }
-    case RowComponentTypes.NUMERAL: {
+    case InputTypes.NUMERAL: {
       if(selValue){
         return selected = true;
       }
       return selected = false;
     }
-    case RowComponentTypes.DATETIME: {
+    case InputTypes.DATETIME: {
       if(selValue){
         return selected = true;
       }

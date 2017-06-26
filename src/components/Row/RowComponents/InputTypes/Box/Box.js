@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text, TouchableHighlight } from 'react-native';
 import styles from '../styles';
+import colors from '../../../../../config/colors';
 
 class Box extends Component {
   onTap() {
@@ -31,7 +32,7 @@ class Box extends Component {
       <TouchableHighlight
         style={ selected ? styles.containerBoxSelected : styles.containerBox }
         onPress={() => { this.onTap() }}
-        underlayColor="#048fc0"
+        underlayColor={ colors.secCol }
         activeOpacity={ 0.9 }
       >
         <View style={  selected ? styles.containerTextSelected : styles.containerText }>

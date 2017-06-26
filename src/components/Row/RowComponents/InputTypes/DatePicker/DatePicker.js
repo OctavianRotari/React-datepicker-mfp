@@ -11,7 +11,7 @@ class Datepicker extends Component {
     if(selectedValue) {
       return selectedValue;
     }
-    return moment().format('MMMM Do YYYY, h:mm:ss a');
+    return moment().format('Do, h:mm a');
   }
 
   render(){
@@ -34,7 +34,7 @@ class Datepicker extends Component {
             ref={'datePicker'}
             hideText={true}
             mode="datetime"
-            format="MMMM Do YYYY, h:mm:ss a"
+            format="Do, h:mm a"
             confirmBtnText="Confirm"
             cancelBtnText="Cancel"
             showIcon={ false }

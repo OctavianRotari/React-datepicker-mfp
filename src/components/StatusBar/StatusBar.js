@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StatusBar } from 'react-native';
 import styles from './styles';
 
-class StatusBar extends Component {
+class StatusBarComponent extends Component {
   render() {
     return(
-      <View style={styles.statusbar}/>
+      <View style={styles.statusbar}>
+        <StatusBar
+          barStyle="light-content"
+        />
+      </View>
     )
   }
 }
 
-export default StatusBar;
+export default StatusBarComponent;

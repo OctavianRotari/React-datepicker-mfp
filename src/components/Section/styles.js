@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native';
+import colors from '../../config/colors';
 
 export default StyleSheet.create({
   borderBottomRow: {
     borderBottomWidth: 1,
-    borderColor: 'rgba(225, 225, 225, 0.50)'
+    borderColor: colors.borderCol,
   },
 });

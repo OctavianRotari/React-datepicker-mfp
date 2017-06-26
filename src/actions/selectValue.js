@@ -1,6 +1,5 @@
 // @flow
 import ActionTypes from '../constants/actionTypes';
-import RowComponentTypes from '../constants/rowComponentTypes';
 
 export function selectValue(name, value, parentType) {
   const payload = {

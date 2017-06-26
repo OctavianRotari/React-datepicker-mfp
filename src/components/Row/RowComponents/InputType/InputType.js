@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
 import InputTypes from '../InputTypes'
+import styles from './styles';
+import css from '../../../../config/commonStyles.js';
 
 class InputType extends Component {
   whichInputType() {
@@ -14,24 +16,8 @@ class InputType extends Component {
 
   render() {
     return(
-      <View
-        style= {
-          {
-            flex: 1,
-            flexDirection: 'row'
-          }
-        }
-      >
-        <View
-          style={
-            {
-              flex: 1,
-              flexDirection: 'row',
-              borderLeftWidth: 1,
-              borderColor: 'rgba(225, 225, 225, 0.50)'
-            }
-          }
-        >
+      <View style= { css.flexOneRow } >
+        <View style={[ css.flexOneRow, styles.borderLeft ]} >
               { this.whichInputType() }
         </View>
       </View>

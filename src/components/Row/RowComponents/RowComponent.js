@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View } from 'react-native';
-import rowComponentTypes from '../../../constants/rowComponentTypes';
+import InputTypes from '../../../constants/InputTypes';
 import InputTypeContainer from '../../../containers/InputTypeContainer'
 
 class RowComponent extends Component {
@@ -38,10 +38,10 @@ class RowComponent extends Component {
   whichChild() {
     const { control, values } = this.props.datapoint;
     switch(control) {
-      case rowComponentTypes.NUMERAL: {
+      case InputTypes.NUMERAL: {
         return this.renderBox('NumberPicker')
       }
-      case rowComponentTypes.DATETIME: {
+      case InputTypes.DATETIME: {
         return this.renderBox('DatePicker')
       }
       default: {
@@ -55,13 +55,7 @@ class RowComponent extends Component {
     const numberOfCubes = values.length ? values.length : 1; 
     return(
       <View
-        style= {
-          {
-            flex: numberOfCubes,
-            flexDirection: 'row'
-          }
-        }
-      >
+        style= { { flex: numberOfCubes, flexDirection: 'row' } } >
         { this.whichChild() }
       </View>
     )
