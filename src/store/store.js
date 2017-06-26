@@ -18,10 +18,11 @@ const store = createStore(
   InitialState,
   compose(
     // autoRehydrate(),
-    applyMiddleware(thunk, logger)
+    applyMiddleware(thunk)
   )
 )
 
 persistStore(store, { storage: AsyncStorage });
 
 export default store;
+// , logger
