@@ -11,8 +11,7 @@ import VistaContainer from '../../containers/VistaContainer';
 import TopBarContainer from '../../containers/TopBarContainer';
 import NavSidebarContainer from '../../containers/NavSidebarContainer';
 import colors from '../../config/colors';
-import css from '../../config/commonStyles';
-import styles from './styles';
+import { cmss, tass } from '../../styles/styles';
 
 class TraumaApp extends Component {
   componentDidMount() {
@@ -27,7 +26,7 @@ class TraumaApp extends Component {
       return(
         <View style={{flex:1}}>
           <ActivityIndicator
-            style={ styles.actInd }
+            style={ tass.actInd }
             color={ colors.secCol }
             size="large"
           />
@@ -35,16 +34,16 @@ class TraumaApp extends Component {
       )
     }
     return (
-      <View style={[css.flexOneCol, css.bgClr]}>
+      <View style={[cmss.flexOneCol, cmss.bgClr]}>
         <TopBarContainer/>
-        <View style={ styles.view }>
-          <View style={ styles.navSidebar }>
+        <View style={ tass.view }>
+          <View style={ tass.navSidebar }>
             <NavSidebarContainer />
           </View>
-          <View style={ styles.vista }>
+          <View style={ tass.vista }>
             <VistaContainer/>
           </View>
-          <View style={ styles.alerts }>
+          <View style={ tass.alerts }>
             <Text>Alerts go here</Text>
           </View>
         </View>

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text, TouchableHighlight } from 'react-native';
-import { IFS } from '../../styles/styles';
+import { ifss } from '../../styles/styles';
 import colors from '../../config/colors';
 
 class InputBox extends Component {
@@ -19,7 +19,7 @@ class InputBox extends Component {
     const { label, selected } = this.props;
     if(selected) {
       return(
-        <Text style={ IFS.labelVisible }>
+        <Text style={ ifss.labelVisible }>
           { label }
         </Text>
       )
@@ -30,14 +30,14 @@ class InputBox extends Component {
     const { label, selected, value } = this.props;
     return (
       <TouchableHighlight
-        style={ selected ? IFS.containerBoxSelected : IFS.containerBox }
+        style={ selected ? ifss.containerBoxSelected : ifss.containerBox }
         onPress={() => { this.onTap() }}
         underlayColor={ colors.secCol }
         activeOpacity={ 0.9 }
       >
-        <View style={  selected ? IFS.containerTextSelected : IFS.containerText }>
+        <View style={  selected ? ifss.containerTextSelected : ifss.containerText }>
           { this.showLabel() }
-            <Text style={ selected ? IFS.textSelected : IFS.text }>
+            <Text style={ selected ? ifss.textSelected : ifss.text }>
               { value.toUpperCase() }
             </Text>
         </View>

@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
 import InputFields from '../../constants/InputFields'
-import styles from './styles';
-import css from '../../config/commonStyles.js';
+import { cmss } from '../../styles/styles';
 
 class InputField extends Component {
   whichInputType() {
@@ -16,8 +15,8 @@ class InputField extends Component {
 
   render() {
     return(
-      <View style= { css.flexOneRow } >
-        <View style={[ css.flexOneRow, styles.borderLeft ]} >
+      <View style= { cmss.flexOneRow } >
+        <View style={[ cmss.flexOneRow, cmss.borderLeft ]} >
           { this.whichInputType() }
         </View>
       </View>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
 import TextBoxContainer from '../../containers/TextBoxContainer';
-import styles from './styles';
+import { cmss } from '../../styles/styles';
 
 class TopBar extends Component {
   buildTopBar() {
@@ -21,7 +21,7 @@ class TopBar extends Component {
 
   render() {
     return (
-      <View style={ styles.topBarContainer }>
+      <View style={[ cmss.borderTop, cmss.borderBottom, cmss.flexOneRow ]}>
         { this.buildTopBar() }
       </View>
     )
