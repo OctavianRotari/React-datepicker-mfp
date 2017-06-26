@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
-import RowComponent from './RowComponents';
+import InputType from '../InputType';
 import css from '../../config/commonStyles';
 import styles from './styles';
 
@@ -15,7 +15,7 @@ class Row extends Component {
   buildRow() {
     return _.map(this.props.rowDatapoints, ( datapoint ) => {
       return(
-        <RowComponent
+        <InputType
           key={ datapoint.label }
           datapoint={ datapoint }
         />

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { TouchableHighlight, View, Text } from 'react-native';
 import DatePicker from 'react-native-datepicker';
-import styles from '../styles';
+import { IFS } from '../../styles/styles';
 import moment from 'moment';
 
 class Datepicker extends Component {
@@ -18,16 +18,16 @@ class Datepicker extends Component {
     const { selected, label, name } = this.props;
     return (
       <TouchableHighlight
-        style={ selected ? styles.containerBoxSelected : styles.containerBox }
+        style={ selected ? IFS.containerBoxSelected : IFS.containerBox }
         underlayColor="#048fc0"
         activeOpacity={0.9}
         onPress={() => { this.refs.datePicker.onPressDate(); }}
       >
-        <View style={  styles.containerTextSelected }>
-          <Text style={ styles.labelVisible }>
+        <View style={  IFS.containerTextSelected }>
+          <Text style={ IFS.labelVisible }>
             { label }
           </Text>
-          <Text style={ selected ? styles.textSelected : styles.text }>
+          <Text style={ selected ? IFS.textSelected : IFS.text }>
             { this.selectedValue() }
           </Text>
           <DatePicker

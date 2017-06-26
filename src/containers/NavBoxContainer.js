@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import NavBox from '../components/NavSidebar/NavBox';
+import NavBox from '../components/NavBox';
 import { setActiveForm } from '../actions/setActiveForm';
 
 function mapDispatchToProps(dispatch, ownProps) {

@@ -1,5 +1,5 @@
 // @flow
-import ActionTypes from '../constants/actionTypes';
+import ActionTypes from '../constants/ActionTypes';
 
 export function selectValue(name, value, parentType) {
   const payload = {

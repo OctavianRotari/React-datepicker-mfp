@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
-import css from '../../../config/commonStyles';
+import css from '../../config/commonStyles';
 import styles from './styles';
 
 class TextBox extends Component {

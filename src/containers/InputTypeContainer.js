@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { selectValue, discardValue } from '../actions/selectValue';
 import { createEvent } from '../actions/createEvent';
-import InputType from '../components/Row/RowComponents/InputType';
+import InputField from '../components/InputField';
 import InputTypes from '../constants/InputTypes';
 
 function mapDispatchToProps(dispatch) {
@@ -19,7 +19,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state, ownProps) {
-  const { name, value, parentType } = ownProps;
+  const { name, parentType } = ownProps;
   const { components } = state.viewState;
   let selected, selValue;
 
@@ -38,27 +38,27 @@ function mapStateToProps(state, ownProps) {
 
 function checkIfSelected(selValue, ownProps) {
   let selected;
-  const { name, value, parentType } = ownProps;
-  switch (parentType) {
-    case InputTypes.TOGGLE: {
+  const { name, value, control } = ownProps;
+  switch (control) {
+    case InputTypes.Toggle.value: {
       if(selValue === value) {
         return selected = true
       }
       return selected = false;
     }
-    case InputTypes.SEGMENTED: {
+    case InputTypes.Segmented.value: {
       if(selValue.includes(value)) {
         return selected = true
       }
       return selected = false;
     }
-    case InputTypes.NUMERAL: {
+    case InputTypes.Numeral.value: {
       if(selValue){
         return selected = true;
       }
       return selected = false;
     }
-    case InputTypes.DATETIME: {
+    case InputTypes.Datetime.value: {
       if(selValue){
         return selected = true;
       }
@@ -68,6 +68,6 @@ function checkIfSelected(selValue, ownProps) {
   }
 }
 
-const InputTypeContainer = connect(mapStateToProps, mapDispatchToProps)(InputType);
+const InputFieldContainer = connect(mapStateToProps, mapDispatchToProps)(InputField);
 
-export default InputTypeContainer;
+export default InputFieldContainer;

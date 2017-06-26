@@ -1,5 +1,5 @@
 // @flow
-const actionTypes = {
+export default {
   GetDatapointRequested: 'GET_DATAPOINTS_REQUESTED',
   GetDatapointRejected: 'GET_DATAPOINTS_REJECTED',
   GetDatapointFulfilled: 'GET_DATAPOINTS_FULFILLED',
@@ -20,6 +20,4 @@ const actionTypes = {
   SetActiveForm: 'SET_ACTIVE_FORM',
 
   CreateEvent: 'CREATE_EVENT'
-}
-
-export default actionTypes;
+};

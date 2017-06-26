@@ -1,6 +1,18 @@
 export default {
-  TOGGLE: 'Toggle',
-  SEGMENTED: 'Segmented',
-  NUMERAL: 'Numeral',
-  DATETIME: 'Datetime' 
+  Toggle: {
+    value: 'Toggle',
+    child: 'InputBox'
+  },
+  Segmented: {
+    value: 'Segmented',
+    child: 'InputBox'
+  },
+  Numeral: {
+    value: 'Numeral',
+    child: 'NumberPicker'
+  },
+  Datetime: {
+    value: 'Datetime',
+    child: 'DatePicker'
+  }
 }

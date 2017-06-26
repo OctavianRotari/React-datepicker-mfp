@@ -1,5 +1,5 @@
 // @flow
-import ActionTypes from '../constants/actionTypes';
+import ActionTypes from '../constants/ActionTypes';
 import database from '../database';
 import { createViewState } from './createViewState';
 import { setActiveForm } from './setActiveForm';

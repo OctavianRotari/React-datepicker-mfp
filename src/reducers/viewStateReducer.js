@@ -1,5 +1,5 @@
 import update from 'react-addons-update';
-import ActionTypes from '../constants/actionTypes';
+import ActionTypes from '../constants/ActionTypes';
 import InputTypes from '../constants/InputTypes';
 
 export default function(state = {}, action){
@@ -48,7 +48,7 @@ export default function(state = {}, action){
 
 function buildValue(state, action) {
   const { name, value, parentType } = action.payload;
-  if(parentType === InputTypes.SEGMENTED){
+  if(parentType === InputTypes.Segmented.value){
     const component = state.components[name];
     const initialArray = component.value ? component.value : [];
     return insertItem(initialArray, value);
@@ -59,7 +59,7 @@ function buildValue(state, action) {
 function discardValue(state, action){
   const { parentType, name, value } = action.payload;
   const component = state.components[name];
-  if(parentType === InputTypes.SEGMENTED){
+  if(parentType === InputTypes.Segmented.value){
     const index = component.value.indexOf(value)
     return removeItem(component.value, index);
   }

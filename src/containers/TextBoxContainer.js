@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import TextBox from '../components/TopBar/TextBox';
+import TextBox from '../components/TextBox';
 
 function mapStateToProps(state) {
   return {

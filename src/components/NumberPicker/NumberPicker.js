@@ -4,14 +4,9 @@
  */
 
 import React, { Component } from 'react';
-import {
-  TouchableHighlight,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { TouchableHighlight, Text, View } from 'react-native';
 import SimplePicker from 'react-native-simple-picker';
-import styles from '../styles';
+import { IFS } from '../../styles/styles';
 
 class NumberPicker extends Component {
   selectedValue() {
@@ -40,16 +35,16 @@ class NumberPicker extends Component {
     const { name, value, label, selected } = this.props;
     return (
       <TouchableHighlight
-        style={ selected ? styles.containerBoxSelected : styles.containerBox }
+        style={ selected ? IFS.containerBoxSelected : IFS.containerBox }
         underlayColor="#048fc0"
         activeOpacity={0.9}
         onPress={() => { this.refs.picker.show(); }}
       >
-        <View style={ styles.containerTextSelected }>
-          <Text style={ styles.labelVisible }>
+        <View style={ IFS.containerTextSelected }>
+          <Text style={ IFS.labelVisible }>
             { label }
           </Text>
-          <Text style={ selected ? styles.textSelected : styles.text }>
+          <Text style={ selected ? IFS.textSelected : IFS.text }>
             { this.selectedValue() }
           </Text>
           <SimplePicker

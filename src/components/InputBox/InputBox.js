@@ -2,24 +2,24 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text, TouchableHighlight } from 'react-native';
-import styles from '../styles';
-import colors from '../../../../../config/colors';
+import { IFS } from '../../styles/styles';
+import colors from '../../config/colors';
 
-class Box extends Component {
+class InputBox extends Component {
   onTap() {
-    const { parentType, name, value, selected } = this.props;
+    const { control, name, value, selected } = this.props;
     const { onSelect, onDiscard } = this.props;
     if(!selected) {
-      return onSelect( name, value, parentType );
+      return onSelect( name, value, control );
     }
-    return onDiscard( name, value, parentType );
+    return onDiscard( name, value, control );
   }
 
   showLabel() {
     const { label, selected } = this.props;
     if(selected) {
       return(
-        <Text style={ styles.labelVisible }>
+        <Text style={ IFS.labelVisible }>
           { label }
         </Text>
       )
@@ -30,14 +30,14 @@ class Box extends Component {
     const { label, selected, value } = this.props;
     return (
       <TouchableHighlight
-        style={ selected ? styles.containerBoxSelected : styles.containerBox }
+        style={ selected ? IFS.containerBoxSelected : IFS.containerBox }
         onPress={() => { this.onTap() }}
         underlayColor={ colors.secCol }
         activeOpacity={ 0.9 }
       >
-        <View style={  selected ? styles.containerTextSelected : styles.containerText }>
+        <View style={  selected ? IFS.containerTextSelected : IFS.containerText }>
           { this.showLabel() }
-            <Text style={ selected ? styles.textSelected : styles.text }>
+            <Text style={ selected ? IFS.textSelected : IFS.text }>
               { value.toUpperCase() }
             </Text>
         </View>
@@ -46,4 +46,4 @@ class Box extends Component {
   }
 };
 
-export default Box;
+export default InputBox;

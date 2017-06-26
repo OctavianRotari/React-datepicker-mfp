@@ -1,7 +1,7 @@
 // @flow
 import update from 'react-addons-update';
 import _ from 'lodash';
-import ActionTypes from '../constants/actionTypes';
+import ActionTypes from '../constants/ActionTypes';
 import RowComponentTypes from '../constants/rowComponentTypes';
 
 export default function(state = {}, action){

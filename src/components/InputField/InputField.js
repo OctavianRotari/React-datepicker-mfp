@@ -2,15 +2,15 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
-import InputTypes from '../InputTypes'
+import InputFields from '../../constants/InputFields'
 import styles from './styles';
-import css from '../../../../config/commonStyles.js';
+import css from '../../config/commonStyles.js';
 
-class InputType extends Component {
+class InputField extends Component {
   whichInputType() {
     const { ...other } = this.props;
-    const { childType } = this.props;
-    const Wrapper = InputTypes[childType];
+    const { child } = this.props;
+    const Wrapper = InputFields[child];
     return <Wrapper { ...other }/>;
   }
 
@@ -18,11 +18,11 @@ class InputType extends Component {
     return(
       <View style= { css.flexOneRow } >
         <View style={[ css.flexOneRow, styles.borderLeft ]} >
-              { this.whichInputType() }
+          { this.whichInputType() }
         </View>
       </View>
     )
   }
 };
 
-export default InputType;
+export default InputField;

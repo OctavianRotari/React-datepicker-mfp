@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-export default StyleSheet.create({
+export const IFS = StyleSheet.create({
   containerBox: {
     flex: 1,
     flexDirection: 'row',
@@ -47,4 +47,4 @@ export default StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: "#048fc0",
   }
-})
+});
