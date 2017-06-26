@@ -58,13 +58,10 @@ export const ifss = StyleSheet.create({
     justifyContent:'center'
   },
   labelVisible: {
-    flex: 1,
     textAlign: 'center',
     color: colors.prCol,
-    alignItems:'flex-end',
     fontFamily: fontFamily.light,
     fontSize: 12,
-    maxHeight: 18,
   },
   containerTextSelected: {
     flex:1,
@@ -73,20 +70,16 @@ export const ifss = StyleSheet.create({
     justifyContent:'center'
   },
   text: {
-    flex: 1,
     textAlign: 'center',
     color:'white',
     justifyContent:'center',
     fontFamily: fontFamily.normal,
-    maxHeight: 18,
   },
   textSelected: {
-    flex: 1,
     textAlign: 'center',
     color: colors.prCol,
     fontFamily: fontFamily.bold,
     fontSize: 16,
-    maxHeight: 20,
   },
   containerBoxSelected: {
     flex: 1,

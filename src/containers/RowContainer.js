@@ -6,7 +6,7 @@ function mapStateToProps(state, ownProps) {
   let rowDatapoints = {};
   ownProps.rowComponents.forEach((component) => {
     const { datapoints } = state.appData;
-    rowDatapoints[component] = datapoints[component] 
+    rowDatapoints[component] = datapoints[component]
   });
 
   return {

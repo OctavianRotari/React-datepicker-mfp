@@ -17,7 +17,7 @@ class InputBox extends Component {
 
   showLabel() {
     const { label, selected } = this.props;
-    if(selected) {
+    if(selected && label) {
       return(
         <Text style={ ifss.labelVisible }>
           { label }
@@ -37,7 +37,9 @@ class InputBox extends Component {
       >
         <View style={  selected ? ifss.containerTextSelected : ifss.containerText }>
           { this.showLabel() }
-            <Text style={ selected ? ifss.textSelected : ifss.text }>
+          <Text
+            style={ selected ? ifss.textSelected : ifss.text }
+          >
               { value.toUpperCase() }
             </Text>
         </View>

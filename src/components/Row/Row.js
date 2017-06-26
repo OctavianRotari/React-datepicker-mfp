@@ -12,10 +12,12 @@ class Row extends Component {
   }
 
   buildRow() {
+    let key = 0;
     return _.map(this.props.rowDatapoints, ( datapoint ) => {
+      key += 1;
       return(
         <InputType
-          key={ datapoint.label }
+          key={ key }
           datapoint={ datapoint }
         />
       )
@@ -40,7 +42,13 @@ class Row extends Component {
         <View style={[ cmss.flexOneRow, rss.lableRow] }>
           <Text style={[ this.rotateLable(label), { minWidth: this.state.height } ]}>{ label }</Text>
         </View>
-        <View style={{ flex: 30, flexDirection:'row'}} onLayout={ (event) => this.measureView(event.nativeEvent.layout.height) }>
+        <View
+          style={{ flex: 30, flexDirection:'row'}}
+          onLayout={
+            (event) => {
+              this.measureView(event.nativeEvent.layout.height)
+            }
+          }>
           { this.buildRow() }
         </View>
       </View>
