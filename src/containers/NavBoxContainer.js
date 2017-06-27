@@ -11,6 +11,17 @@ function mapDispatchToProps(dispatch, ownProps) {
   }
 }
 
-const TextBoxContainer = connect(null, mapDispatchToProps)(NavBox);
+function mapStateToProps(state, ownProps) {
+  const { active } = state.activeForm;
+  let isSelected = false;
+  if(ownProps.value === active) {
+    isSelected = true;
+  }
+  return {
+    selected: isSelected
+  }
+}
+
+const TextBoxContainer = connect(mapStateToProps, mapDispatchToProps)(NavBox);
 
 export default TextBoxContainer;

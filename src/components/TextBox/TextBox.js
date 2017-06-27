@@ -12,14 +12,14 @@ class TextBox extends Component {
     return _.map(children, (child) => {
       id += 1;
       if(components[child].value) {
-        textBoxValue = components[child].value;
+        textBoxValue = ` ${components[child].value}`;
       } else {
         textBoxValue = '/';
       }
       return(
-          <Text key={id} style={ ifss.textSelected }>
-            { textBoxValue }
-          </Text>
+        <Text key={id} style={ ifss.textSelected }>
+          { textBoxValue }
+        </Text>
       )
     })
   }
@@ -29,7 +29,7 @@ class TextBox extends Component {
     return(
       <View style={[ cmss.flexOneCol, ifss.containerTextSelected ]}>
         <Text style={ ifss.labelVisible }>{ lable }</Text>
-        <View style={ ifss.containerText }>
+        <View style={ [ifss.containerText, { flex:1, flexDirection: 'column'}] }>
           { this.checkBoxState() }
         </View>
       </View>
