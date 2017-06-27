@@ -79,7 +79,6 @@ export const ifss = StyleSheet.create({
     textAlign: 'center',
     color: colors.prCol,
     fontFamily: fontFamily.bold,
-    fontSize: 16,
   },
   containerBoxSelected: {
     flex: 1,
