@@ -9,14 +9,14 @@ class Datepicker extends Component {
   selectedValue() {
     const { selectedValue, values } = this.props;
     if(selectedValue) {
-      const time = moment.unix(selectedValue).format('hh:mm a')
-      return time;
+      return selectedValue;
     }
-    return moment().format('hh:mm a');
+    return moment().format('X');
   }
 
   render(){
     const { selected, label, name } = this.props;
+    const selectedTime = moment.unix(this.selectedValue()).format('hh:mm a')
     return (
       <TouchableHighlight
         style={ selected ? ifss.containerBoxSelected : ifss.containerBox }
@@ -29,20 +29,22 @@ class Datepicker extends Component {
             { label }
           </Text>
           <Text style={ selected ? ifss.textSelected : ifss.text }>
-            { this.selectedValue() }
+            { selectedTime }
           </Text>
           <DatePicker
             ref={'datePicker'}
             date={ this.selectedValue() }
+            format='X'
             hideText={ true }
-            mode="datetime"
+            maxDate={ name === 'time-of-injury' ? moment().format('X') : null}
+            minDate={ name === 'eta' ? moment().format('X') : null}
+            mode={ name === 'eta' ? 'time' : 'datetime'}
             confirmBtnText="Confirm"
             cancelBtnText="Cancel"
             showIcon={ false }
             onDateChange={
               (date) => {
-                const timestamp = moment(date).format('X');
-                this.props.onSelect({name: name, value: timestamp})
+                this.props.onSelect({name: name, value: date})
               }
             }
           />
