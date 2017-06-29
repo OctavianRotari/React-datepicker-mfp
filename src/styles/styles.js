@@ -17,7 +17,7 @@ export const tass = StyleSheet.create({
     flex:14
   },
   navSidebar: {
-    flex:2,
+    flex:4,
   },
   alerts: {
     flex:4,

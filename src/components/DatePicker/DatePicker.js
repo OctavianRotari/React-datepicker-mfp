@@ -9,9 +9,10 @@ class Datepicker extends Component {
   selectedValue() {
     const { selectedValue, values } = this.props;
     if(selectedValue) {
-      return selectedValue;
+      const time = moment.unix(selectedValue).format('hh:mm a')
+      return time;
     }
-    return moment().format('Do, h:mm a');
+    return moment().format('hh:mm a');
   }
 
   render(){
@@ -34,12 +35,14 @@ class Datepicker extends Component {
             ref={'datePicker'}
             hideText={true}
             mode="datetime"
-            format="Do, h:mm a"
             confirmBtnText="Confirm"
             cancelBtnText="Cancel"
             showIcon={ false }
             onDateChange={
-              (date) => {this.props.onSelect( name, date )}
+              (date) => {
+                const timestamp = moment(date).format('X');
+                this.props.onSelect( name, timestamp )
+              }
             }
           />
         </View>
