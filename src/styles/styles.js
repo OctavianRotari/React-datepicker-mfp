@@ -51,7 +51,7 @@ export const vss = StyleSheet.create({
 })
 
 export const rss = StyleSheet.create({
-  lableRow: {
+  labelRow: {
     backgroundColor: 'white',
     alignItems:'center',
     justifyContent:'center',
@@ -59,7 +59,7 @@ export const rss = StyleSheet.create({
   textRot: {
     transform: [{ rotate: '-90deg' }],
     textAlign: 'center',
-    maxHeight: 15,
+    maxHeight: 14,
     fontSize: 9,
   },
   textNorm: {
@@ -138,6 +138,10 @@ export const cmss = StyleSheet.create({
   },
   borderTop: {
     borderTopWidth: 1,
+    borderColor: colors.borderCol
+  },
+  borderRight: {
+    borderRightWidth: 1,
     borderColor: colors.borderCol
   }
 });

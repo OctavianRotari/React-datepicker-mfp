@@ -9,7 +9,6 @@ import Timer from '../Timer';
 class TextBox extends Component {
   checkBoxState() {
     const { value, unit } = this.props;
-    console.log(this.props);
     const { format, countDirection, type } = this.props.component;
     let textBoxValue;
     if(type === 'timer'){

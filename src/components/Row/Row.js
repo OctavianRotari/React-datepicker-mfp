@@ -39,7 +39,7 @@ class Row extends Component {
     const { label } = this.props;
     return (
       <View style={ cmss.flexOneRow } >
-        <View style={[ cmss.flexOneRow, rss.lableRow] }>
+        <View style={[ cmss.flexOneRow, rss.labelRow] }>
           <Text style={[ this.rotateLable(label), { minWidth: this.state.height } ]}>{ label }</Text>
         </View>
         <View
