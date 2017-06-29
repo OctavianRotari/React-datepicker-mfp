@@ -36,7 +36,7 @@ class Timer extends Component {
 
   render() {
     return(
-      <Text style={ ifss.textSelected }>{ this.state.timeElapsed }</Text>
+      <Text style={[ ifss.textSelected, ifss.topBarText ]}>{ this.state.timeElapsed }</Text>
     )
   }
 }

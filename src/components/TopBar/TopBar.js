@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
-import TextBoxContainer from '../../containers/TextBoxContainer';
+import TextBox from '../TextBox';
 import { cmss } from '../../styles/styles';
 
 class TopBar extends Component {
   buildTopBar() {
     const { children } = this.props.topBar;
+    const { components } = this.props;
     let id = 0;
-    return _.map(children, (child) => {
-      id += 1;
-      return (
-        <TextBoxContainer 
-          key={id} 
-          child={child} 
-        />
-      )
+    return _.map(children, (component) => {
+      const value = components[component.child].value;
+      if(value) {
+        id += 1;
+        return (
+          <TextBox
+            key={ id }
+            component={ component }
+            value={ value }
+          />
+        )
+      }
+      return;
     })
   }
 

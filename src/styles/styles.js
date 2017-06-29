@@ -84,6 +84,9 @@ export const ifss = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     backgroundColor: colors.secCol,
+  },
+  topBarText: {
+    fontSize: 17,
   }
 });
 

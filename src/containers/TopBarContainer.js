@@ -4,6 +4,7 @@ import TopBar from '../components/TopBar';
 function mapStateToProps(state) {
   return {
     topBar: state.appData.topBar,
+    components: state.viewState.components,
   }
 }
 

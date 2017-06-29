@@ -33,7 +33,7 @@ class Datepicker extends Component {
           </Text>
           <DatePicker
             ref={'datePicker'}
-            hideText={true}
+            hideText={ true }
             mode="datetime"
             confirmBtnText="Confirm"
             cancelBtnText="Cancel"
