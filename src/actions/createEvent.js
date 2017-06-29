@@ -1,10 +1,10 @@
 import ActionTypes from '../constants/ActionTypes';
 import moment from 'moment';
 
-export function createEvent(name, value) {
+export function createEvent(props) {
   const payload = {
-    name: name,
-    value: value,
+    name: props.name,
+    value: props.value,
     timestamp: moment().format("MMMM Do YYYY, h:mm:ss a")
   }
   return dispatch => {

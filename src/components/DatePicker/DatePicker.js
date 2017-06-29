@@ -41,7 +41,7 @@ class Datepicker extends Component {
             onDateChange={
               (date) => {
                 const timestamp = moment(date).format('X');
-                this.props.onSelect( name, timestamp )
+                this.props.onSelect({name: name, value: timestamp})
               }
             }
           />

@@ -8,12 +8,12 @@ import InputTypes from '../constants/InputTypes';
 
 function mapDispatchToProps(dispatch) {
   return {
-    onSelect: (name, value, parentType) => {
-      dispatch(createEvent(name, value));
-      dispatch(selectValue(name, value, parentType));
+    onSelect: (props) => {
+      dispatch(createEvent(props));
+      dispatch(selectValue(props));
     },
-    onDiscard: (name, value, parentType) => {
-      dispatch(discardValue(name, value, parentType));
+    onDiscard: (props) => {
+      dispatch(discardValue(props));
     }
   };
 }

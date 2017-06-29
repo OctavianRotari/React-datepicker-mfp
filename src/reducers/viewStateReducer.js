@@ -20,12 +20,13 @@ export default function(state = {}, action){
       });
     }
     case ActionTypes.RegisterSelectAction: {
-      const { name } = action.payload;
+      const { name, unit } = action.payload;
       const component = state.components;
       return Object.assign({}, state, {
         components: Object.assign({}, state.components, {
           [name]: Object.assign({}, component[name], {
-            value: buildValue(state, action)
+            value: buildValue(state, action),
+            unit: unit
           })
         })
       })
@@ -36,7 +37,8 @@ export default function(state = {}, action){
       return Object.assign({}, state, {
         components: Object.assign({}, state.components, {
           [name]: Object.assign({}, component[name], {
-            value: discardValue(state, action)
+            value: discardValue(state, action),
+            unit: null
           })
         })
       })
@@ -47,8 +49,8 @@ export default function(state = {}, action){
 }
 
 function buildValue(state, action) {
-  const { name, value, parentType } = action.payload;
-  if(parentType === InputTypes.Segmented.value){
+  const { name, value, control } = action.payload;
+  if(control === InputTypes.Segmented.value){
     const component = state.components[name];
     const initialArray = component.value ? component.value : [];
     return insertItem(initialArray, value);
@@ -57,9 +59,9 @@ function buildValue(state, action) {
 }
 
 function discardValue(state, action){
-  const { parentType, name, value } = action.payload;
+  const { control, name, value } = action.payload;
   const component = state.components[name];
-  if(parentType === InputTypes.Segmented.value){
+  if(control === InputTypes.Segmented.value){
     const index = component.value.indexOf(value)
     return removeItem(component.value, index);
   }

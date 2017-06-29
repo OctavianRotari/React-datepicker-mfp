@@ -1,22 +1,24 @@
 // @flow
 import ActionTypes from '../constants/ActionTypes';
 
-export function selectValue(name, value, parentType) {
+export function selectValue(props) {
   const payload = {
-    name: name,
-    value: value,
-    parentType: parentType
+    name: props.name,
+    value: props.value,
+    unit: props.unit,
+    control: props.control
   }
   return dispatch => {
     return dispatch(registerSelectAction(payload));
   }
 }
 
-export function discardValue(name, value, parentType) {
+export function discardValue(props) {
   const payload = {
-    name: name,
-    value: value,
-    parentType: parentType
+    name: props.name,
+    value: props.value,
+    unit: props.unit,
+    control: props.control
   }
   return dispatch => {
     return dispatch(discardSelectAction(payload));

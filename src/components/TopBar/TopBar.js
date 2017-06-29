@@ -10,7 +10,7 @@ class TopBar extends Component {
     const { components } = this.props;
     let id = 0;
     return _.map(children, (component) => {
-      const value = components[component.child].value;
+      const { value, unit } = components[component.child];
       if(value) {
         id += 1;
         return (
@@ -18,6 +18,7 @@ class TopBar extends Component {
             key={ id }
             component={ component }
             value={ value }
+            unit={ unit }
           />
         )
       }

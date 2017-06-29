@@ -74,11 +74,13 @@ export const ifss = StyleSheet.create({
     color:'white',
     justifyContent:'center',
     fontFamily: fontFamily.normal,
+    padding: 3
   },
   textSelected: {
     textAlign: 'center',
     color: colors.prCol,
     fontFamily: fontFamily.bold,
+    padding: 3
   },
   containerBoxSelected: {
     flex: 1,

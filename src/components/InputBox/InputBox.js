@@ -7,12 +7,11 @@ import colors from '../../config/colors';
 
 class InputBox extends Component {
   onTap() {
-    const { control, name, value, selected } = this.props;
-    const { onSelect, onDiscard } = this.props;
+    const { onSelect, onDiscard, selected } = this.props;
     if(!selected) {
-      return onSelect( name, value, control );
+      return onSelect(this.props);
     }
-    return onDiscard( name, value, control );
+    return onDiscard(this.props);
   }
 
   showLabel() {

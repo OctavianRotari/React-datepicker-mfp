@@ -8,7 +8,8 @@ import Timer from '../Timer';
 
 class TextBox extends Component {
   checkBoxState() {
-    const { components, value } = this.props;
+    const { value, unit } = this.props;
+    console.log(this.props);
     const { format, countDirection, type } = this.props.component;
     let textBoxValue;
     if(type === 'timer'){
@@ -22,7 +23,7 @@ class TextBox extends Component {
     }
     return(
       <Text style={[ ifss.textSelected, ifss.topBarText ]}>
-        { ` ${value}` }
+        { ` ${value} ${ unit ? unit : ''}` }
       </Text>
     )
   }
