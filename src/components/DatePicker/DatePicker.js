@@ -33,6 +33,7 @@ class Datepicker extends Component {
           </Text>
           <DatePicker
             ref={'datePicker'}
+            date={ this.selectedValue() }
             hideText={ true }
             mode="datetime"
             confirmBtnText="Confirm"

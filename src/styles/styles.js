@@ -14,17 +14,41 @@ export const tass = StyleSheet.create({
     flexDirection: 'row'
   },
   vista: {
-    flex:14
+    flex:15
   },
   navSidebar: {
-    flex:4,
+    flex:3,
+    maxWidth: 128,
   },
   alerts: {
     flex:4,
-    borderLeftWidth: 1,
-    borderColor: colors.borderCol
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
+
+export const vss = StyleSheet.create({
+  vistaTitleContainer: {
+    flex:1.5,
+    flexDirection: 'column',
+    borderBottomWidth: 1,
+    borderColor: 'rgba(225, 225, 225, 0.50)',
+    justifyContent: 'center',
+    paddingLeft: 20,
+    alignItems: 'flex-start',
+  },
+  vistaTitleText: {
+    color: '#fff',
+    fontSize: 18,
+    fontFamily: 'HelveticaNeue-Bold',
+    textAlign: 'left'
+  },
+  sectionBorder: {
+    borderBottomWidth: 3,
+    borderColor: 'rgba(225, 225, 225, 0.50)'
+  }
+})
 
 export const rss = StyleSheet.create({
   lableRow: {

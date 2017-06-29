@@ -23,7 +23,7 @@ class NumberPicker extends Component {
     for(var i = start; i <= end; i += step ){
       let num = i;
       if(step < 1) {
-        num = num.toFixed(2);
+        num = num.toFixed(1);
       }
       const iStr = num.toString();
       options.push(iStr);
@@ -49,6 +49,7 @@ class NumberPicker extends Component {
           </Text>
           <SimplePicker
             ref={'picker'}
+            selectedOption={ this.selectedValue() }
             options={ this.options() }
             onSubmit={
               (option) => {

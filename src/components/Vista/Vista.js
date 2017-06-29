@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, ActivityIndicator, Text } from 'react-native';
 import Section from '../Section';
-import styles from './styles';
+import { vss } from '../../styles/styles';
 
 class Vista extends Component {
   renderSections() {
@@ -11,7 +11,7 @@ class Vista extends Component {
     return _.map(children, (section, index) => {
       id += 1;
       const { name, label, showLabel, children } = section;
-      const showBorder = children.length === index + 1 ? null : styles.sectionBorder
+      const showBorder = children.length === index + 1 ? null : vss.sectionBorder
       return(
         <View key={ id } style= {[{ flex: children.length } , showBorder]}>
           <Section
@@ -29,8 +29,8 @@ class Vista extends Component {
     const { name } = this.props.forms;
     return (
       <View style={{flex:1}}>
-        <View style={ styles.vistaTitleContainer }>
-          <Text style={ styles.vistaTitleText }>
+        <View style={ vss.vistaTitleContainer }>
+          <Text style={ vss.vistaTitleText }>
             { name.toUpperCase() }
           </Text>
         </View>

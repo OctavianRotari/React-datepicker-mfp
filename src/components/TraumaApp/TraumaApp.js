@@ -43,8 +43,8 @@ class TraumaApp extends Component {
           <View style={ tass.vista }>
             <VistaContainer/>
           </View>
-          <View style={ tass.alerts }>
-            <Text>Alerts go here</Text>
+          <View style={[ tass.alerts, cmss.borderLeft ]}>
+            <Text style={{color: '#fff'}}>Alerts go here</Text>
           </View>
         </View>
       </View>

@@ -10,7 +10,7 @@ class NavBox extends Component {
     const highLight = selected ? ifss.containerBoxSelected : ifss.containerBox;
     return(
       <TouchableHighlight
-        style={[ highLight, { maxHeight: 36} ]}
+        style={[ highLight, { maxHeight: 51} ]}
         onPress={() => { 
           this.props.onSelectForm(value) 
         }}
@@ -18,7 +18,7 @@ class NavBox extends Component {
         activeOpacity={ 0.9 }
       >
         <View style={[ifss.containerText, cmss.borderBottom]}>
-          <Text style={ ifss.text }>{ name }</Text>
+          <Text style={ ifss.textSelected }>{ name.toUpperCase() }</Text>
         </View>
       </TouchableHighlight>
     )
