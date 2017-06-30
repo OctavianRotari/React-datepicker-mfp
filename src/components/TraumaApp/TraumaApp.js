@@ -20,9 +20,7 @@ class TraumaApp extends Component {
 
   render() {
     const { inProgress, forms } = this.props.appData
-    const { components } = this.props.viewState;
-    const { active } = this.props.activeForm;
-    if(!forms || !components || !active || inProgress){
+    if(!forms || inProgress){
       return(
         <View style={{flex:1}}>
           <ActivityIndicator

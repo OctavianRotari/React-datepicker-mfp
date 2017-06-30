@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-import { View, Text } from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 import TextBox from '../TextBox';
-import { cmss } from '../../styles/styles';
+import colors from '../../config/colors';
+import { cmss, tass } from '../../styles/styles';
 
 class TopBar extends Component {
   buildTopBar() {
@@ -27,6 +28,18 @@ class TopBar extends Component {
   }
 
   render() {
+    const { components } = this.props;
+    if(_.isEmpty(components)){
+      return(
+        <View style={{flex:1}}>
+          <ActivityIndicator
+            style={ tass.actInd }
+            color={ colors.secCol }
+            size="large"
+          />
+        </View>
+      )
+    }
     return (
       <View style={[ cmss.borderTop, cmss.borderBottom, cmss.flexOneRow ]}>
         { this.buildTopBar() }

@@ -4,25 +4,19 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
+import InitialState from '../constants/InitialState';
 import rootReducer from '../reducers/index';
-
-const InitialState = {
-  appData: {},
-  viewState: {},
-  events: [],
-  activeForm: {}
-}
 
 const store = createStore(
   rootReducer,
   InitialState,
   compose(
-    autoRehydrate(),
-    applyMiddleware(thunk, logger)
+    applyMiddleware(thunk, logger),
+    autoRehydrate()
   )
 )
 
-persistStore(store, { storage: AsyncStorage });
+persistStore(store, { storage: AsyncStorage, blacklist: ['events', 'viewState', 'activeForm'] });
 
 export default store;
 // , logger

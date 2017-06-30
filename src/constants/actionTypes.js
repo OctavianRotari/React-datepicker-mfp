@@ -19,5 +19,7 @@ export default {
 
   SetActiveForm: 'SET_ACTIVE_FORM',
 
+  ResetForm: 'RESET_FORM',
+
   CreateEvent: 'CREATE_EVENT'
 };

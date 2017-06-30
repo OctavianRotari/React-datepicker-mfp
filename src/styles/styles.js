@@ -28,6 +28,15 @@ export const tass = StyleSheet.create({
   },
 });
 
+export const navss = StyleSheet.create({
+  navSidebarContainer: {
+    flex: 1, 
+    flexDirection: 'column',
+    borderRightWidth: 1,
+    borderColor: 'rgba(225, 225, 225, 0.50)'
+  }
+})
+
 export const vss = StyleSheet.create({
   vistaTitleContainer: {
     flex:1.5,

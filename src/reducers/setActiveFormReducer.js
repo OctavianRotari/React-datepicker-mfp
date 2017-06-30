@@ -4,9 +4,8 @@ import ActionTypes from '../constants/ActionTypes';
 export default function(state = {}, action){
   switch(action.type) {
     case ActionTypes.SetActiveForm: {
-      return Object.assign({}, state, {
-        active: action.activeForm,
-      })
+      const activeForm = action.payload;
+      return Object.assign({}, state, activeForm )
     }
     default:
       return state;

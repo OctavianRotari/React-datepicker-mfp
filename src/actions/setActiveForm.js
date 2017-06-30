@@ -1,14 +1,15 @@
 import ActionTypes from '../constants/ActionTypes';
 
-export function setActiveForm(activeForm) {
+export function setActiveForm(activeForm, forms) {
   return dispatch => {
-    dispatch(setActiveFormAction(activeForm))
+    payload = forms[activeForm];
+    dispatch(setActiveFormAction(payload))
   }
 }
 
-function setActiveFormAction(activeForm) {
+function setActiveFormAction(payload) {
   return {
     type: ActionTypes.SetActiveForm,
-    activeForm
+    payload
   }
 }

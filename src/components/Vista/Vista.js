@@ -2,11 +2,17 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, ActivityIndicator, Text } from 'react-native';
 import Section from '../Section';
-import { vss } from '../../styles/styles';
+import colors from '../../config/colors';
+import { vss, tass } from '../../styles/styles';
 
 class Vista extends Component {
+  componentDidMount() {
+    const { datapoints } = this.props;
+    this.props.onLoaded(datapoints);
+  }
+
   renderSections() {
-    const { children } = this.props.forms;
+    const { children } = this.props.activeForm;
     let id = 0;
     return _.map(children, (section, index) => {
       id += 1;
@@ -26,7 +32,18 @@ class Vista extends Component {
   }
 
   render() {
-    const { name } = this.props.forms;
+    const { value, name } = this.props.activeForm;
+    if(!value){
+      return(
+        <View style={{flex:1}}>
+          <ActivityIndicator
+            style={ tass.actInd }
+            color={ colors.secCol }
+            size="large"
+          />
+        </View>
+      )
+    }
     return (
       <View style={{flex:1}}>
         <View style={ vss.vistaTitleContainer }>

@@ -2,7 +2,7 @@
 import ActionTypes from '../constants/ActionTypes';
 import database from '../database';
 import { createViewState } from './createViewState';
-import { setActiveForm } from './setActiveForm';
+import store from '../store/store';
 
 export function getAppData() {
   return dispatch => {
@@ -10,8 +10,6 @@ export function getAppData() {
     return database.ref('/appData').once('value', span => {
       const payload = span.val();
       dispatch(getAppDataFulfilledAction(payload));
-      dispatch(createViewState(payload.datapoints));
-      dispatch(setActiveForm(payload.activeForm))
     })
       .catch((error) => {
         console.log(error);

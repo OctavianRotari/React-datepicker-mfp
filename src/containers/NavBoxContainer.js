@@ -3,22 +3,23 @@ import _ from 'lodash';
 import NavBox from '../components/NavBox';
 import { setActiveForm } from '../actions/setActiveForm';
 
-function mapDispatchToProps(dispatch, ownProps) {
+function mapDispatchToProps(dispatch) {
   return {
-    onSelectForm: (formName) => {
-      dispatch(setActiveForm(formName));
+    onTap: (formName, forms) => {
+      dispatch(setActiveForm(formName, forms));
     }
   }
 }
 
 function mapStateToProps(state, ownProps) {
-  const { active } = state.activeForm;
+  const { value } = state.activeForm;
   let isSelected = false;
-  if(ownProps.value === active) {
+  if(ownProps.value === value) {
     isSelected = true;
   }
   return {
-    selected: isSelected
+    selected: isSelected,
+    forms: state.appData.forms
   }
 }
 
