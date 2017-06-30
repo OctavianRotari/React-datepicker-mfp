@@ -1,0 +1,85 @@
+{
+  "standby": {
+    "type":"form",
+    "name":"Standby",
+    "children":
+    [
+      {
+        "type":"section",
+        "name":"basics",
+        "children":
+        [
+          {
+            "type":"row",
+            "label":"patient",
+            "children":["gender", "age"]
+          },
+          {
+            "type":"row",
+            "label":"mechanism",
+            "children":["mechanism"]
+          },
+          {
+            "type":"row",
+            "label":"times",
+            "children":["eta", "time-of-arrival"]
+          },
+          {
+            "type":"row",
+            "label":"source",
+            "children":["transport-source"]
+          }
+        ]
+      },
+      {
+        "type":"section",
+        "name":"stats",
+        "children":
+        [
+          {
+            "type":"row",
+            "label":"a",
+            "children":["airway"]
+          },
+          {
+            "type":"row",
+            "label":"b",
+            "children":["respiration-rate", "saturation"]
+          },
+          {
+            "type":"row",
+            "label":"c",
+            "children":["gcs"]
+          },
+          {
+            "type":"row",
+            "label":"d",
+            "children":["exposure", "bm", "temperature"]
+          }
+        ]
+      },
+      {
+        "type":"section",
+        "name":"interventions",
+        "children":
+        [
+          {
+            "type":"row",
+            "label":"air",
+            "children":["airway-management"]
+          },
+          {
+            "type":"row",
+            "label":"chest",
+            "children":["chest-intervensions"]
+          },
+          {
+            "type":"row",
+            "label":"blood",
+            "children":["blood", "airway"]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "smallStandby": {
+    "type":"form",
+    "name":"Small Standby",
+    "value": "standbysmall",
+    "children":
+    [
+      {
+        "type":"section",
+        "name":"basics",
+        "children":
+        [
+          {
+            "type":"row",
+            "label":"Patient",
+            "children":["gender", "age"]
+          },
+          {
+            "type":"row",
+            "label":"Mechanism",
+            "children":["mechanism"]
+          },
+          {
+            "type":"row",
+            "label":"Times",
+            "children":["eta", "time-of-injury"]
+          },
+          {
+            "type":"row",
+            "label":"Source",
+            "children":["transport-source"]
+          }
+        ]
+      }
+    ]
+  }
+}

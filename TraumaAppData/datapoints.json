@@ -1,0 +1,192 @@
+{
+  "age":{
+    "name":"age",
+    "control":"Numeral",
+    "label":"Age",
+    "values": {
+      "start":0,
+      "end":100,
+      "step":1,
+      "selected":16
+    }
+  },
+  "respiration-rate":{
+    "name":"respiration-rate",
+    "control":"Numeral",
+    "label":"Respiration Rate",
+    "values": {
+      "start":0,
+      "end":55,
+      "step":1,
+      "selected":16
+    }
+  },
+  "saturation":{
+    "name":"saturation",
+    "control":"Numeral",
+    "label":"Saturation",
+    "values": {
+      "start":0,
+      "end":55,
+      "step":1,
+      "selected":16
+    }
+  },
+  "heart-rate":{
+    "name":"heart-rate",
+    "control":"Numeral",
+    "label":"Heart Rate",
+    "values": {
+      "start":30,
+      "end":240,
+      "step":30,
+      "selected":80
+    }
+  },
+  "systolic":{
+    "name":"systolic",
+    "control":"Numeral",
+    "label":"Systolic",
+    "values": {
+      "step":1,
+      "start":30,
+      "end":240,
+      "selected":130
+    }
+  },
+  "diastolic":{
+    "name":"diastolic",
+    "control":"Numeral",
+    "label":"Diastolic",
+    "values": {
+      "step":1,
+      "start":30,
+      "end":240,
+      "selected":50
+    }
+  },
+  "bm":{
+    "name":"bm",
+    "control":"Numeral",
+    "label":"Bm",
+    "values": {
+      "step":0.1,
+      "start":3.1,
+      "end":27.5,
+      "selected":6
+    }
+  },
+  "temperature":{
+    "name":"temperature",
+    "control":"Numeral",
+    "label":"Temperature",
+    "values": {
+      "step":0.1,
+      "start":28,
+      "end":41,
+      "selected":37.5
+    }
+  },
+  "blood":{
+    "name":"blood",
+    "control":"Numeral",
+    "label":"Blood",
+    "values": {
+      "step":1,
+      "start":0,
+      "end":20,
+      "selected":0
+    }
+  },
+  "crystalloid":{
+    "name":"crystalloid",
+    "control":"Numeral",
+    "label":"Crystalloid",
+    "values": {
+      "step":1,
+      "start":0,
+      "end":20,
+      "selected":0
+    }
+  },
+  "mechanism":{
+    "name":"mechanism",
+    "control":"Segmented",
+    "label":"Mechanism",
+    "values":["Rtc", "Fall", "Blunt", "Burn", "Stab", "Hang"]
+  },
+  "exposure":{
+    "name":"exposure",
+    "control":"Segmented",
+    "label":"Exposure",
+    "values":[ "Head", "Neck", "Chest", "Abdo", "Limb" ]
+  },
+  "txa":{
+    "name":"txa",
+    "control":"Segmented",
+    "values":[ "Txa" ]
+  },
+  "inotopes":{
+    "name":"inotopes",
+    "control":"Segmented",
+    "values":[ "Inotopes" ]
+  },
+  "pelvic-splint":{
+    "name":"pelvic-splint",
+    "control":"Segmented",
+    "values":[ "Pelvic Splint" ]
+  },
+  "femoral-splint":{
+    "name":"femoral-splint",
+    "control":"Segmented",
+    "values":[ "Femoral Splint" ]
+  },
+  "gender":{
+    "name":"gender",
+    "control":"Toggle",
+    "label":"Gender",
+    "values":[ "Male", "Female" ]
+  },
+  "transport-source":{
+    "name":"transport-source",
+    "control":"Toggle",
+    "label":"Source",
+    "values":[ "Road", "Air", "Emrs", "Self" ]
+  },
+  "airway":{
+    "name":"airway",
+    "control":"Toggle",
+    "label":"Airway",
+    "values":[ "Self", "NP", "Guedel", "Ett" ]
+  },
+  "gcs":{
+    "name":"gcs",
+    "control":"Toggle",
+    "label":"GCS",
+    "values":[ "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13" ]
+  },
+  "airway-intervensions":{
+    "name":"airway-management",
+    "control":"Toggle",
+    "label":"Airway Management",
+    "values":[ "rsi", "cricoid" ]
+  },
+  "chest-intervensions":{
+    "name":"chest-intervensions",
+    "control":"Toggle",
+    "label":"Airway Intervensions",
+    "values":[ "Chest drain", "Thorocostomy left", "Thorocostomy right", "Thorocotomy" ]
+  },
+  "time-of-injury":{
+    "name":"time-of-injury",
+    "control":"Datetime",
+    "label":"Time of Injury",
+    "values": "time"
+  },
+  "eta":{
+    "name":"eta",
+    "control":"Datetime",
+    "label":"ETA",
+    "values": "time"
+  }
+}

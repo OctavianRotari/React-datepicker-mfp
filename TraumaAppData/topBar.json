@@ -1,0 +1,55 @@
+{
+  "name": "topBar",
+  "type": "row",
+  "children": [
+    {
+      "label": "ETA",
+      "type": "timer",
+      "countDirection": "down",
+      "format": "m[m] s[s]",
+      "child": "eta"
+    },
+    {
+      "label": "Time of injury",
+      "type": "timer",
+      "countDirection": "up",
+      "format": "h[h] m[m]",
+      "child": "time-of-injury"
+    },
+    {
+      "type": "box",
+      "label": "Gender",
+      "child": "gender"
+    },
+    {
+      "type": "box",
+      "label": "Age",
+      "child": "age"
+    },
+    {
+      "type": "box",
+      "label": "Mechanism",
+      "child": "mechanism"
+    },
+    {
+      "type": "box",
+      "label": "Source",
+      "child": "transport-source"
+    },
+    {
+      "type": "box",
+      "label": "Airway",
+      "child": "airway"
+    },
+    {
+      "type": "box",
+      "label": "Saturation",
+      "child": "saturation"
+    },
+    {
+      "type": "box",
+      "label": "Respiration Rate",
+      "child": "respiration-rate"
+    }
+  ]
+}
