@@ -6,7 +6,8 @@ export function selectValue(props) {
     name: props.name,
     value: props.value,
     unit: props.unit,
-    control: props.control
+    control: props.control,
+    selected: true
   }
   return dispatch => {
     return dispatch(registerSelectAction(payload));
@@ -18,7 +19,8 @@ export function discardValue(props) {
     name: props.name,
     value: props.value,
     unit: props.unit,
-    control: props.control
+    control: props.control,
+    selected: false
   }
   return dispatch => {
     return dispatch(discardSelectAction(payload));

@@ -14,7 +14,7 @@ export function* checkForPrompt(action) {
       const operator = prompt[name].comparison
       if(operations(operators, operator)) {
         return put({
-          type: 'ADD_PROMPT', 
+          type: 'ADD_PROMPT',
           payload: prompt
         })
       }
@@ -22,6 +22,6 @@ export function* checkForPrompt(action) {
   })
 }
 
-export function* watchEventAsync() {
+export function* watchEvent() {
   yield takeEvery(ActionTypes.CreateEvent, checkForPrompt)
 }

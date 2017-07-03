@@ -1,8 +1,10 @@
 import { all } from 'redux-saga/effects';
-import { watchEventAsync } from './event';
+import { watchSelectValue } from './selectValue'
+import { watchEvent } from './event';
 
 export default function* rootSaga() {
   yield all([
-    watchEventAsync()
+    watchSelectValue(),
+    watchEvent()
   ])
 }

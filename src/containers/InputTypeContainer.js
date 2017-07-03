@@ -9,8 +9,8 @@ import InputTypes from '../constants/InputTypes';
 function mapDispatchToProps(dispatch) {
   return {
     onSelect: (props) => {
-      dispatch(createEvent(props));
       dispatch(selectValue(props));
+      dispatch(createEvent(props));
     },
     onDiscard: (props) => {
       dispatch(discardValue(props));
@@ -19,52 +19,16 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state, ownProps) {
-  const { name, parentType } = ownProps;
+  const { name, value } = ownProps;
   const { components } = state.viewState;
-  let selected, selValue;
+  let selected = false;
 
-  if(components[name] && components[name].value) {
-    selValue = components[name].value;
-    selected = checkIfSelected(selValue, ownProps)
-  } else {
-    selected = false;
+  if(components[name][value]) {
+    selected = components[name][value];
   }
 
   return {
-    selected: selected,
-    selectedValue: selValue
-  }
-}
-
-function checkIfSelected(selValue, ownProps) {
-  let selected;
-  const { name, value, control } = ownProps;
-  switch (control) {
-    case InputTypes.Toggle.value: {
-      if(selValue === value) {
-        return selected = true
-      }
-      return selected = false;
-    }
-    case InputTypes.Segmented.value: {
-      if(selValue.includes(value)) {
-        return selected = true
-      }
-      return selected = false;
-    }
-    case InputTypes.Numeral.value: {
-      if(selValue){
-        return selected = true;
-      }
-      return selected = false;
-    }
-    case InputTypes.Datetime.value: {
-      if(selValue){
-        return selected = true;
-      }
-      return selected = false;
-    }
-    return selected;
+    selected: selected
   }
 }
 

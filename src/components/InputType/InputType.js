@@ -16,10 +16,10 @@ class InputType extends Component {
       return _.map(values, value => {
         key += 1;
         return (
-          <InputTypeContainer 
+          <InputTypeContainer
             key={ key }
-            { ...other } 
-            value={ value } 
+            { ...other }
+            value={ value }
             child={ child }
           />
         );
@@ -27,17 +27,17 @@ class InputType extends Component {
     }
     const { child } = InputTypes[control];
     return (
-      <InputTypeContainer 
-        { ...other } 
-        values={ values } 
+      <InputTypeContainer
+        { ...other }
+        values={ values }
         child={ child }
       />
-    ) 
+    )
   }
 
   render() {
     const { values } = this.props.datapoint;
-    const numberOfCubes = values.length ? values.length : 1; 
+    const numberOfCubes = values.length ? values.length : 1;
     return(
       <View
         style={ { flex: numberOfCubes, flexDirection: 'row' } } >
