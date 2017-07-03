@@ -2,5 +2,6 @@ export default {
   appData: {},
   viewState: {},
   events: [],
-  activeForm: {}
+  activeForm: {},
+  activePrompts: []
 }

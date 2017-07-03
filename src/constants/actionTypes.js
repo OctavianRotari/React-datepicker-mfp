@@ -21,5 +21,7 @@ export default {
 
   ResetForm: 'RESET_FORM',
 
-  CreateEvent: 'CREATE_EVENT'
+  CreateEvent: 'CREATE_EVENT',
+
+  CheckForPrompts: 'CHECK_FOR_PROMPTS'
 };

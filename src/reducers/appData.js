@@ -25,7 +25,8 @@ export default function( state = {}, action ) {
         datapoints: payload.datapoints,
         forms: payload.forms,
         topBar: payload.topBar,
-        activeForm: payload.activeForm
+        activeForm: payload.activeForm,
+        prompts: payload.prompts
       })
     }
     default:
