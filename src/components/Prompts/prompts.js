@@ -8,8 +8,8 @@ class Prompts extends Component {
     return _.map(activePrompts, (prompt) => {
       id += 1;
       return (
-        <Text 
-          key={ id } 
+        <Text
+          key={ id }
           style={{flex:1, color: '#fff'}}
         >
           { prompt.message }
@@ -22,8 +22,8 @@ class Prompts extends Component {
     const { activePrompts } = this.props;
     if(activePrompts.length === 0) {
       return(
-        <View style={{flex:1}}>
-          <Text>No Prompts</Text>
+        <View style={{flex:1, flexDirection: 'row', alignItems: 'center'}}>
+          <Text style={{color: '#fff'}}>No Prompts</Text>
         </View>
       )
     }

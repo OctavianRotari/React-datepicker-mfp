@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Prompts from '../components/Prompts'; 
+import Prompts from '../components/Prompts';
 
 function mapStateToProps(state) {
   return {

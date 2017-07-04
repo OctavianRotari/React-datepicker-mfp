@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text, TouchableHighlight } from 'react-native';
-import { ifss } from '../../styles/styles';
+import { ifss, cmss } from '../../styles/styles';
 import colors from '../../config/colors';
 
 class InputBox extends Component {
@@ -30,7 +30,7 @@ class InputBox extends Component {
     const { label, value, selected } = this.props;
     return (
       <TouchableHighlight
-        style={ selected ? ifss.containerBoxSelected : ifss.containerBox }
+        style={[selected ? ifss.containerBoxSelected : ifss.containerBox, cmss.borderRight]}
         onPress={() => { this.onTap() }}
         underlayColor={ colors.secCol }
         activeOpacity={ 0.9 }

@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { View, ActivityIndicator, Text } from 'react-native';
 import Section from '../Section';
 import colors from '../../config/colors';
-import { vss, tass } from '../../styles/styles';
+import { vss, tass, cmss } from '../../styles/styles';
 
 class Vista extends Component {
   renderSections() {
@@ -40,7 +40,7 @@ class Vista extends Component {
       )
     }
     return (
-      <View style={{flex:1}}>
+      <View style={[{flex:1}, cmss.borderRight]}>
         <View style={ vss.vistaTitleContainer }>
           <Text style={ vss.vistaTitleText }>
             { name.toUpperCase() }

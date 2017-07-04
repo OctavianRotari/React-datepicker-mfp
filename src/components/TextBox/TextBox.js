@@ -13,10 +13,12 @@ class TextBox extends Component {
     let textBoxValue;
     if(Array.isArray(value)) {
       let id = 0;
-      _.map(value, val => {
+      return _.map(value, val => {
         id += 1;
         return (
-          <Text key={ id }>{ val }</Text>
+          <Text style={[ ifss.textSelected, ifss.topBarText ]} key={ id }>
+            { val.toUpperCase() }
+          </Text>
         )
       })
     }
@@ -31,7 +33,7 @@ class TextBox extends Component {
     }
     return(
       <Text style={[ ifss.textSelected, ifss.topBarText ]}>
-        { ` ${value} ${ unit ? unit : ''}` }
+        { ` ${value.toString().toUpperCase()} ${ unit ? unit : ''}` }
       </Text>
     )
   }
@@ -51,8 +53,10 @@ class TextBox extends Component {
           { maxWidth: 128, backgroundColor: backgroundColor }
         ]
       }>
-        <Text style={ ifss.labelVisible }>{ label }</Text>
-        { this.checkBoxState() }
+        <Text style={[ifss.labelVisible, {marginTop: 5}]}>{ label }</Text>
+        <View style={[ cmss.flexOneRow ]}>
+          { this.checkBoxState() }
+        </View>
       </View>
     )
   }

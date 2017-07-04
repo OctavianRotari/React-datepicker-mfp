@@ -6,7 +6,7 @@
 import React, { Component } from 'react';
 import { TouchableHighlight, Text, View } from 'react-native';
 import SimplePicker from 'react-native-simple-picker';
-import { ifss } from '../../styles/styles';
+import { ifss, cmss } from '../../styles/styles';
 
 class NumberPicker extends Component {
   selectedValue() {
@@ -37,7 +37,7 @@ class NumberPicker extends Component {
     const { selectedValue } = this.props;
     return (
       <TouchableHighlight
-        style={ selectedValue ? ifss.containerBoxSelected : ifss.containerBox }
+        style={[selectedValue ? ifss.containerBoxSelected : ifss.containerBox, cmss.borderRight]}
         underlayColor="#048fc0"
         activeOpacity={0.9}
         onPress={() => { this.refs.picker.show(); }}
