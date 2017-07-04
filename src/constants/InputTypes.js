@@ -5,11 +5,14 @@ export default {
     value: 'Toggle',
     child: 'InputBox',
     singleton: true,
-    selectedValue: (datapoint, events) => {
+    selectedValues: (datapoint, events) => {
       const index = _.findLastIndex(events, {
         name: datapoint
       });
-      return events[index];
+      if(events[index] && events[index].selected) {
+        return events[index];
+      }
+      return;
     }
   },
   Segmented: {
@@ -27,14 +30,17 @@ export default {
           selectedSegment.push(truthy[truthy.length - 1].value);
         }
       }
-      return selectedSegment;
+      if(selectedSegment.length > 0 ) {
+        return selectedSegment;
+      }
+      return null;
     }
   },
   Numeral: {
     value: 'Numeral',
     child: 'NumberPicker',
     singleton: false,
-    fixed: (datapoint, events) => {
+    selectedValues: (datapoint, events) => {
       const index = _.findLastIndex(events, {
         name: datapoint
       });
@@ -53,7 +59,7 @@ export default {
     value: 'Datetime',
     child: 'DatePicker',
     singleton: false,
-    selectedTime: (datapoint, events) => {
+    selectedValues: (datapoint, events) => {
       const index = _.findLastIndex(events, {
         name: datapoint
       });

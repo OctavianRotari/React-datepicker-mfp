@@ -11,6 +11,15 @@ class TextBox extends Component {
     const { value, unit } = this.props;
     const { format, countDirection, type } = this.props.component;
     let textBoxValue;
+    if(Array.isArray(value)) {
+      let id = 0;
+      _.map(value, val => {
+        id += 1;
+        return (
+          <Text key={ id }>{ val }</Text>
+        )
+      })
+    }
     if(type === 'timer'){
       return (
         <Timer
@@ -28,6 +37,10 @@ class TextBox extends Component {
   }
 
   render() {
+    const { value } = this.props;
+    if(value === null) {
+      return <View/>;
+    }
     const { label, highlight } = this.props.component;
     const backgroundColor = highlight ? colors.backgroundSec : 'transparent';
     return(

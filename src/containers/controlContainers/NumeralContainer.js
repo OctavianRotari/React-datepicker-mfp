@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux'
 import { selectValue, discardValue } from '../../actions/selectValue';
@@ -19,7 +19,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state, ownProps) {
   const { name, value, control } = ownProps.datapoint;
-  const selectedValue = InputTypes[control].fixed(name, state.events);
+  const selectedValue = InputTypes[control].selectedValues(name, state.events);
   return {
     selectedValue: selectedValue ? selectedValue.value : null,
   }

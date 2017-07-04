@@ -23,7 +23,7 @@ class ToggleContainer extends Component {
           name={ name }
           onSelect={ this.props.onSelect }
           onDiscard={ this.props.onDiscard }
-          selected={ _.includes(selectedValue, value) }
+          selected={ _.includes(selectedValue, value) && selectedValue.selected }
         />
       );
     });
@@ -54,7 +54,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state, ownProps) {
   const { name, value, control } = ownProps.datapoint;
-  const selectedValue = InputTypes[control].selectedValue(name, state.events);
+  const selectedValue = InputTypes[control].selectedValues(name, state.events);
   return {
     selectedValue,
   }

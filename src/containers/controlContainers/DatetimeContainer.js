@@ -19,7 +19,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state, ownProps) {
   const { name, value, control } = ownProps.datapoint;
-  const selectedValue = InputTypes[control].selectedTime(name, state.events);
+  const selectedValue = InputTypes[control].selectedValues(name, state.events);
 
   return {
     selectedValue: selectedValue ? selectedValue.value : null,

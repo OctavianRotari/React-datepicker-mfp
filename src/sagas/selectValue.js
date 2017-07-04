@@ -3,24 +3,24 @@ import moment from 'moment';
 import _ from 'lodash';
 import ActionTypes from '../constants/ActionTypes';
 import InputTypes from '../constants/InputTypes';
-import { formComponents } from './selectors';
+import { events } from './selectors';
 
 export function* checkIfSingleton(action) {
-  const { name, value, control } = action.payload;
+  const { name, control } = action.payload;
   if( InputTypes[control].singleton ) {
-    const components = yield (select(formComponents))
-    for(var key in components[name]) {
-      if(key !== value) {
-        const payload = {
-          name,
-          value: key,
-          selected: false
-        }
-        yield put({
-          type: ActionTypes.DiscardSelectAction,
-          payload
-        })
+    const state = yield select();
+    const selectedValue = InputTypes[control].selectedValues(name, state.events);
+    if(selectedValue) {
+      const { value } = selectedValue;
+      const payload = {
+        name,
+        value,
+        selected: false
       }
+      yield put({
+        type: ActionTypes.DiscardSelectAction,
+        payload
+      })
     }
   }
 }

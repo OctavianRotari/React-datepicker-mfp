@@ -6,7 +6,6 @@ import { getAppData } from '../actions/getAppData';
 function mapStateToProps(state) {
   return {
     appData: state.appData,
-    viewState: state.viewState,
     activeForm: state.activeForm
   }
 }

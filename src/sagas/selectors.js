@@ -1,2 +1,2 @@
-export const formComponents = state => state.viewState.components;
+export const events = state => state.events;
 export const prompts = state => state.appData.prompts;
