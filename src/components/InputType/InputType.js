@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { View } from 'react-native';
 import InputTypes from '../../constants/InputTypes';
-import InputTypeContainer from '../../containers/InputTypeContainer'
+import InputFieldContainer from '../../containers/InputFieldContainer';
 
 class InputType extends Component {
   renderInputField() {
@@ -16,7 +16,7 @@ class InputType extends Component {
       return _.map(values, value => {
         key += 1;
         return (
-          <InputTypeContainer
+          <InputFieldContainer
             key={ key }
             { ...other }
             value={ value }
@@ -27,7 +27,7 @@ class InputType extends Component {
     }
     const { child } = InputTypes[control];
     return (
-      <InputTypeContainer
+      <InputFieldContainer
         { ...other }
         values={ values }
         child={ child }

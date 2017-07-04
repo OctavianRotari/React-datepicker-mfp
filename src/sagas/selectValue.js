@@ -1,16 +1,17 @@
 import { takeEvery, put, select } from 'redux-saga/effects';
+import _ from 'lodash';
 import ActionTypes from '../constants/ActionTypes';
 import InputTypes from '../constants/InputTypes';
 import { formComponents } from './selectors';
 
-export function* checkForToggle(action) {
+export function* checkIfSingleton(action) {
   const { control, name, value } = action.payload;
-  if(control === InputTypes[control].value ) {
+  if( InputTypes[control].singleton ) {
     const components = yield (select(formComponents))
     for(var key in components[name]) {
       if(key !== value) {
         const payload = {
-          name: name,
+          name,
           value: key
         }
         yield put({
@@ -23,5 +24,5 @@ export function* checkForToggle(action) {
 }
 
 export function* watchSelectValue() {
-  yield takeEvery(ActionTypes.RegisterSelectAction, checkForToggle)
+  yield takeEvery(ActionTypes.RegisterSelectAction, checkIfSingleton)
 }

@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import _ from 'lodash';
 import { connect } from 'react-redux'
 import { selectValue, discardValue } from '../actions/selectValue';
 import { createEvent } from '../actions/createEvent';
@@ -21,14 +22,13 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state, ownProps) {
   const { name, value } = ownProps;
   const { components } = state.viewState;
-  let selected = false;
-
-  if(components[name][value]) {
-    selected = components[name][value];
-  }
+  const component = components[name];
+  const selected = component[value];
+  const selValue = _.invert(component)[true];
 
   return {
-    selected: selected
+    selected: selected,
+    selectedValue: selValue
   }
 }
 
