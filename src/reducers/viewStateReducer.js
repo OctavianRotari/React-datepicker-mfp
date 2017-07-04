@@ -20,24 +20,24 @@ export default function(state = {}, action){
       });
     }
     case ActionTypes.RegisterSelectAction: {
-      const { name, value } = action.payload;
+      const { name, value, selected } = action.payload;
       const component = state.components;
       return Object.assign({}, state, {
         components: Object.assign({}, state.components, {
           [name]: Object.assign({}, component[name], {
             ...component[name],
-            [value]: true
+            [value]: selected
           })
         })
       })
     }
     case ActionTypes.DiscardSelectAction: {
-      const { name, value } = action.payload;
+      const { name, value, selected } = action.payload;
       const component = state.components[name];
       return Object.assign({}, state, {
         components: Object.assign({}, state.components, {
           [name]: {
-            ...component, [value]: false
+            ...component, [value]: selected
           }
         })
       })

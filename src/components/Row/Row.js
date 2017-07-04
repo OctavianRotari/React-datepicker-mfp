@@ -15,6 +15,7 @@ class Row extends Component {
     let key = 0;
     return _.map(this.props.rowDatapoints, ( datapoint ) => {
       key += 1;
+      console.log(datapoint);
       return(
         <InputType
           key={ key }

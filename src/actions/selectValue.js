@@ -5,7 +5,6 @@ export function selectValue(props) {
   const payload = {
     name: props.name,
     value: props.value,
-    unit: props.unit,
     control: props.control,
     selected: true
   }
@@ -18,7 +17,6 @@ export function discardValue(props) {
   const payload = {
     name: props.name,
     value: props.value,
-    unit: props.unit,
     control: props.control,
     selected: false
   }
