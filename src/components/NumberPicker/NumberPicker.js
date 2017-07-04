@@ -11,9 +11,10 @@ import { ifss } from '../../styles/styles';
 class NumberPicker extends Component {
   selectedValue() {
     const { values } = this.props.datapoint;
-    // if(selectedValue) {
-    //   return selectedValue;
-    // }
+    const { selectedValue } = this.props;
+    if(selectedValue) {
+      return selectedValue;
+    }
     return values.selected;
   }
 

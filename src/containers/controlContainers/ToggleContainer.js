@@ -8,16 +8,18 @@ import InputBox from '../../components/InputBox';
 
 class ToggleContainer extends Component {
   renderInputBox() {
-    const { ...other } = this.props.datapoint
-    const { control, values } = this.props.datapoint;
+    const { label, values, control } = this.props.datapoint;
     let key = 0;
     return _.map(values, value => {
       key += 1;
       return (
         <InputBox
           key={ key }
-          { ...other }
           value={ value }
+          control={ control }
+          onSelect={ this.props.onSelect }
+          onDiscard={ this.props.onDiscard }
+          selected={ this.props.selected }
         />
       );
     });

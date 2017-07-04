@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux'
 import { selectValue, discardValue } from '../../actions/selectValue';
+import InputTypes from '../../constants/InputTypes';
 import DatePicker from '../../components/DatePicker';
 
 function mapDispatchToProps(dispatch) {
@@ -17,14 +18,11 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state, ownProps) {
-  const { name, value, control } = ownProps;
-  if(control === "Datetime") {
-    const selectedValues = InputTypes[control].selectedTime(name, state.events);
-    console.log(selectedValues);
-  }
+  const { name, value, control } = ownProps.datapoint;
+  const selectedValue = InputTypes[control].selectedTime(name, state.events);
 
   return {
-    selectedValue: value,
+    selectedValue: selectedValue ? selectedValue.value : null,
   }
 }
 

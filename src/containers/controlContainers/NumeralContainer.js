@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux'
 import { selectValue, discardValue } from '../../actions/selectValue';
+import InputTypes from '../../constants/InputTypes';
 import NumberPicker from '../../components/NumberPicker';
 
 function mapDispatchToProps(dispatch) {
@@ -17,14 +18,10 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state, ownProps) {
-  const { name, value, control } = ownProps;
-  if(control === "Numeral") {
-    const selectedValues = InputTypes[control].fixed(name, state.events);
-    console.log(selectedValues);
-  }
-
+  const { name, value, control } = ownProps.datapoint;
+  const selectedValue = InputTypes[control].fixed(name, state.events);
   return {
-    selected: false,
+    selectedValue: selectedValue ? selectedValue.value : null,
   }
 }
 

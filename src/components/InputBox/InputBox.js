@@ -26,7 +26,7 @@ class InputBox extends Component {
   }
 
   render() {
-    const { label, selected, value } = this.props;
+    const { label, value, selected } = this.props;
     return (
       <TouchableHighlight
         style={ selected ? ifss.containerBoxSelected : ifss.containerBox }

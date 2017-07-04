@@ -7,7 +7,8 @@ import moment from 'moment';
 
 class Datepicker extends Component {
   selectedValue() {
-    const { selectedValue, values } = this.props;
+    const { values } = this.props.datapoint;
+    const { selectedValue } = this.props;
     if(selectedValue) {
       return selectedValue;
     }
@@ -15,7 +16,8 @@ class Datepicker extends Component {
   }
 
   render(){
-    const { selectedValue, label, name, control } = this.props;
+    const { label, name, control } = this.props.datapoint;
+    const { selectedValue } = this.props;
     const selectedTime = moment.unix(this.selectedValue()).format('hh:mm a')
     return (
       <TouchableHighlight
