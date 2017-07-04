@@ -17,10 +17,17 @@ export default {
     child: 'InputBox',
     singleton: false,
     selectedValues: (datapoint, events) => {
-      const truthyEvents = _.filter(events, { name: datapoint, selected: true });
-      const falsyEvents = _.filter(events, { name: datapoint, selected: false });
-      const array = truthyEvents.concat(falsyEvents);
-      return _.differenceBy(array, falsyEvents, "value");
+      const segmentedObjs = _.filter(events, { name: datapoint });
+      const groupByValue = _.groupBy(segmentedObjs, 'value');
+      let selectedSegment = [];
+      for(var key in groupByValue) {
+        const truthy = _.filter(groupByValue[key], { selected: true });
+        const falsy = _.filter(groupByValue[key], { selected: false });
+        if(truthy.length > falsy.length) {
+          selectedSegment.push(truthy[truthy.length - 1].value);
+        }
+      }
+      return selectedSegment;
     }
   },
   Numeral: {
