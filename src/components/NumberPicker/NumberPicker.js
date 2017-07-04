@@ -10,15 +10,15 @@ import { ifss } from '../../styles/styles';
 
 class NumberPicker extends Component {
   selectedValue() {
-    const { selectedValue, values } = this.props;
-    if(selectedValue) {
-      return selectedValue;
-    }
+    const { values } = this.props.datapoint;
+    // if(selectedValue) {
+    //   return selectedValue;
+    // }
     return values.selected;
   }
 
   options() {
-    const { start, end, step } = this.props.values;
+    const { start, end, step } = this.props.datapoint.values;
     const options = [];
     for(var i = start; i <= end; i += step ){
       let num = i;
@@ -32,7 +32,8 @@ class NumberPicker extends Component {
   }
 
   render() {
-    const { name, value, label, unit, control, selectedValue } = this.props;
+    const { name, value, label, unit, control } = this.props.datapoint;
+    const { selectedValue } = this.props;
     return (
       <TouchableHighlight
         style={ selectedValue ? ifss.containerBoxSelected : ifss.containerBox }
