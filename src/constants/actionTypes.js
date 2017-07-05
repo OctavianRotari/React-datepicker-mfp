@@ -23,5 +23,7 @@ export default {
 
   CreateEvent: 'CREATE_EVENT',
 
-  CheckForPrompts: 'CHECK_FOR_PROMPTS'
+  AddPrompt: 'ADD_PROMPT',
+  RemovePrompt: 'REMOVE_PROMPT',
+  CheckForPrompts: 'CHECK_FOR_PROMPTS',
 };

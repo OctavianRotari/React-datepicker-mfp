@@ -1,11 +1,14 @@
-[
-  {
+{
+  "transport-source": {
     "name": "porter-prompt",
-    "datapoint": "transport-source",
     "message": "Call Porter",
-    "transport-source": {
-      "comparison": "equal",
-      "value": "air"
-    }
+    "comparison": "equal",
+    "value": "air"
+  },
+  "blood": {
+    "name": "code-red",
+    "message": "Instantiate Code Red",
+    "comparison": "greater",
+    "value": "1"
   }
-]
+}

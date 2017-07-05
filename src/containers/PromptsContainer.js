@@ -1,5 +1,14 @@
 import { connect } from 'react-redux';
+import { markDone } from '../actions/prompt';
 import Prompts from '../components/Prompts';
+
+function mapDispatchToProps(dispatch) {
+  return {
+    done: (props) => {
+      dispatch(markDone(props))
+    }
+  }
+}
 
 function mapStateToProps(state) {
   return {
@@ -7,6 +16,6 @@ function mapStateToProps(state) {
   }
 }
 
-const PromptsContainer = connect(mapStateToProps)(Prompts);
+const PromptsContainer = connect(mapStateToProps, mapDispatchToProps)(Prompts);
 
 export default PromptsContainer;
