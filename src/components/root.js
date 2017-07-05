@@ -19,7 +19,7 @@ class Root extends Component {
     this.state = { authenticated: false }
   }
   _pressHandler() {
-    TouchID.authenticate('to demo this react-native component')
+    TouchID.authenticate('Authenticate before proceeding')
       .then(success => {
         AlertIOS.alert('Authenticated Successfully');
         this.setState({authenticated: true});
