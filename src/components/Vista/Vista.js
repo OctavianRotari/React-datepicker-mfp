@@ -3,14 +3,9 @@ import _ from 'lodash';
 import { View, ActivityIndicator, Text } from 'react-native';
 import Section from '../Section';
 import colors from '../../config/colors';
-import { vss, tass } from '../../styles/styles';
+import { vss, tass, cmss } from '../../styles/styles';
 
 class Vista extends Component {
-  componentDidMount() {
-    const { datapoints } = this.props;
-    this.props.onLoaded(datapoints);
-  }
-
   renderSections() {
     const { children } = this.props.activeForm;
     let id = 0;
@@ -32,8 +27,8 @@ class Vista extends Component {
   }
 
   render() {
-    const { value, name } = this.props.activeForm;
-    if(!value){
+    const { name } = this.props.activeForm;
+    if(!name){
       return(
         <View style={{flex:1}}>
           <ActivityIndicator
@@ -45,7 +40,7 @@ class Vista extends Component {
       )
     }
     return (
-      <View style={{flex:1}}>
+      <View style={[{flex:1}, cmss.borderRight]}>
         <View style={ vss.vistaTitleContainer }>
           <Text style={ vss.vistaTitleText }>
             { name.toUpperCase() }

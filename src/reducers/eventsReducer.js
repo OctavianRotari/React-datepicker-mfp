@@ -4,12 +4,8 @@ import ActionTypes from '../constants/ActionTypes';
 export default function(state = [], action) {
   switch(action.type) {
     case ActionTypes.CreateEvent: {
-      const { value, timestamp, name } = action.payload;
-      const newEvent = {
-        name: name,
-        value: value,
-        timestamp
-      }
+      const { value, timestamp, name, selected } = action.payload;
+      const newEvent = { name, value, timestamp, selected }
       return update(
         state,
         {$push: [newEvent]}

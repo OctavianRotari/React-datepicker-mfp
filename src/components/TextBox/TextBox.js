@@ -11,6 +11,17 @@ class TextBox extends Component {
     const { value, unit } = this.props;
     const { format, countDirection, type } = this.props.component;
     let textBoxValue;
+    if(Array.isArray(value)) {
+      let id = 0;
+      return _.map(value, val => {
+        id += 1;
+        return (
+          <Text style={[ ifss.textSelected, ifss.topBarText ]} key={ id }>
+            { val.toUpperCase() }
+          </Text>
+        )
+      })
+    }
     if(type === 'timer'){
       return (
         <Timer
@@ -22,12 +33,16 @@ class TextBox extends Component {
     }
     return(
       <Text style={[ ifss.textSelected, ifss.topBarText ]}>
-        { ` ${value} ${ unit ? unit : ''}` }
+        { ` ${value.toString().toUpperCase()} ${ unit ? unit : ''}` }
       </Text>
     )
   }
 
   render() {
+    const { value } = this.props;
+    if(value === null) {
+      return <View/>;
+    }
     const { label, highlight } = this.props.component;
     const backgroundColor = highlight ? colors.backgroundSec : 'transparent';
     return(
@@ -38,8 +53,10 @@ class TextBox extends Component {
           { maxWidth: 128, backgroundColor: backgroundColor }
         ]
       }>
-        <Text style={ ifss.labelVisible }>{ label }</Text>
-        { this.checkBoxState() }
+        <Text style={[ifss.labelVisible, {marginTop: 5}]}>{ label }</Text>
+        <View style={[ cmss.flexOneRow ]}>
+          { this.checkBoxState() }
+        </View>
       </View>
     )
   }

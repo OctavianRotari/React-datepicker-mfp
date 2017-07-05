@@ -6,11 +6,12 @@
 import React, { Component } from 'react';
 import { TouchableHighlight, Text, View } from 'react-native';
 import SimplePicker from 'react-native-simple-picker';
-import { ifss } from '../../styles/styles';
+import { ifss, cmss } from '../../styles/styles';
 
 class NumberPicker extends Component {
   selectedValue() {
-    const { selectedValue, values } = this.props;
+    const { values } = this.props.datapoint;
+    const { selectedValue } = this.props;
     if(selectedValue) {
       return selectedValue;
     }
@@ -18,7 +19,7 @@ class NumberPicker extends Component {
   }
 
   options() {
-    const { start, end, step } = this.props.values;
+    const { start, end, step } = this.props.datapoint.values;
     const options = [];
     for(var i = start; i <= end; i += step ){
       let num = i;
@@ -32,10 +33,11 @@ class NumberPicker extends Component {
   }
 
   render() {
-    const { name, value, label, selected, unit } = this.props;
+    const { name, value, label, unit, control } = this.props.datapoint;
+    const { selectedValue } = this.props;
     return (
       <TouchableHighlight
-        style={ selected ? ifss.containerBoxSelected : ifss.containerBox }
+        style={[selectedValue ? ifss.containerBoxSelected : ifss.containerBox, cmss.borderRight]}
         underlayColor="#048fc0"
         activeOpacity={0.9}
         onPress={() => { this.refs.picker.show(); }}
@@ -44,7 +46,7 @@ class NumberPicker extends Component {
           <Text style={ ifss.labelVisible }>
             { label }
           </Text>
-          <Text style={ selected ? ifss.textSelected : ifss.text }>
+          <Text style={ selectedValue ? ifss.textSelected : ifss.text }>
             { `${this.selectedValue()} ${unit ? unit : ''}` }
           </Text>
           <SimplePicker
@@ -53,7 +55,7 @@ class NumberPicker extends Component {
             options={ this.options() }
             onSubmit={
               (option) => {
-                this.props.onSelect({name: name, value: option, unit: unit})
+                this.props.onSelect({name, unit, control, value: option})
               }
             }
           />

@@ -10,6 +10,7 @@ import StatusBar from '../StatusBar';
 import VistaContainer from '../../containers/VistaContainer';
 import TopBarContainer from '../../containers/TopBarContainer';
 import NavSidebarContainer from '../../containers/NavSidebarContainer';
+import PromptsContainer from '../../containers/PromptsContainer';
 import colors from '../../config/colors';
 import { cmss, tass } from '../../styles/styles';
 
@@ -41,8 +42,8 @@ class TraumaApp extends Component {
           <View style={ tass.vista }>
             <VistaContainer/>
           </View>
-          <View style={[ tass.alerts, cmss.borderLeft ]}>
-            <Text style={{color: '#fff'}}>Alerts go here</Text>
+          <View style={[ tass.alerts ]}>
+            <PromptsContainer />
           </View>
         </View>
       </View>

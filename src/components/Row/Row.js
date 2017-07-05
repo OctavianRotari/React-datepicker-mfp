@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
-import InputType from '../InputType';
+import ControlContainers from '../../containers/ControlContainers';
 import { cmss, rss } from '../../styles/styles';
 
 class Row extends Component {
@@ -15,8 +15,10 @@ class Row extends Component {
     let key = 0;
     return _.map(this.props.rowDatapoints, ( datapoint ) => {
       key += 1;
+      const { control } = datapoint;
+      const WrapperContainer = ControlContainers[control];
       return(
-        <InputType
+        <WrapperContainer
           key={ key }
           datapoint={ datapoint }
         />

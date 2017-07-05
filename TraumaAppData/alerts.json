@@ -1,0 +1,14 @@
+{
+  "transport-source": {
+    "name": "porter-prompt",
+    "message": "Call Porter",
+    "comparison": "equal",
+    "value": "air"
+  },
+  "blood": {
+    "name": "code-red",
+    "message": "Instantiate Code Red",
+    "comparison": "greater",
+    "value": "1"
+  }
+}

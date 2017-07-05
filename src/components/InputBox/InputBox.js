@@ -2,16 +2,17 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text, TouchableHighlight } from 'react-native';
-import { ifss } from '../../styles/styles';
+import { ifss, cmss } from '../../styles/styles';
 import colors from '../../config/colors';
 
 class InputBox extends Component {
   onTap() {
-    const { onSelect, onDiscard, selected } = this.props;
+    const { onSelect, onDiscard, selected, name, value, control } = this.props;
+    const payload = { name, value, control }
     if(!selected) {
-      return onSelect(this.props);
+      return onSelect(payload);
     }
-    return onDiscard(this.props);
+    return onDiscard(payload);
   }
 
   showLabel() {
@@ -26,10 +27,10 @@ class InputBox extends Component {
   }
 
   render() {
-    const { label, selected, value } = this.props;
+    const { label, value, selected } = this.props;
     return (
       <TouchableHighlight
-        style={ selected ? ifss.containerBoxSelected : ifss.containerBox }
+        style={[selected ? ifss.containerBoxSelected : ifss.containerBox, cmss.borderRight]}
         onPress={() => { this.onTap() }}
         underlayColor={ colors.secCol }
         activeOpacity={ 0.9 }
