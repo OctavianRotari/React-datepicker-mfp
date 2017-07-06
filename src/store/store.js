@@ -14,7 +14,7 @@ const store = createStore(
   rootReducer,
   InitialState,
   compose(
-    applyMiddleware(thunk, sagaMiddleware),
+    applyMiddleware(sagaMiddleware, thunk, logger),
     autoRehydrate()
   )
 )

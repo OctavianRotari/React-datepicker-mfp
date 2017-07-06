@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux'
 import { selectValue, discardValue } from '../../actions/selectValue';
-import InputTypes from '../../constants/InputTypes';
+import { buildComposer } from '../../composers';
 import DatePicker from '../../components/DatePicker';
 
 function mapDispatchToProps(dispatch) {
@@ -19,10 +19,12 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state, ownProps) {
   const { name, value, control } = ownProps.datapoint;
-  const selectedValue = InputTypes[control].selectedValues(name, state.events);
+  const { events } = state;
+  const Composer = buildComposer(control, events, name);
+  const selectedValue = Composer.selectedValues();
 
   return {
-    selectedValue: selectedValue ? selectedValue.value : null,
+    selectedValue,
   }
 }
 

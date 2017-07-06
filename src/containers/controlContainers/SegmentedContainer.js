@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux'
 import { View } from 'react-native';
-import InputTypes from '../../constants/InputTypes';
+import { buildComposer } from '../../composers';
 import { selectValue, discardValue } from '../../actions/selectValue';
 import InputBox from '../../components/InputBox';
 
 class SegmentedContainer extends Component {
   renderInputBox() {
     const { label, values, control, name } = this.props.datapoint;
-    const { selectedValues } = this.props;
+    const { selectedValue } = this.props;
     let key = 0;
     return _.map(values, value => {
       key += 1;
@@ -21,7 +21,7 @@ class SegmentedContainer extends Component {
           control={ control }
           label={ label }
           name={ name }
-          selected={ _.includes(selectedValues, value) }
+          selected={ _.includes(selectedValue, value) }
           onSelect={ this.props.onSelect }
           onDiscard={ this.props.onDiscard }
         />
@@ -54,10 +54,12 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state, ownProps) {
   const { name, control } = ownProps.datapoint;
-  const selectedValues = InputTypes[control].selectedValues(name, state.events);
+  const { events } = state;
+  const Composer = buildComposer(control, events, name);
+  const selectedValue = Composer.selectedValues();
 
   return {
-    selectedValues,
+    selectedValue,
   }
 }
 

@@ -8,12 +8,11 @@ import Timer from '../Timer';
 
 class TextBox extends Component {
   checkBoxState() {
-    const { value, unit } = this.props;
+    const { selectedValue, unit } = this.props;
     const { format, countDirection, type } = this.props.component;
-    let textBoxValue;
-    if(Array.isArray(value)) {
+    if(Array.isArray(selectedValue)) {
       let id = 0;
-      return _.map(value, val => {
+      return _.map(selectedValue, val => {
         id += 1;
         return (
           <Text style={[ ifss.textSelected, ifss.topBarText ]} key={ id }>
@@ -27,20 +26,20 @@ class TextBox extends Component {
         <Timer
           countDirection={ countDirection }
           format={ format }
-          timestamp={ value }
+          timestamp={ selectedValue }
         />
       )
     }
     return(
       <Text style={[ ifss.textSelected, ifss.topBarText ]}>
-        { ` ${value.toString().toUpperCase()} ${ unit ? unit : ''}` }
+        { ` ${selectedValue.toString().toUpperCase()} ${ unit ? unit : ''}` }
       </Text>
     )
   }
 
   render() {
-    const { value } = this.props;
-    if(value === null) {
+    const { selectedValue } = this.props;
+    if(!selectedValue) {
       return <View/>;
     }
     const { label, highlight } = this.props.component;

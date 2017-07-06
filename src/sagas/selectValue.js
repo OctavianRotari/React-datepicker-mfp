@@ -2,14 +2,16 @@ import { takeEvery, put, select } from 'redux-saga/effects';
 import moment from 'moment';
 import _ from 'lodash';
 import ActionTypes from '../constants/ActionTypes';
-import InputTypes from '../constants/InputTypes';
+import { buildComposer } from '../composers';
 import { events } from './selectors';
 
 export function* checkIfSingleton(action) {
   const { name, control } = action.payload;
-  if( InputTypes[control].singleton ) {
-    const state = yield select();
-    const selectedValue = InputTypes[control].selectedValues(name, state.events);
+  const state = yield select();
+  const { events } = state;
+  const Composer = buildComposer(control, events, name);
+  if( Composer.singleton ) {
+    const selectedValue = Composer.selectedValues();
     if(selectedValue) {
       const { value } = selectedValue;
       const payload = {

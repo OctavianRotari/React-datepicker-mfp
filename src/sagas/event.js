@@ -16,12 +16,12 @@ export function* checkForPrompt(action) {
     const payload = { name, message };
     if(rule) {
       yield put({
-        type: 'ADD_PROMPT',
+        type: ActionTypes.AddPrompt,
         payload
       })
     } else {
       yield put({
-        type: 'REMOVE_PROMPT',
+        type: ActionTypes.RemovePrompt,
         payload
       })
     }
