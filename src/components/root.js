@@ -13,23 +13,34 @@ import store from "../store/store";
 import StatusBar from './StatusBar';
 import TraumaApp from '../components/TraumaApp';
 import FingerprintPopup from './FingerprintPopup';
+import NumericPassword from './NumericPassword';
 
 class Root extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      errorMessage: undefined,
-      popupShowed: false,
+      errorFingerMessage: undefined,
+      errorNumberMessage: undefined,
+      popupFingerShowed: false,
+      popupNumericShowed: false,
       authenticated: false
     };
   }
 
   handleFingerprintShowed = () => {
-    this.setState({ popupShowed: true});
+    this.setState({ popupFingerShowed: true});
   };
 
   handleFingerprintDismissed = () => {
-    this.setState({ popupShowed: false });
+    this.setState({ popupFingerShowed: false });
+  };
+
+  handleNumericShowed = () => {
+    this.setState({ popupNumericShowed: true});
+  };
+
+  handleNumericDismissed = () => {
+    this.setState({ popupNumericShowed: false });
   };
 
   handleAuthentication = (authenticated) => {
@@ -39,11 +50,11 @@ class Root extends Component {
   componentDidMount() {
     FingerprintScanner
       .isSensorAvailable()
-      .catch(error => this.setState({ errorMessage: error.message }));
+      .catch(error => this.setState({ errorFingerMessage: error.message }));
   }
 
   render() {
-    const { errorMessage, popupShowed } = this.state;
+    const { errorNumberMessage, errorFingerMessage, popupFingerShowed, popupNumericShowed } = this.state;
     if(!this.state.authenticated) {
       return (
         <View style={root.container}>
@@ -53,16 +64,16 @@ class Root extends Component {
           <TouchableOpacity
             style={root.fingerprint}
             onPress={this.handleFingerprintShowed}
-            disabled={!!errorMessage}
+            disabled={!!errorFingerMessage}
           >
             <Image source={require('../assets/finger_print.png')} />
           </TouchableOpacity>
-          {errorMessage && (
+          {errorFingerMessage && (
             <Text style={root.errorMessage}>
-              {errorMessage}
+              {errorFingerMessage}
             </Text>
           )}
-          {popupShowed && (
+          {popupFingerShowed && (
             <FingerprintPopup
               style={root.popup}
               handlePopupDismissed={this.handleFingerprintDismissed}
@@ -71,6 +82,25 @@ class Root extends Component {
           )}
           <Text style={root.text}>or</Text>
           <Text style={root.heading}>Authenticate with sequence</Text>
+          <TouchableOpacity
+            style={root.fingerprint}
+            onPress={this.handleNumericShowed}
+            disabled={!!errorNumberMessage}
+          >
+            <Image style={{maxHeight: 70, maxWidth: 70, padding: 30}} source={require('../assets/entering-password.png')} />
+          </TouchableOpacity>
+          {errorNumberMessage && (
+            <Text style={root.errorMessage}>
+              {errorNumberMessage}
+            </Text>
+          )}
+          {popupNumericShowed && (
+            <NumericPassword
+              style={root.numericPopup}
+              handlePopupDismissed={this.handleNumericDismissed}
+              handleAuthentication={this.handleAuthentication}
+            />
+          )}
         </View>
       );
     }

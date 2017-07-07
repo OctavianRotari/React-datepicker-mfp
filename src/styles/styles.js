@@ -30,7 +30,7 @@ export const root = StyleSheet.create({
     marginVertical: 30,
   },
   errorMessage: {
-    color: '#ea3d13',
+    color: '#c0392b',
     fontSize: 16,
     textAlign: 'center',
     marginHorizontal: 10,
@@ -38,6 +38,12 @@ export const root = StyleSheet.create({
   },
   popup: {
     width: width * 0.8,
+  },
+  numericPopup: {
+    flex:1,
+    flexDirection: 'column',
+    position: 'absolute',
+    alignSelf: 'stretch'
   },
   text: {
     color: '#ffffff',
