@@ -11,7 +11,7 @@ import TouchID from 'react-native-touch-id';
 import { cmss } from '../styles/styles';
 import store from "../store/store";
 import StatusBar from './StatusBar';
-import TraumaAppContainer from '../containers/TraumaAppContainer';
+import TraumaApp from '../components/TraumaApp';
 
 class Root extends Component {
   render() {
@@ -19,7 +19,7 @@ class Root extends Component {
       <Provider store={store}>
         <View style={{flex:1}}>
           <StatusBar style={{flex:1}}/>
-          <TraumaAppContainer style={{flex:13}}/>
+          <TraumaApp style={{flex:13}}/>
         </View>
       </Provider>
     );

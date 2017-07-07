@@ -1,0 +1,107 @@
+{
+	"standby" : {
+		"children" : [
+			{
+				"children" : [
+					{
+						"children" : [ "gender", "age" ],
+						"label" : "Patient",
+						"type" : "row"
+					}, {
+					"children" : [ "mechanism" ],
+					"label" : "Mechanism",
+					"type" : "row"
+					}, {
+					"children" : [ "time-of-injury", "eta" ],
+					"label" : "Times",
+					"type" : "row"
+					}, {
+					"children" : [ "transport-source" ],
+					"label" : "Source",
+					"type" : "row"
+					}
+				],
+				"name" : "basics",
+				"type" : "section"
+			}, {
+			"children" : [
+				{
+					"children" : [ "airway" ],
+					"label" : "A",
+					"type" : "row"
+				}, {
+				"children" : [ "respiration-rate", "saturation" ],
+				"label" : "B",
+				"type" : "row"
+				}, {
+				"children" : [ "heart-rate", "systolic", "diastolic" ],
+				"label" : "C",
+				"type" : "row"
+				}, {
+				"children" : [ "gcs" ],
+				"label" : "D",
+				"type" : "row"
+				}, {
+				"children" : [ "exposure", "bm", "temperature" ],
+				"label" : "E",
+				"type" : "row"
+				}
+			],
+			"name" : "ABCDE",
+			"type" : "section"
+			}, {
+			"children" : [
+				{
+					"children" : [ "airway-management" ],
+					"label" : "A",
+					"type" : "row"
+				}, {
+				"children" : [ "chest-intervensions" ],
+				"label" : "B",
+				"type" : "row"
+				}, {
+				"children" : [ "blood", "crystalloid", "txa", "inotopes", "pelvic-splint", "femoral-splint" ],
+				"label" : "C",
+				"type" : "row"
+				} ],
+				"label" : "Interventions",
+				"name" : "interventions",
+				"showLabel" : true,
+				"type" : "section"
+			}
+		],
+		"name" : "Standby",
+		"type" : "form",
+		"value" : "standby"
+	},
+	"standbysmall" : {
+		"children" : [
+			{
+				"children" : [
+					{
+						"children" : [ "gender", "age" ],
+						"label" : "patient",
+						"type" : "row"
+					}, {
+					"children" : [ "mechanism" ],
+					"label" : "mechanism",
+					"type" : "row"
+					}, {
+					"children" : [ "eta", "time-of-injury" ],
+					"label" : "times",
+					"type" : "row"
+					}, {
+					"children" : [ "transport-source" ],
+					"label" : "source",
+					"type" : "row"
+					}
+				],
+				"name" : "basics",
+				"type" : "section"
+			}
+		],
+		"name" : "Small Standby",
+		"type" : "form",
+		"value" : "standbysmall"
+	}
+}

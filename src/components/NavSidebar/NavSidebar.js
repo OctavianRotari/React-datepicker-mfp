@@ -27,18 +27,6 @@ class NavSidebar extends Component {
   }
 
   render() {
-    const { value } = this.props.activeForm;
-    if(!value){
-      return(
-        <View style={{flex:1}}>
-          <ActivityIndicator
-            style={ tass.actInd }
-            color={ colors.secCol }
-            size="large"
-          />
-        </View>
-      )
-    }
     return (
       <View style={ navss.navSidebarContainer } >
         { this.buildNavBox() }

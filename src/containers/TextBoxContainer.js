@@ -6,19 +6,14 @@ import TextBox from '../components/TextBox';
 function mapStateToProps(state, ownProps) {
   const { component } = ownProps;
   const { name } = ownProps.component;
-  const { control, unit } = state.appData.datapoints[name];
+  const { control, unit } = state.datapoints[name];
   const { events } = state;
   const Composer = buildComposer(control, events, name);
   const selectedValue = Composer.selectedValues();
-  if(selectedValue) {
-    return {
-      selectedValue,
-      component,
-      unit
-    }
-  }
   return {
-    selectedValue: null
+    selectedValue,
+    component,
+    unit
   }
 }
 

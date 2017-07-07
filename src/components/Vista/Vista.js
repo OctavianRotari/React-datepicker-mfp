@@ -29,15 +29,7 @@ class Vista extends Component {
   render() {
     const { name } = this.props.activeForm;
     if(!name){
-      return(
-        <View style={{flex:1}}>
-          <ActivityIndicator
-            style={ tass.actInd }
-            color={ colors.secCol }
-            size="large"
-          />
-        </View>
-      )
+      return null
     }
     return (
       <View style={[{flex:1}, cmss.borderRight]}>

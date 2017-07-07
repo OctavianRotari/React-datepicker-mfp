@@ -5,7 +5,7 @@ import Row from '../components/Row'
 function mapStateToProps(state, ownProps) {
   let rowDatapoints = {};
   ownProps.rowComponents.forEach((component) => {
-    const { datapoints } = state.appData;
+    const { datapoints } = state;
     rowDatapoints[component] = datapoints[component]
   });
 

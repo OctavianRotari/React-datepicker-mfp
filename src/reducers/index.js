@@ -5,11 +5,16 @@ import EventsReducer from './eventsReducer';
 import SetActiveFormReducer from './setActiveFormReducer';
 import PromptsReducer from './promptsReducer';
 
-export default function reducers(state = {}, action) {
-  return {
-    appData: AppDataReducer(state.appData, action),
-    events: EventsReducer(state.events, action),
-    activeForm: SetActiveFormReducer(state.activeForm, action),
-    activePrompts: PromptsReducer(state.activePrompts, action)
-  }
-}
+const rootReducer = combineReducers({
+  appData: AppDataReducer,
+  events: EventsReducer,
+  activeForm: SetActiveFormReducer,
+  activePrompts: PromptsReducer,
+  datapoints: (state = {}) => state,
+  forms: (state = {}) => state,
+  prompts: (state = {}) => state,
+  topBar: (state = {}) => state,
+  activeFormName: (state = {}) => state
+})
+
+export default rootReducer;

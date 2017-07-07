@@ -8,8 +8,9 @@ export function selectValue(props) {
     control: props.control,
     selected: true
   }
-  return dispatch => {
-    return dispatch(registerSelectAction(payload));
+  return {
+    type: ActionTypes.RegisterSelectAction,
+    payload
   }
 }
 
@@ -20,19 +21,6 @@ export function discardValue(props) {
     control: props.control,
     selected: false
   }
-  return dispatch => {
-    return dispatch(discardSelectAction(payload));
-  }
-}
-
-function registerSelectAction(payload) {
-  return {
-    type: ActionTypes.RegisterSelectAction,
-    payload
-  }
-}
-
-function discardSelectAction(payload){
   return {
     type: ActionTypes.DiscardSelectAction,
     payload

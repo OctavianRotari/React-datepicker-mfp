@@ -5,7 +5,7 @@ import ActionTypes from '../constants/ActionTypes';
 import { buildComposer } from '../composers';
 import { events } from './selectors';
 
-export function* checkIfSingleton(action) {
+function* checkIfSingleton(action) {
   const { name, control } = action.payload;
   const state = yield select();
   const { events } = state;
@@ -27,7 +27,7 @@ export function* checkIfSingleton(action) {
   }
 }
 
-export function* createEventAction(action) {
+function* createEventAction(action) {
   const { name, value, selected } = action.payload;
   const payload = {
     name,

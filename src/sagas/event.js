@@ -4,9 +4,9 @@ import ActionTypes from '../constants/ActionTypes';
 import operations from '../config/operations';
 import { prompts } from './selectors';
 
-export function* checkForPrompt(action) {
+function* checkForPrompt(action) {
   const state = yield select();
-  const prompts = state.appData.prompts;
+  const prompts = state.prompts;
   const { selected } = action.payload;
   const eventValue = action.payload.value;
   const eventName = action.payload.name;

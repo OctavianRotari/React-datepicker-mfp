@@ -12,9 +12,9 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    activeFormName: state.appData.activeForm,
+    activeFormName: state.activeFormName,
     activeForm: state.activeForm,
-    forms: state.appData.forms,
+    forms: state.forms,
   }
 }
 

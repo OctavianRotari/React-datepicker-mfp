@@ -15,23 +15,7 @@ import colors from '../../config/colors';
 import { cmss, tass } from '../../styles/styles';
 
 class TraumaApp extends Component {
-  componentDidMount() {
-    this.props.onLoaded();
-  }
-
   render() {
-    const { inProgress, forms } = this.props.appData
-    if(!forms || inProgress){
-      return(
-        <View style={{flex:1}}>
-          <ActivityIndicator
-            style={ tass.actInd }
-            color={ colors.secCol }
-            size="large"
-          />
-        </View>
-      )
-    }
     return (
       <View style={[cmss.flexOneCol, cmss.bgClr]}>
         <TopBarContainer/>

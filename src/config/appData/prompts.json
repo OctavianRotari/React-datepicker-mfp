@@ -1,0 +1,14 @@
+{
+	"blood" : {
+		"comparison" : "greater",
+		"message" : "Instantiate Code Red",
+		"name" : "code-red",
+		"value" : "0"
+	},
+	"transport-source" : {
+		"comparison" : "equal",
+		"message" : "Call Porter 0774353245",
+		"name" : "porter-prompt",
+		"value" : "air"
+	}
+}

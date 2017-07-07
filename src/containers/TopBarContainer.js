@@ -3,7 +3,7 @@ import TopBar from '../components/TopBar';
 
 function mapStateToProps(state) {
   return {
-    topBar: state.appData.topBar,
+    topBar: state.topBar,
   }
 }
 

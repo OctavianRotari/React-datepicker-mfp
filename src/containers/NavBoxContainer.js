@@ -19,7 +19,7 @@ function mapStateToProps(state, ownProps) {
   }
   return {
     selected: isSelected,
-    forms: state.appData.forms
+    forms: state.forms
   }
 }
 
