@@ -4,7 +4,6 @@ import prompts from '../config/appData/prompts.json';
 import topBar from '../config/appData/topBar.json';
 
 export default {
-  appData: {},
   events: [],
   activeForm: {},
   activePrompts: [],
