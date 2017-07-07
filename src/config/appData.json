@@ -1,0 +1,369 @@
+{
+	"appData" : {
+		"activeForm" : "standby",
+		"datapoints" : {
+			"age" : {
+				"control" : "Numeral",
+				"label" : "Age",
+				"name" : "age",
+				"type" : "fixed",
+				"values" : {
+					"end" : 100,
+					"selected" : 35,
+					"start" : 0,
+					"step" : 1
+				}
+			},
+			"airway" : {
+				"control" : "Toggle",
+				"label" : "Airway",
+				"name" : "airway",
+				"values" : [ "self", "np", "guedel", "ett" ]
+			},
+			"airway-management" : {
+				"control" : "Toggle",
+				"label" : "Airway Management",
+				"name" : "airway-management",
+				"values" : [ "rsi", "cric" ]
+			},
+			"blood" : {
+				"control" : "Numeral",
+				"label" : "Blood",
+				"name" : "blood",
+				"type" : "cumulative",
+				"unit" : "units",
+				"values" : {
+					"end" : 20,
+					"selected" : 0,
+					"start" : 0,
+					"step" : 1
+				}
+			},
+			"bm" : {
+				"control" : "Numeral",
+				"label" : "Bm",
+				"name" : "bm",
+				"values" : {
+					"end" : 27.5,
+					"selected" : 6.1,
+					"start" : 3.1,
+					"step" : 0.1
+				}
+			},
+			"chest-intervensions" : {
+				"control" : "Segmented",
+				"label" : "Airway Intervensions",
+				"name" : "chest-intervensions",
+				"values" : [ "chest drain l", "chest drain r", "t'costomy l", "t'costomy r", "t'cotomy" ]
+			},
+			"crystalloid" : {
+				"control" : "Numeral",
+				"label" : "Crystalloid",
+				"name" : "crystalloid",
+				"type" : "cumulative",
+				"unit" : "ml",
+				"values" : {
+					"end" : 20,
+					"selected" : 0,
+					"start" : 0,
+					"step" : 1
+				}
+			},
+			"diastolic" : {
+				"control" : "Numeral",
+				"label" : "Diastolic",
+				"name" : "diastolic",
+				"type" : "fixed",
+				"unit" : "mmHg",
+				"values" : {
+					"end" : 240,
+					"selected" : 50,
+					"start" : 30,
+					"step" : 1
+				}
+			},
+			"eta" : {
+				"control" : "Datetime",
+				"label" : "ETA",
+				"name" : "eta",
+				"values" : "time"
+			},
+			"exposure" : {
+				"control" : "Segmented",
+				"label" : "Exposure",
+				"name" : "exposure",
+				"values" : [ "head", "neck", "chest", "abdo", "limb" ]
+			},
+			"femoral-splint" : {
+				"control" : "Segmented",
+				"name" : "femoral-splint",
+				"values" : [ "femoral splint" ]
+			},
+			"gcs" : {
+				"control" : "Toggle",
+				"label" : "GCS",
+				"name" : "gcs",
+				"values" : [ "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" ]
+			},
+			"gender" : {
+				"control" : "Toggle",
+				"label" : "Gender",
+				"name" : "gender",
+				"values" : [ "male", "female" ]
+			},
+			"heart-rate" : {
+				"control" : "Numeral",
+				"label" : "Heart Rate",
+				"name" : "heart-rate",
+				"type" : "fixed",
+				"unit" : "bpm",
+				"values" : {
+					"end" : 240,
+					"selected" : 90,
+					"start" : 30,
+					"step" : 30
+				}
+			},
+			"inotopes" : {
+				"control" : "Segmented",
+				"name" : "inotopes",
+				"values" : [ "Inotropes" ]
+			},
+			"mechanism" : {
+				"control" : "Segmented",
+				"label" : "Mechanism",
+				"name" : "mechanism",
+				"values" : [ "rtc", "fall", "blunt", "burn", "stab", "hang" ]
+			},
+			"pelvic-splint" : {
+				"control" : "Segmented",
+				"name" : "pelvic-splint",
+				"values" : [ "pelvic splint" ]
+			},
+			"respiration-rate" : {
+				"control" : "Numeral",
+				"label" : "Respiration Rate",
+				"name" : "respiration-rate",
+				"type" : "fixed",
+				"unit" : "bpm",
+				"values" : {
+					"end" : 55,
+					"selected" : 16,
+					"start" : 0,
+					"step" : 1
+				}
+			},
+			"saturation" : {
+				"control" : "Numeral",
+				"label" : "Saturation",
+				"name" : "saturation",
+				"type" : "fixed",
+				"unit" : "%",
+				"values" : {
+					"end" : 100,
+					"selected" : 95,
+					"start" : 0,
+					"step" : 1
+				}
+			},
+			"systolic" : {
+				"control" : "Numeral",
+				"label" : "Systolic",
+				"name" : "systolic",
+				"type" : "fixed",
+				"unit" : "mmHg",
+				"values" : {
+					"end" : 240,
+					"selected" : 130,
+					"start" : 30,
+					"step" : 1
+				}
+			},
+			"temperature" : {
+				"control" : "Numeral",
+				"label" : "Temperature",
+				"name" : "temperature",
+				"type" : "fixed",
+				"values" : {
+					"end" : 41,
+					"selected" : 36,
+					"start" : 28,
+					"step" : 1
+				}
+			},
+			"time-of-injury" : {
+				"control" : "Datetime",
+				"label" : "Time of Injury",
+				"name" : "time-of-injury",
+				"values" : "time"
+			},
+			"transport-source" : {
+				"control" : "Toggle",
+				"label" : "Source",
+				"name" : "transport-source",
+				"values" : [ "road", "air", "emrs", "own" ]
+			},
+			"txa" : {
+				"control" : "Segmented",
+				"name" : "txa",
+				"values" : [ "Txa" ]
+			}
+		},
+		"forms" : {
+			"standby" : {
+				"children" : [ {
+					"children" : [ {
+						"children" : [ "gender", "age" ],
+						"label" : "Patient",
+						"type" : "row"
+					}, {
+						"children" : [ "mechanism" ],
+						"label" : "Mechanism",
+						"type" : "row"
+					}, {
+						"children" : [ "time-of-injury", "eta" ],
+						"label" : "Times",
+						"type" : "row"
+					}, {
+						"children" : [ "transport-source" ],
+						"label" : "Source",
+						"type" : "row"
+					} ],
+					"name" : "basics",
+					"type" : "section"
+				}, {
+					"children" : [ {
+						"children" : [ "airway" ],
+						"label" : "A",
+						"type" : "row"
+					}, {
+						"children" : [ "respiration-rate", "saturation" ],
+						"label" : "B",
+						"type" : "row"
+					}, {
+						"children" : [ "heart-rate", "systolic", "diastolic" ],
+						"label" : "C",
+						"type" : "row"
+					}, {
+						"children" : [ "gcs" ],
+						"label" : "D",
+						"type" : "row"
+					}, {
+						"children" : [ "exposure", "bm", "temperature" ],
+						"label" : "E",
+						"type" : "row"
+					} ],
+					"name" : "ABCDE",
+					"type" : "section"
+				}, {
+					"children" : [ {
+						"children" : [ "airway-management" ],
+						"label" : "A",
+						"type" : "row"
+					}, {
+						"children" : [ "chest-intervensions" ],
+						"label" : "B",
+						"type" : "row"
+					}, {
+						"children" : [ "blood", "crystalloid", "txa", "inotopes", "pelvic-splint", "femoral-splint" ],
+						"label" : "C",
+						"type" : "row"
+					} ],
+					"label" : "Interventions",
+					"name" : "interventions",
+					"showLabel" : true,
+					"type" : "section"
+				} ],
+				"name" : "Standby",
+				"type" : "form",
+				"value" : "standby"
+			},
+			"standbysmall" : {
+				"children" : [ {
+					"children" : [ {
+						"children" : [ "gender", "age" ],
+						"label" : "patient",
+						"type" : "row"
+					}, {
+						"children" : [ "mechanism" ],
+						"label" : "mechanism",
+						"type" : "row"
+					}, {
+						"children" : [ "eta", "time-of-injury" ],
+						"label" : "times",
+						"type" : "row"
+					}, {
+						"children" : [ "transport-source" ],
+						"label" : "source",
+						"type" : "row"
+					} ],
+					"name" : "basics",
+					"type" : "section"
+				} ],
+				"name" : "Small Standby",
+				"type" : "form",
+				"value" : "standbysmall"
+			}
+		},
+		"prompts" : {
+			"blood" : {
+				"comparison" : "greater",
+				"message" : "Instantiate Code Red",
+				"name" : "code-red",
+				"value" : "0"
+			},
+			"transport-source" : {
+				"comparison" : "equal",
+				"message" : "Call Porter 0774353245",
+				"name" : "porter-prompt",
+				"value" : "air"
+			}
+		},
+		"topBar" : {
+			"children" : [ {
+				"countDirection" : "down",
+				"format" : "m[m] s[s]",
+				"highlight" : true,
+				"label" : "ETA",
+				"name" : "eta",
+				"type" : "timer"
+			}, {
+				"countDirection" : "up",
+				"format" : "h[h] m[m]",
+				"label" : "Time of injury",
+				"name" : "time-of-injury",
+				"type" : "timer"
+			}, {
+				"label" : "Gender",
+				"name" : "gender",
+				"type" : "box"
+			}, {
+				"label" : "Age",
+				"name" : "age",
+				"type" : "box"
+			}, {
+				"label" : "Mechanism",
+				"name" : "mechanism",
+				"type" : "box"
+			}, {
+				"label" : "Source",
+				"name" : "transport-source",
+				"type" : "box"
+			}, {
+				"label" : "Airway",
+				"name" : "airway",
+				"type" : "box"
+			}, {
+				"label" : "Saturation",
+				"name" : "saturation",
+				"type" : "box"
+			}, {
+				"label" : "Respiration Rate",
+				"name" : "respiration-rate",
+				"type" : "box"
+			} ],
+			"name" : "topBar",
+			"type" : "row"
+		}
+	}
+}
