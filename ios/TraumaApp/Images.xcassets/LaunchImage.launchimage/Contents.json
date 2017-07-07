@@ -3,7 +3,63 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "splash@2x-1536x2048-1.png",
+      "filename" : "Default@2x~iphone_640x960.png",
+      "extent" : "to-status-bar",
+      "scale" : "1x"
+    },
+    {
+      "orientation" : "portrait",
+      "idiom" : "ipad",
+      "filename" : "Default-Portrait~ipad_768x1024.png",
+      "extent" : "full-screen",
+      "scale" : "1x"
+    },
+    {
+      "orientation" : "landscape",
+      "idiom" : "ipad",
+      "filename" : "Default-Landscape~ipad_1024x768.png",
+      "extent" : "to-status-bar",
+      "scale" : "1x"
+    },
+    {
+      "orientation" : "landscape",
+      "idiom" : "ipad",
+      "filename" : "splash-1024x748-3.png",
+      "extent" : "full-screen",
+      "scale" : "1x"
+    },
+    {
+      "orientation" : "portrait",
+      "idiom" : "ipad",
+      "filename" : "Default-568h@2x~iphone_640x1136.png",
+      "extent" : "to-status-bar",
+      "scale" : "2x"
+    },
+    {
+      "orientation" : "portrait",
+      "idiom" : "ipad",
+      "filename" : "Default-Portrait@2x~ipad_1536x2048.png",
+      "extent" : "full-screen",
+      "scale" : "2x"
+    },
+    {
+      "orientation" : "landscape",
+      "idiom" : "ipad",
+      "filename" : "Default-Landscape@2x~ipad_2048x1536.png",
+      "extent" : "to-status-bar",
+      "scale" : "2x"
+    },
+    {
+      "orientation" : "landscape",
+      "idiom" : "ipad",
+      "filename" : "splash-1024x748-2.png",
+      "extent" : "full-screen",
+      "scale" : "2x"
+    },
+    {
+      "orientation" : "portrait",
+      "idiom" : "ipad",
+      "filename" : "splash-1024x748-7.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "1x"
@@ -11,7 +67,7 @@
     {
       "orientation" : "landscape",
       "idiom" : "ipad",
-      "filename" : "splash@2x-2048x1496.png",
+      "filename" : "splash-1024x748-5.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "1x"
@@ -19,7 +75,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "splash@2x-1536x2048.png",
+      "filename" : "splash-1024x748-6.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
@@ -27,7 +83,7 @@
     {
       "orientation" : "landscape",
       "idiom" : "ipad",
-      "filename" : "splash@2x-1024x768.png",
+      "filename" : "splash-1024x748-4.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
