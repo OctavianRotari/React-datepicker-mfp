@@ -81,7 +81,7 @@ class Root extends Component {
             />
           )}
           <Text style={root.text}>or</Text>
-          <Text style={root.heading}>Authenticate with sequence</Text>
+          <Text style={root.heading}>Authenticate with passcode</Text>
           <TouchableOpacity
             style={root.fingerprint}
             onPress={this.handleNumericShowed}

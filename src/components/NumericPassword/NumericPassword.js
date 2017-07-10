@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Modal, View, TextInput, StyleSheet} from 'react-native';
+import _ from 'lodash';
+import { TouchableOpacity, Modal, View, TextInput, StyleSheet} from 'react-native';
 import Keyboard from 'react-native-keyboard';
 
 let model = {
@@ -25,6 +26,9 @@ let model = {
             this._listeners.push(listener);
         }
     },
+    _resetKeys() {
+        this._keys = [];
+    },
     _notify() {
         this._listeners.forEach((listner) => {
             listner(this);
@@ -36,14 +40,30 @@ class NumericPassword extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: ''
+            text: '',
+            modalVisible: true,
+            pass: ["1","2","3","4"]
         };
+        this._handleKeyPress = this._handleKeyPress.bind(this);
     }
 
     componentDidMount() {
         model.onChange((model) => {
+            if(model._keys.length === 4) {
+                this._checkPassword(model._keys);
+                model._resetKeys();
+                this.setState({text: ''});
+            }
             this.setState({text: model.getKeys().join('')});
         });
+    }
+
+    _checkPassword(password) {
+        if(_.isEqual(password, this.state.pass)) {
+            this.props.handleAuthentication(true);
+        } else {
+            this.props.handleAuthentication(false);
+        }
     }
 
     _handleClear() {
@@ -59,7 +79,6 @@ class NumericPassword extends Component {
     }
 
     render() {
-        console.log(this.state.text);
         return (
             <Modal
                 style={
@@ -74,7 +93,10 @@ class NumericPassword extends Component {
                 transparent={true}
                 visible={this.state.modalVisible}
                 onRequestClose={() => {alert("Modal has been closed.")}} >
-                <View style={
+                <TouchableOpacity 
+                    activeOpacity={1}
+                    onPress={this.props.handlePopupDismissed}
+                    style={
                     {
                         flex: 1, 
                         backgroundColor: 'rgba(0,0,0,0.54)',
@@ -85,13 +107,13 @@ class NumericPassword extends Component {
                 }>
                 <TextInput 
                     style={{textAlign: 'center', color: '#fff'}} 
-                    secureTextEntry={true}
+                    secureTextEntry={ true }
                     value={this.state.text}
                 />
-            </View>
+            </TouchableOpacity>
             <Keyboard
                 style={{flex:1}}
-                keyboardType="decimal-pad"
+                keyboardType="number-pad"
                 onClear={this._handleClear.bind(this)}
                 onDelete={this._handleDelete.bind(this)}
                 onKeyPress={this._handleKeyPress.bind(this)}

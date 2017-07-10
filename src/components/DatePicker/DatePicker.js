@@ -18,7 +18,7 @@ class Datepicker extends Component {
   render(){
     const { label, name, control } = this.props.datapoint;
     const { selectedValue } = this.props;
-    const selectedTime = moment.unix(this.selectedValue()).format('hh:mm a')
+    const selectedTime = moment.unix(this.selectedValue()).format('HH:mm')
     return (
       <TouchableHighlight
         style={[selectedValue ? ifss.containerBoxSelected : ifss.containerBox, cmss.borderRight]}
@@ -26,17 +26,18 @@ class Datepicker extends Component {
         activeOpacity={0.9}
         onPress={() => { this.refs.datePicker.onPressDate(); }}
       >
-        <View style={  ifss.containerTextSelected }>
+        <View style={[ ifss.containerTextSelected, {marginTop: 40}]}>
           <Text style={ ifss.labelVisible }>
             { label }
           </Text>
-          <Text style={ selectedValue ? ifss.textSelected : ifss.text }>
+          <Text style={selectedValue ? ifss.textSelected : ifss.text }>
             { selectedTime }
           </Text>
           <DatePicker
             ref={'datePicker'}
             date={ this.selectedValue() }
             format='X'
+            is24Hour={ true }
             hideText={ true }
             maxDate={ name === 'time-of-injury' ? moment().format('X') : null}
             minDate={ name === 'eta' ? moment().format('X') : null}

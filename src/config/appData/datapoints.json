@@ -145,7 +145,7 @@
 		"unit" : "bpm",
 		"values" : {
 			"end" : 55,
-			"selected" : 16,
+			"selected" : 20,
 			"start" : 0,
 			"step" : 1
 		}
@@ -204,5 +204,11 @@
 		"control" : "Segmented",
 		"name" : "txa",
 		"values" : [ "Txa" ]
+	},
+	"mental-state" : {
+		"control" : "Toggle",
+		"label" : "Mental State",
+		"name" : "mental-state",
+		"values": ["compliant", "distressed", "combative"]
 	}
 }
