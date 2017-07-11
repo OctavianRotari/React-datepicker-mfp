@@ -47,7 +47,7 @@ export const root = StyleSheet.create({
   },
   text: {
     color: '#ffffff',
-    fontSize: 16,
+    fontSize: 14,
     marginTop: 10,
     marginBottom: 5,
   }
@@ -120,12 +120,12 @@ export const rss = StyleSheet.create({
     transform: [{ rotate: '-90deg' }],
     textAlign: 'center',
     maxHeight: 14,
-    fontSize: 9,
+    fontSize: 8,
   },
   textNorm: {
     textAlign: 'left',
     backgroundColor: 'transparent',
-    fontSize: 12,
+    fontSize: 11,
     maxWidth: 9,
   }
 })
@@ -164,7 +164,8 @@ export const ifss = StyleSheet.create({
     textAlign: 'center',
     color: colors.prCol,
     fontFamily: fontFamily.bold,
-    margin: 4
+    margin: 4,
+    fontSize: 11
   },
   containerBoxSelected: {
     flex: 1,

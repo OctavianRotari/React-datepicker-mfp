@@ -42,7 +42,7 @@ class NumericPassword extends Component {
         this.state = {
             text: '',
             modalVisible: true,
-            pass: ["1","2","3","4"]
+            pass: ["9","9","9","9"]
         };
         this._handleKeyPress = this._handleKeyPress.bind(this);
     }
