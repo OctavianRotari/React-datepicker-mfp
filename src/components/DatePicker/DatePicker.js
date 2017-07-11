@@ -1,11 +1,13 @@
 // @flow
 import React, { Component } from 'react';
 import { TouchableHighlight, View, Text } from 'react-native';
-import DatePicker from 'react-native-datepicker';
+import DatePickerModal from '../DatePickerModal';
 import { ifss, cmss } from '../../styles/styles';
+import TimeFormat from '../../constants/TimeFormat';
 import moment from 'moment';
 
 class Datepicker extends Component {
+
   selectedValue() {
     const { values } = this.props.datapoint;
     const { selectedValue } = this.props;
@@ -15,10 +17,23 @@ class Datepicker extends Component {
     return moment().format('X');
   }
 
+  isToday() {
+    const timestamp = this.selectedValue();
+    const t = moment.unix(timestamp);
+    const ct = moment();
+    const diffDays = ct.diff(t, 'days');
+    let format = TimeFormat.hours
+    if(diffDays > 0) {
+      format = TimeFormat.days;
+    }
+    const selectedTime = moment.unix(timestamp).format(format)
+    return selectedTime;
+  }
+
   render(){
-    const { label, name, control } = this.props.datapoint;
+    const { label, name, control, format } = this.props.datapoint;
     const { selectedValue } = this.props;
-    const selectedTime = moment.unix(this.selectedValue()).format('HH:mm')
+    const selectedTime = this.isToday();
     return (
       <TouchableHighlight
         style={[selectedValue ? ifss.containerBoxSelected : ifss.containerBox, cmss.borderRight]}
@@ -33,11 +48,11 @@ class Datepicker extends Component {
           <Text style={selectedValue ? ifss.textSelected : ifss.text }>
             { selectedTime }
           </Text>
-          <DatePicker
+          <DatePickerModal
             ref={'datePicker'}
             date={ this.selectedValue() }
-            format='X'
-            is24Hour={ true }
+            inputFormat='X'
+            format={ format }
             hideText={ true }
             maxDate={ name === 'time-of-injury' ? moment().format('X') : null}
             minDate={ name === 'eta' ? moment().format('X') : null}
@@ -47,7 +62,8 @@ class Datepicker extends Component {
             showIcon={ false }
             onDateChange={
               (date) => {
-                this.props.onSelect({name, control, value: date})
+                const unixDate = moment(date).format('X');
+                this.props.onSelect({name, control, value: unixDate})
               }
             }
           />

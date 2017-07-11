@@ -83,6 +83,7 @@
 		"control" : "Datetime",
 		"label" : "ETA",
 		"name" : "eta",
+		"format": "HH:mm",
 		"values" : "time"
 	},
 	"exposure" : {
@@ -192,6 +193,7 @@
 		"control" : "Datetime",
 		"label" : "Time of Injury",
 		"name" : "time-of-injury",
+		"format": "YYYY-MM-DD HH:mm",
 		"values" : "time"
 	},
 	"transport-source" : {
@@ -210,5 +212,23 @@
 		"label" : "Mental State",
 		"name" : "mental-state",
 		"values": ["compliant", "distressed", "combative"]
+	},
+	"analgesics" : {
+		"control" : "Toggle",
+		"label" : "Analgesics",
+		"name" : "analgesics",
+		"values": ["morphine", "fentanyl", "ketamine"]
+	},
+	"oxigen" : {
+		"control" : "Numeral",
+		"label" : "Oxigen",
+		"name" : "oxigen",
+		"values" : {
+			"end" : 10,
+			"selected" : 0,
+			"start" : 0,
+			"step" : 2,
+			"aditionalValue": 15
+		}
 	}
 }

@@ -19,7 +19,7 @@ class NumberPicker extends Component {
   }
 
   options() {
-    const { start, end, step } = this.props.datapoint.values;
+    const { start, end, step, aditionalValue } = this.props.datapoint.values;
     const options = [];
     for(var i = start; i <= end; i += step ){
       let num = i;
@@ -28,6 +28,9 @@ class NumberPicker extends Component {
       }
       const iStr = num.toString();
       options.push(iStr);
+    }
+    if(aditionalValue) {
+      options.push(aditionalValue.toString());
     }
     return options;
   }

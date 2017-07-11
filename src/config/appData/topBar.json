@@ -4,14 +4,14 @@
 	"children" : [ 
 		{
 			"countDirection" : "down",
-			"format" : "m[m] s[s]",
+			"format" : "H[h] m[m] s[s]",
 			"highlight" : true,
 			"label" : "ETA",
 			"name" : "eta",
 			"type" : "timer"
 		}, {
 		"countDirection" : "up",
-		"format" : "h[h] m[m]",
+		"format" : "H[h] m[m]",
 		"label" : "Time of injury",
 		"name" : "time-of-injury",
 		"type" : "timer"

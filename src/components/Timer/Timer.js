@@ -1,29 +1,46 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 import moment from 'moment';
+require('moment-duration-format');
+import TimeFormat from '../../constants/TimeFormat';
+
 import { ifss } from '../../styles/styles';
 
 class Timer extends Component {
   constructor(props) {
     super(props);
-    this.state = { timeElapsed: 0 }
     this.tick = this.tick.bind(this);
+    this.state = {
+      format: props.format,
+      timeElapsed: null
+    }
+  }
+
+  setFormat(timestamp) {
+    const hours = timestamp/1000/60/60;
+    const minutes = timestamp/1000/60;
+    if (minutes < 1) {
+      this.setState({format: TimeFormat.seconds});
+    } else if (hours < 1) {
+      this.setState({format: TimeFormat.minutes});
+    } else if (hours >= 1){
+      this.setState({format: TimeFormat.hours});
+    }
   }
 
   tick() {
-    const { countDirection, format } = this.props;
-    let diffSeconds;
-    const eventTime = moment.unix(this.props.timestamp);
+    const { countDirection, timestamp } = this.props;
+    const t = moment.unix(timestamp);
+    const ct = moment();
     if(countDirection === "up") {
-      diffSeconds = moment().diff(eventTime, 'seconds');
+      diffTime = ct.diff(t);
+      this.setFormat(diffTime);
     } else if (countDirection === "down") {
-      diffSeconds = eventTime.diff(moment(), 'seconds');
+      diffTime = t.diff(ct);
+      this.setFormat(diffTime);
     }
-    const time = moment.utc(diffSeconds * 1000).format(format)
+    const time = moment.duration(diffTime, "milliseconds").format(this.state.format);
     this.setState({timeElapsed: time})
-  }
-
-  countUp(eventTime) {
   }
 
   componentWillUnmount() {

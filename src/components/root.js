@@ -55,55 +55,6 @@ class Root extends Component {
 
   render() {
     const { errorNumberMessage, errorFingerMessage, popupFingerShowed, popupNumericShowed } = this.state;
-    if(!this.state.authenticated) {
-      return (
-        <View style={root.container}>
-          <Text style={root.heading}>
-           Athenticate with fingerprint.
-          </Text>
-          <TouchableOpacity
-            style={root.fingerprint}
-            onPress={this.handleFingerprintShowed}
-            disabled={!!errorFingerMessage}
-          >
-            <Image source={require('../assets/finger_print.png')} />
-          </TouchableOpacity>
-          {errorFingerMessage && (
-            <Text style={root.errorMessage}>
-              {errorFingerMessage}
-            </Text>
-          )}
-          {popupFingerShowed && (
-            <FingerprintPopup
-              style={root.popup}
-              handlePopupDismissed={this.handleFingerprintDismissed}
-              handleAuthentication={this.handleAuthentication}
-            />
-          )}
-          <Text style={root.text}>or</Text>
-          <Text style={root.heading}>Authenticate with passcode</Text>
-          <TouchableOpacity
-            style={root.fingerprint}
-            onPress={this.handleNumericShowed}
-            disabled={!!errorNumberMessage}
-          >
-            <Image style={{maxHeight: 70, maxWidth: 70, padding: 30}} source={require('../assets/entering-password.png')} />
-          </TouchableOpacity>
-          {errorNumberMessage && (
-            <Text style={root.errorMessage}>
-              {errorNumberMessage}
-            </Text>
-          )}
-          {popupNumericShowed && (
-            <NumericPassword
-              style={root.numericPopup}
-              handlePopupDismissed={this.handleNumericDismissed}
-              handleAuthentication={this.handleAuthentication}
-            />
-          )}
-        </View>
-      );
-    }
     return (
       <Provider store={store}>
         <View style={{flex:1}}>
@@ -118,3 +69,53 @@ class Root extends Component {
 export default Root;
 
 
+
+// if(!this.state.authenticated) {
+//   return (
+//     <View style={root.container}>
+//       <Text style={root.heading}>
+//        Athenticate with fingerprint.
+//       </Text>
+//       <TouchableOpacity
+//         style={root.fingerprint}
+//         onPress={this.handleFingerprintShowed}
+//         disabled={!!errorFingerMessage}
+//       >
+//         <Image source={require('../assets/finger_print.png')} />
+//       </TouchableOpacity>
+//       {errorFingerMessage && (
+//         <Text style={root.errorMessage}>
+//           {errorFingerMessage}
+//         </Text>
+//       )}
+//       {popupFingerShowed && (
+//         <FingerprintPopup
+//           style={root.popup}
+//           handlePopupDismissed={this.handleFingerprintDismissed}
+//           handleAuthentication={this.handleAuthentication}
+//         />
+//       )}
+//       <Text style={root.text}>or</Text>
+//       <Text style={root.heading}>Authenticate with passcode</Text>
+//       <TouchableOpacity
+//         style={root.fingerprint}
+//         onPress={this.handleNumericShowed}
+//         disabled={!!errorNumberMessage}
+//       >
+//         <Image style={{maxHeight: 70, maxWidth: 70, padding: 30}} source={require('../assets/entering-password.png')} />
+//       </TouchableOpacity>
+//       {errorNumberMessage && (
+//         <Text style={root.errorMessage}>
+//           {errorNumberMessage}
+//         </Text>
+//       )}
+//       {popupNumericShowed && (
+//         <NumericPassword
+//           style={root.numericPopup}
+//           handlePopupDismissed={this.handleNumericDismissed}
+//           handleAuthentication={this.handleAuthentication}
+//         />
+//       )}
+//     </View>
+//   );
+// }

@@ -42,7 +42,7 @@
 				"label" : "D",
 				"type" : "row"
 				}, {
-				"children" : [ "exposure", "bm", "temperature" ],
+				"children" : [ "exposure", "bm", "temperature", "mental-state" ],
 				"label" : "E",
 				"type" : "row"
 				}
@@ -56,14 +56,15 @@
 					"label" : "A",
 					"type" : "row"
 				}, {
-				"children" : [ "chest-intervensions" ],
+				"children" : [ "chest-intervensions", "oxigen" ],
 				"label" : "B",
 				"type" : "row"
 				}, {
-				"children" : [ "blood", "crystalloid", "txa", "inotopes", "pelvic-splint", "femoral-splint" ],
+				"children" : [ "blood", "crystalloid", "txa", "inotopes", "pelvic-splint", "femoral-splint", "analgesics" ],
 				"label" : "C",
 				"type" : "row"
-				} ],
+				} 
+			],
 				"label" : "Interventions",
 				"name" : "interventions",
 				"showLabel" : true,
