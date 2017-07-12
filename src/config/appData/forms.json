@@ -80,21 +80,9 @@
 			{
 				"children" : [
 					{
-						"children" : [ "gender", "age" ],
+						"children" : [ "age" ],
 						"label" : "patient",
 						"type" : "row"
-					}, {
-					"children" : [ "mechanism" ],
-					"label" : "mechanism",
-					"type" : "row"
-					}, {
-					"children" : [ "eta", "time-of-injury" ],
-					"label" : "times",
-					"type" : "row"
-					}, {
-					"children" : [ "transport-source" ],
-					"label" : "source",
-					"type" : "row"
 					}
 				],
 				"name" : "basics",

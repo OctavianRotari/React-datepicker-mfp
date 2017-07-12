@@ -130,6 +130,33 @@ export const rss = StyleSheet.create({
   }
 })
 
+export const popoverStyle = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgb(43, 186, 180)',
+  },
+  button: {
+    borderRadius: 4,
+    padding: 10,
+    marginLeft: 10,
+    marginRight: 10,
+    backgroundColor: '#ccc',
+    borderColor: '#333',
+    borderWidth: 1,
+  },
+  popoverContent: {
+    width: 200,
+    height: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  popoverText: {
+    color: '#ccc',
+  },
+})
+
 export const ifss = StyleSheet.create({
   containerBox: {
     flex: 1,

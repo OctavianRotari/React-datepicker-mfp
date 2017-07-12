@@ -1,13 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { buildComposer } from '../composers';
-import TextBox from '../components/TextBox';
+import PopoverBox from '../components/PopoverBox';
 
 function mapStateToProps(state, ownProps) {
-  const { name } = ownProps.component;
-  const datapoint = state.datapoints[name];
-  const { unit } = datapoint;
-  const { component } = ownProps;
+  const { datapoint } = ownProps;
   const { events } = state;
   const args = { datapoint, events };
   const Composer = buildComposer(args);
@@ -15,11 +12,9 @@ function mapStateToProps(state, ownProps) {
 
   return {
     selectedValue,
-    component,
-    unit
   }
-}
+} 
 
-const TextBoxContainer = connect(mapStateToProps)(TextBox);
+const PopoverContainer = connect(mapStateToProps)(PopoverBox);
 
-export default TextBoxContainer;
+export default PopoverContainer;

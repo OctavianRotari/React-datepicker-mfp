@@ -3,7 +3,7 @@ import Segmented from './SegmentedComposer';
 import Numeral from './NumeralComposer';
 import Datetime from './DatetimeComposer';
 
-export function buildComposer (control, events, datapointName) {
+export function buildComposer(args) {
   const componsers = {
     Toggle,
     Segmented,
@@ -11,6 +11,7 @@ export function buildComposer (control, events, datapointName) {
     Datetime
   }
 
+  const { control } = args.datapoint;
   const composerName = componsers[control];
-  return new composerName(events, datapointName);
+  return new composerName(args);
 }

@@ -4,6 +4,7 @@
 		"label" : "Age",
 		"name" : "age",
 		"type" : "fixed",
+		"popover": true,
 		"values" : {
 			"end" : 100,
 			"selected" : 35,

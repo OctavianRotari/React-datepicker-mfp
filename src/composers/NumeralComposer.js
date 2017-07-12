@@ -1,23 +1,25 @@
 import _ from 'lodash';
 
 const NumeralComposer = class {
-  constructor(events, datapointName) {
-    this.events = events;
-    this.datapointName = datapointName;
+  constructor(args) {
     this.child = 'NumberPicker';
-    this.value = 'Numeral';
+    this.events = args.events;
+    this.name = args.datapoint.name;
+    this.control = args.datapoint.control;
+    this.values = args.datapoint.values;
     this.singleton = false;
+    this.selectedValue = this._selectedValue();
   }
 
-  selectedValues() {
+  _selectedValue() {
     const index = _.findLastIndex(this.events, {
-      name: this.datapointName
+      name: this.name
     });
     if(this.events[index] && this.events[index].selected) {
       const { value } = this.events[index]
       return value;
     }
-    return null;
+    return this.values.selected.toString();
   }
 
   cumulative() {

@@ -17,16 +17,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-function mapStateToProps(state, ownProps) {
-  const { name, value, control } = ownProps.datapoint;
-  const { events } = state;
-  const Composer = buildComposer(control, events, name);
-  const selectedValue = Composer.selectedValues();
-  return {
-    selectedValue,
-  }
-}
-
-const NumeralContainer = connect(mapStateToProps, mapDispatchToProps)(NumberPicker);
+const NumeralContainer = connect(null, mapDispatchToProps)(NumberPicker);
 
 export default NumeralContainer;

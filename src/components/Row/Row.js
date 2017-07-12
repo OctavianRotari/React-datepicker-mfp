@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text } from 'react-native';
 import ControlContainers from '../../containers/ControlContainers';
+import PopoverContainer from '../../containers/PopoverContainer';
 import { cmss, rss } from '../../styles/styles';
 
 class Row extends Component {
@@ -15,6 +16,14 @@ class Row extends Component {
     let key = 0;
     return _.map(this.props.rowDatapoints, ( datapoint ) => {
       key += 1;
+      if(datapoint.popover) {
+        return (
+          <PopoverContainer
+            key={ key } 
+            datapoint={ datapoint }
+          />
+        );
+      }
       const { control } = datapoint;
       const WrapperContainer = ControlContainers[control];
       return(

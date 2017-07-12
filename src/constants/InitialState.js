@@ -7,7 +7,7 @@ export default {
   events: [],
   activeForm: {},
   activePrompts: [],
-  activeFormName: "standby",
+  activeFormName: "standbysmall",
   datapoints,
   forms,
   prompts,
