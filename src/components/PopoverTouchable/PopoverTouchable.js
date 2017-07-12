@@ -1,7 +1,8 @@
 // @flow
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ReactNative, { View, Text } from 'react-native';
+import ReactNative, { View, Button } from 'react-native';
+import Popover from '../Popover';
 
 class PopoverTouchable extends Component {
   constructor(props) {
@@ -11,6 +12,10 @@ class PopoverTouchable extends Component {
       showPopover: false,
       popoverAnchor: { x: 0, y: 0, width: 0, height: 0 }, 
     };
+    this.setRef = this.setRef.bind(this);
+    this.onPress = this.onPress.bind(this);
+    this.onTouchableMeasured = this.onTouchableMeasured.bind(this);
+    this.onClosePopover = this.onClosePopover.bind(this);
   }
 
   setRef(ref) {
@@ -43,15 +48,17 @@ class PopoverTouchable extends Component {
 
   render() {
     const children = React.Children.toArray(this.props.children);
-    // if (children.length !== 2 ||
-    //     children[1] instanceof Number ||
-    //     children[1] instanceof String ||
-    //     children[1].type.displayName !== 'Popover') {
-    //     throw new Error('Popover touchable must have two children and the second one must be Popover');
-    //   }
     return (
       <View>
-        <Text>PopoverTouchable</Text>
+        {React.cloneElement(children[0], {
+          ref: this.setRef,
+          onPress: this.onPress,
+        })}
+        {React.cloneElement(children[1], {
+          visible: this.state.showPopover,
+          onClose: this.onClosePopover,
+          fromRect: this.state.popoverAnchor,
+        })}
       </View>
     )
   }
@@ -62,13 +69,3 @@ PopoverTouchable.propTypes = {
 };
 
 export default PopoverTouchable;
-
-// {React.cloneElement(children[0], {
-//     ref: this.setRef,
-//     onPress: this.onPress,
-// })}
-// {React.cloneElement(children[1], {
-//     visible: children[1].props.visible,
-//     onClose: this.onClosePopover,
-//     fromRect: this.state.popoverAnchor,
-// })}

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text, TouchableHighlight, Button, StyleSheet, PickerIOS } from 'react-native';
 import PopoverTouchable from '../PopoverTouchable';
+import Popover from '../Popover';
 import { popoverStyle, cmss } from '../../styles/styles';
 import NumeralContainer from '../../containers/controlContainers/NumeralContainer';
 import colors from '../../config/colors';
@@ -13,21 +14,39 @@ class PopoverBox extends Component {
     super(props);
     this.state = {
       popoverVisible: false
-    }
+    };
     this.setPopoverVisible = this.setPopoverVisible.bind(this);
   }
 
   setPopoverVisible(visible) {
-    this.setState({ popoverVisible: visible })
+    this.setState({ popoverVisible: visible });
   }
 
   render() {
     const { selectedValue } = this.props;
-    console.log('visible', this.state.popoverVisible);
+    console.log(this.state);
     return (
       <PopoverTouchable
         onPopoverDisplayed={ () => { this.setPopoverVisible(true) }}
       >
+        <Button title={ selectedValue } onPress={() => console.log('I don\'t work')}/>
+        <Popover
+          onClose={() => {console.log('stuff')}}
+          contentStyle={styles.content}
+          arrowStyle={styles.arrow}
+          backgroundStyle={styles.background}
+          visible={this.state.popoverVisible}
+        >
+          <View
+            style={ popoverStyle.popoverContent}
+          >
+            <NumeralContainer
+              datapoint={ this.props.datapoint }
+              selectedOption={ selectedValue }
+              onPressSubmit={ this.setPopoverVisible }
+            />
+          </View>
+        </Popover>
       </PopoverTouchable>
     );
   }
@@ -55,22 +74,3 @@ const styles = StyleSheet.create({
 });
 
 export default PopoverBox;
-
-// <Button title={ selectedValue }/>
-// <Popover
-//   onClose={() => {console.log('stuff')}}
-//   contentStyle={styles.content}
-//   arrowStyle={styles.arrow}
-//   backgroundStyle={styles.background}
-//   visible={this.state.popoverVisible}
-// >
-//   <View
-//     style={ popoverStyle.popoverContent}
-//   >
-//     <NumeralContainer
-//       datapoint={ this.props.datapoint }
-//       selectedOption={ selectedValue }
-//       onPressSubmit={ this.setPopoverVisible }
-//     />
-//   </View>
-// </Popover>
