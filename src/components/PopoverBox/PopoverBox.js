@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { View, Text, TouchableHighlight, Button, StyleSheet, PickerIOS } from 'react-native';
-import Popover, { PopoverTouchable, Rect } from 'react-native-modal-popover';
+import PopoverTouchable from '../PopoverTouchable';
 import { popoverStyle, cmss } from '../../styles/styles';
 import NumeralContainer from '../../containers/controlContainers/NumeralContainer';
 import colors from '../../config/colors';
@@ -28,24 +28,6 @@ class PopoverBox extends Component {
       <PopoverTouchable
         onPopoverDisplayed={ () => { this.setPopoverVisible(true) }}
       >
-        <Button title={ selectedValue }/>
-        <Popover
-          onClose={() => {console.log('stuff')}}
-          contentStyle={styles.content}
-          arrowStyle={styles.arrow}
-          backgroundStyle={styles.background}
-          visible={this.state.popoverVisible}
-        >
-          <View
-            style={ popoverStyle.popoverContent}
-          >
-            <NumeralContainer
-              datapoint={ this.props.datapoint }
-              selectedOption={ selectedValue }
-              onPressSubmit={ this.setPopoverVisible }
-            />
-          </View>
-        </Popover>
       </PopoverTouchable>
     );
   }
@@ -73,3 +55,22 @@ const styles = StyleSheet.create({
 });
 
 export default PopoverBox;
+
+// <Button title={ selectedValue }/>
+// <Popover
+//   onClose={() => {console.log('stuff')}}
+//   contentStyle={styles.content}
+//   arrowStyle={styles.arrow}
+//   backgroundStyle={styles.background}
+//   visible={this.state.popoverVisible}
+// >
+//   <View
+//     style={ popoverStyle.popoverContent}
+//   >
+//     <NumeralContainer
+//       datapoint={ this.props.datapoint }
+//       selectedOption={ selectedValue }
+//       onPressSubmit={ this.setPopoverVisible }
+//     />
+//   </View>
+// </Popover>
