@@ -14,6 +14,7 @@ class PopoverBox extends Component {
     this.state = {
       popoverVisible: false
     }
+    this.setPopoverVisible = this.setPopoverVisible.bind(this);
   }
 
   setPopoverVisible(visible) {
@@ -22,12 +23,14 @@ class PopoverBox extends Component {
 
   render() {
     const { selectedValue } = this.props;
+    console.log('visible', this.state.popoverVisible);
     return (
       <PopoverTouchable
         onPopoverDisplayed={ () => { this.setPopoverVisible(true) }}
       >
-        <Button title={ selectedValue } onPress={() => console.log('I don\'t work')}/>
+        <Button title={ selectedValue }/>
         <Popover
+          onClose={() => {console.log('stuff')}}
           contentStyle={styles.content}
           arrowStyle={styles.arrow}
           backgroundStyle={styles.background}
@@ -39,6 +42,7 @@ class PopoverBox extends Component {
             <NumeralContainer
               datapoint={ this.props.datapoint }
               selectedOption={ selectedValue }
+              onPressSubmit={ this.setPopoverVisible }
             />
           </View>
         </Popover>
@@ -56,7 +60,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#c2ffd2',
   },
   content: {
-    padding: 30,
+    paddingTop: 80,
+    paddingBottom: 80,
     backgroundColor: 'white',
   },
   arrow: {

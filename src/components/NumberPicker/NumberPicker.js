@@ -58,15 +58,27 @@ class NumberPicker extends Component {
   }
 
   render() {
+    const { onPressSubmit } = this.props;
     return (
-      <PickerIOS
-        ref={'picker'}
-        style={{alignSelf:'stretch'}}
-        selectedValue={ this.state.selectedOption }
-        onValueChange={(option) => this.onOptionChange(option)}
-      >
-        {this.options().map((option, index) => this.renderItem(option, index))}
-      </PickerIOS>
+      <View style={{alignSelf:'stretch'}}>
+        <View style={{alignSelf:'stretch'}}>
+          <PickerIOS
+            ref={'picker'}
+            style={{alignSelf:'stretch'}}
+            selectedValue={ this.state.selectedOption }
+            onValueChange={(option) => this.onOptionChange(option)}
+          >
+            {this.options().map((option, index) => this.renderItem(option, index))}
+          </PickerIOS>
+        </View>
+        <TouchableOpacity onPress={() => { onPressSubmit(false) }} >
+          <Text
+            style={{textAlign: 'center'}}
+          >
+            Confirm
+          </Text>
+        </TouchableOpacity>
+      </View>
     );
   }
 }
